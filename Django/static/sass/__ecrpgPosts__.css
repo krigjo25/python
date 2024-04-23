@@ -1,0 +1,24 @@
+article {
+  margin: auto;
+  inline-size: 75%; }
+
+article a {
+  color: white;
+  text-decoration: none; }
+
+article a:hover {
+  color: white;
+  text-decoration: none; }
+
+article > h2 {
+  color: #b38a6d; }
+
+article > div {
+  border-radius: 30px;
+  border: 1px solid #fff; }
+
+article > div:hover {
+  opacity: 0.3;
+  background-color: #fff; }
+
+/*# sourceMappingURL=__ecrpgPosts__.css.map */

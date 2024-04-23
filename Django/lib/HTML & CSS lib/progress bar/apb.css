@@ -1,0 +1,22 @@
+.meter { 
+    z-index: -1;
+    block-size: 1px;
+    inline-size: 15em;
+  }
+  article.meter span {
+    display: block;
+    block-size: 100%;
+  }
+  article div {
+    block-size:  100%;
+    inline-size: 100%;
+  }
+  .progress{
+    background-color: #e4c465;
+    animation: progressBar 5s ease-in-out forwards;
+  }
+
+  @keyframes progressBar {
+    0% { width: 0; }
+    100% { width: 100%; }
+    }

@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "banned.css",
+	"sources": [
+		"banned.sass"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,KAAK,CAAC;EACF,eAAe,EAAE,IAAI;EACrB,mBAAmB,EAAE,MAAM;EAC3B,iBAAiB,EAAE,SAAS;EAC5B,gBAAgB,EAAE,8CAA8C,GAAG"
+}

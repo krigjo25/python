@@ -1,0 +1,69 @@
+h3 {
+  font-size: 18px; }
+
+.mof {
+  color: green; }
+
+.mof-ctr {
+  background: rgba(34, 139, 34, 0.3); }
+
+.mof::after, .mod::after, .hof::after {
+  content: '\2139'; }
+
+.mod {
+  color: orange; }
+
+.mod-ctr {
+  background: rgba(34, 139, 34, 0.3); }
+
+.hof {
+  color: red; }
+
+.hof-ctr {
+  background: rgba(34, 139, 34, 0.3); }
+
+.capt {
+  margin: auto;
+  font-size: 16px;
+  inline-size: 75%; }
+
+.tooltip {
+  opacity: 1;
+  margin: auto;
+  cursor: pointer;
+  block-size: 20px;
+  position: relative;
+  display: inline-block;
+  border-block-end: 1px dotted black; }
+
+.tooltip .tooltxt {
+  left: 10%;
+  opacity: 0;
+  z-index: 1;
+  color: #fff;
+  bottom: 125%;
+  padding: 5px 0;
+  border-radius: 6px;
+  text-align: center;
+  position: absolute;
+  visibility: hidden;
+  margin-left: -60px;
+  inline-size: 197px;
+  transition: opacity 0.3s;
+  background-color: #5E5555; }
+
+.tooltip .tooltxt::after {
+  content: "";
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  position: absolute;
+  border-style: solid;
+  border-color: #5E5555 transparent transparent transparent; }
+
+.tooltip:hover .tooltxt {
+  opacity: 1;
+  visibility: visible; }
+
+/*# sourceMappingURL=comrules.css.map */
