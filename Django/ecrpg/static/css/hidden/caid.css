@@ -1,0 +1,13 @@
+.samp {
+  inline-size: 2em;
+  margin-inline-start: 31px;
+}
+
+.discord {
+  left: 3em;
+  position: relative;
+}
+
+.test {
+  inline-size: 100%;
+}

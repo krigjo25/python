@@ -1,0 +1,72 @@
+{% load static %}
+{% load sass_tags %}
+
+
+<!DOCTYPE html>
+	<html lang="en-us">
+			<!-- Infomation about the head-->
+		<head>
+			<!-- Meta data information-->
+			<meta charset="utf-8" />
+			<title>East Coast RPG !</title>
+			<meta name="maintainer" content="krigjo25" />
+			<meta name="description" content="rpg, samp" />
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__ecrpgindex__.sass' %}" media="screen"/>
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__card__.sass' %}" media="screen"/>
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/banned.sass' %}" media="screen"/>
+
+		</head>
+		<body>
+			{% block page_content %}
+			<header>
+
+				<h1>
+					<a href="{% url 'ecrpg' %}">East<span class="sCol">Coast</span> RPG</a>
+				</h1>
+
+				<nav>
+
+					<ul>
+
+						<li>
+							<a href="https://discord.com/invite/q4kT94QQ?utm_source=Discord%20Widget&utm_medium=Connect"><img src="{% static 'svg/discord.svg' %}" class="discord"></a>
+						</li>
+
+						<li> 
+							<a href="http://files.hzgaming.net/sa-mp-0.3.7-R4-install.exe"><img src="{% static 'img/samp.png' %}" class="samp"></a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</header>
+
+			<!-- Middle of the document -->
+			<main>
+
+				<h2> Banned Players</h2>
+
+				{% for banned in playerBans %}
+				<article class="banned">
+
+					<div class="card">
+							
+ 						<div class="container">
+    						<h4><b>{{banned.playerName}}</b></h4>
+
+    						<p><strong>Ban Date :</strong> {{banned.date}}</p>
+                            <p><strong>reason :</strong> {{banned.reason}}</p>
+                            <p><strong>Banned by :</strong> {{ banned.adminName }}</p>
+
+    					</div>
+					</div>
+    			</article>
+				{% endfor %}
+            </main>
+            {% include 'footer.html' %}
+        </body>
+        {% endblock %}
+    </html>

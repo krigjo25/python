@@ -1,0 +1,110 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<head>
+			<!-- Meta data information-->
+			<meta charset="utf-8" />
+			<title>East Coast RPG !</title>
+			<meta name="maintainer" content="krigjo25" />
+			<meta name="description" content="rpg, samp" />
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+			<link rel="stylesheet" type = "text/css" href = "{% static 'css/3dSlider.css' %}" media="screen" />
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__cardModel__.sass' %}" media="screen"/>
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__ecrpgIndex__.sass' %}" media="screen"/>
+
+		{% now 'Y-m-d' as dateToday %}
+		{% if dateToday == someday|date:"y-12-31" %}
+			<link rel= "stylesheet" type = "text/css" href = "{% sass_src 'sass/krigjo25fireworks.sass' %}" media = "screen">
+
+		{% elif dateToday == someday|date:"y-02-14" %}
+		{% elif dateToday == someday|date:"y-02-25" %}
+		{% elif dateToday > someday|date:"y-04-01" %}
+
+		{% else %}
+			<link rel="stylesheet" type = "text/css" href = "{% sass_src 'template/firefly/firefly.sass' %}" media="screen" />
+
+			{% endif %}
+    </head>
+
+	{% block page_content %}
+	<body>
+		{% now 'Y-m-d' as dateToday %}
+		{% if dateToday == someday|date:"y-12-31" %}
+			{% include  "template/fireworks/fireworks.html" %}
+
+		{% elif dateToday == someday|date:"y-02-14" %}
+		{% elif dateToday == someday|date:"y-02-25" %}
+		{% elif dateToday > someday|date:"y-04-01" %}
+
+		{% else %}
+			{% include  "template/firefly/firefly.html" %}
+
+			{% endif %}
+
+		<div id="curve">
+	<body>
+			<header>
+
+				<h1>
+					<a href="{% url 'ecrpg' %}">East<span class="sCol">Coast</span> RPG</a>
+				</h1>
+				<q class="slogan">all of your dreams can be true<br>if there is the courage to pursue them</q>
+
+				<nav>
+
+					<ul>
+
+						<li>
+							<a href="https://discord.com/invite/q4kT94QQ?utm_source=Discord%20Widget&utm_medium=Connect"><img src="{% static 'svg/discord.svg' %}" class="discord"></a>
+						</li>
+
+						<li> 
+							<a href="http://files.hzgaming.net/sa-mp-0.3.7-R4-install.exe"><img src="{% static 'img/samp.png' %}" class="samp"></a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</header>
+	
+			<main>
+				<section>
+					{% for category in Wiki %}
+					<article>
+
+						<div class="crd">
+							<a href="{% url 'wikiPost' category.name %}">
+
+								<div class="ctr">
+									<img class="ctrimg" src="{{ category.img }}" alt=''/>
+
+										<h2> {{ category.name }}</h2>
+
+								</div>
+							</a>
+						</div>
+					</article>
+					{% endfor %}
+				</section>
+
+            </main>
+
+			{% include 'footer.html' %}
+
+		</div>
+
+	</body>
+</html>
+
+{% endblock %}

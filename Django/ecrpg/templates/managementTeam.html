@@ -1,0 +1,140 @@
+{% load static %}
+{% load sass_tags %}
+
+
+<!DOCTYPE html>
+	<html lang="en-us">
+			<!-- Infomation about the head-->
+		<head>
+			<!-- Meta data information-->
+			<meta charset="utf-8" />
+			<title>East Coast RPG !</title>
+			<meta name="maintainer" content="krigjo25" />
+			<meta name="description" content="rpg, samp" />
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__ecrpgindex__.sass' %}" media="screen"/>
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__card__.sass' %}" media="screen"/>
+
+		</head>
+		<body>
+			{% block page_content %}
+			<header>
+
+				<h1>
+					<a href="{% url 'ecrpg' %}">East<span class="sCol">Coast</span> RPG</a>
+				</h1>
+
+				<nav>
+
+					<ul>
+
+						<li>
+							<a href="https://discord.com/invite/q4kT94QQ?utm_source=Discord%20Widget&utm_medium=Connect"><img src="{% static 'svg/discord.svg' %}" class="discord"></a>
+						</li>
+
+						<li> 
+							<a href="http://files.hzgaming.net/sa-mp-0.3.7-R4-install.exe"><img src="{% static 'img/samp.png' %}" class="samp"></a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</header>
+
+			<main>
+
+				<h2> Admin Level 3</h2>
+
+				{% for 3 in lvl3 %}
+				<article class="lvl3">
+
+					<div class="card">
+							
+ 						<div class="container">
+    						<h4 class="aColor"><b>{{3.playerName}}</b></h4>
+							
+							<div>
+
+									<img src="{% static 'svg/star.svg' %}" alt="Avatar" style ="inline-size: 32px;">
+									<img src="{% static 'svg/star.svg' %}" alt="Avatar" style ="inline-size: 32px;">
+									<img src="{% static 'svg/star.svg' %}" alt="Avatar" style ="inline-size: 32px;"> 
+							</div>
+
+    						<p>online / offline</p>
+    						<p><strong>Boss :</strong> {{3.boss}}</p>
+
+    					</div>
+					</div>
+    			</article>
+				{% endfor %}
+
+				<h2> Admin Level 2</h2>
+
+				<article class="lvl2">
+					{% for 2 in lvl2 %}
+
+					<div class="card">
+							
+ 						<div class="container">
+    						<h4 class="aColor"><b>{{2.playerName}}</b></h4>
+							
+    						<div>
+								<img src="{% static 'svg/star.svg' %}" alt="Avatar" style ="inline-size: 32px;">
+    							<img src="{% static 'svg/star.svg' %}" alt="Avatar" style ="inline-size: 32px;"> 
+    						</div>
+
+
+    						<p>online / offline</p>
+    						<p><strong>Boss :</strong> {{2.boss}}</p>
+
+    					</div>
+					</div>
+    			</article>
+				{% endfor %}
+
+				<h2> Admin Level 1</h2>
+
+				<article class="lvl">
+					{% for 1 in lvl %}
+
+					<div class="card">
+							
+ 						<div class="container">
+    						<h4 class="aColor"><b>{{1.playerName}}</b></h4>
+							
+    						<div>
+
+    							<img src="{% static 'svg/star.svg' %}" alt="Avatar" style ="inline-size: 32px;"> 
+    						</div>
+
+    						<p>online / offline</p>
+    						<p><strong>Boss :</strong> {{1.boss}}</p>
+
+    					</div>
+					</div>
+    			</article>
+				{% endfor %}
+
+				<h2> Helper team</h2>
+
+				<article class="helper">
+					{% for h in helper %}
+					<div class="card">
+								
+						<div class="container">
+							<h4><b>{{h.playerName}}</b></h4>
+
+							<p>online / offline</p>
+							<p class="aColor"><strong>Boss :</strong> {{h.boss}}</p>
+						</div>
+					</div>
+				</article>
+				{% endfor %}
+
+			</main>
+			{% include 'footer.html' %}
+			{% endblock %}
+		</body>
+	</html>

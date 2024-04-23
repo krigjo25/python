@@ -1,0 +1,544 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+	<html lang="en-us">
+			<!-- Infomation about the head-->
+		<head>
+			<!-- Meta data information-->
+			<meta charset="utf-8" />
+			<title>East Coast RPG !</title>
+			<meta name="maintainer" content="krigjo25" />
+			<meta name="description" content="rpg, samp" />
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+			<link rel="stylesheet" type = "text/css" href = "{% sass_src 'sass/ecrpgAccordion.sass' %}" media="screen" />
+			<link rel="stylesheet" type="text" href = "{% static 'css/tooltip.css' %}" media="screen" />
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__ecrpgindex__.sass' %}" media="screen"/>
+			<link rel="stylesheet" type = "text/css" href = "{% sass_src 'sass/comrules.sass' %}" media="screen" />
+
+		</head>
+
+		<body>
+			
+			<header>
+
+				<h1>
+					<a href="{% url 'ecrpg' %}">East<span class="sCol">Coast</span> RPG</a>
+				</h1>
+
+				<nav>
+
+					<ul>
+
+						<li>
+							<a href="https://discord.com/invite/q4kT94QQ?utm_source=Discord%20Widget&utm_medium=Connect"><img src="{% static 'svg/discord.svg' %}" class="discord"></a>
+						</li>
+
+						<li> 
+							<a href="http://files.hzgaming.net/sa-mp-0.3.7-R4-install.exe"><img src="{% static 'img/samp.png' %}" class="samp"></a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</header>
+
+			<main>
+
+				<section>
+
+					<h2> Server Regulations</h2>
+
+					<div class="col">
+	
+						<div class="tabs">
+	
+							<div class="tab">
+	
+								<input type="radio" id="rd1" name="rd">
+								<label class="tab-label" for="rd1">1. Language </label>
+								
+								<div class="tab-content">
+
+									<p class="capt">
+										In the server you may type in your foreign language, with-in reason. 
+										We do not allow foregin language in the global chats such as 
+										/me &amp; /shout or any other types of global chats.
+
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+											
+											<p class="mof">Minor offence</p>
+											<span class = "tooltxt">
+
+												<p><b>Verbal warning</b>, <b>Kick</b>, <b>Jail (120-499)</b>, <b>mute (1-5 min)</b></p>
+										</div>
+									</div>
+								</div>
+		
+							</div>
+
+							<div class="tab">
+
+								<input type="radio" id="rd2" name="rd">
+								<label class="tab-label" for="rd2">2. Spamming</label>
+
+								<div class="tab-content">
+
+									<p class="capt">
+
+										Spam in this context referes to repeatedly
+										use of same command, or state the same 
+										statement repeatedly with-in reasonable time.
+
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+											<p class="mof">Minor offence</p>
+											<span class = "tooltxt">
+	
+												<p><b>Verbal warning</b>, <b>Kick</b>, <b>Jail (120-499)</b>, <b>mute (1-5 min)</b></p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="tab">
+
+								<input type="radio" id="rd3" name="rd">
+								<label class="tab-label" for="rd3">3. Player Offence </label>
+
+								<div class="tab-content">
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-a.png' %}" style = "inline-size:30px;">	Provocation
+									</h3>
+
+									<p class="capt">
+
+										Provocation is doing / stating 
+										something with the intention to
+										annoy another player. Any proposedly
+										provocation is discuraged as it might
+										lead to a negative output for both
+										parties. E.G. Harming / murder
+										players on their spawn, using sarcasm
+										as a way of speach, being stubborn over
+										religious or political perspectives
+										using offensive nickNames, insulting.
+
+										The admin team encourages players to confront the offende about the issue,
+
+									</p>
+
+								 	<h3>
+										<img src = "{% static 'svg/icons/paragraph-b.png' %}" style = "inline-size:30px;"> Insults
+									</h3>
+
+									<p class="capt">
+
+									
+										Insults is just a matter of a perspective of the written / said word,
+										the admin team strongly disencourage to use insults as a matter of
+										speach in the server.
+									</p>
+									<p class="capt">
+										we encourage players to have a conversation with the offende about the
+										offensive statement or action before reporting it.
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+											<p class="mof">Minor offence</p>
+											<span class = "tooltxt">
+
+											<p><b>Verbal warning</b>, <b>Kick</b>, <b>Jail (120-499)</b>, <b>mute (1-5 min)</b></p>
+										</div> /
+
+										<div class = "tooltip">
+
+											<p class="mod">Moderate offence</p>
+
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>Kick</b>, <b>jail (500 - 749)</b>, <b>ban (1-6 days)</b></p>
+
+											</span>
+										</div>
+									</div>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-c.png' %}" style = "inline-size:30px;"> Family Insults
+									</h3>
+
+									<p class="capt">
+
+											In this case where refering to any "attack" 
+											towards a player's personal relations, such as Family, friends, etc..
+
+									</p>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-d.png' %}" style = "inline-size:30px;"> Discrimination 
+									</h3>
+
+									<p class="capt"> 
+										unjust or prejudicial treatment of different categories of people, 
+										especially on the grounds of <strong>race</strong>, <strong>Age</strong>, <strong>Sex</strong>, <strong> Sexual orentation</strong> or <strong>Disability</strong>.
+
+										is not tolerated in the server at all.
+										The Admin team encourage the community to respect each other, 
+										it doesn't mean you've to like the player, but respect the player for being a human. 
+										We do what we think is right in the given context.
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+											<p class="mod">Moderate offence</p>
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>Kick</b>, <b>jail (500 - 749)</b>, <b>ban (1-6 days)</b></p>
+										</div> /
+
+										<div class = "tooltip">
+
+											<p class="hof">High offence</p>
+
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>jail (750+ )</b>, <b>ban (7+ days)</b></p>
+
+											</span>
+
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							
+							<div class="tab">
+								<input type="radio" id="rd4" name="rd" \>
+								<label class="tab-label" for="rd4">4. Unsupporting play </label>
+								
+								<div class="tab-content">
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-a.png' %}" style = "inline-size:30px;"> Boosting / Win trading
+									</h3>
+
+									<p class="capt"> 
+										Ecash, items such as Whiteflag, 
+										Blackflag, 
+										Assasin note or any kind of stats boosting.
+									</p>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-b.png' %}" style = "inline-size:30px;">  bot and Software assistance
+									</h3>
+
+									<p class="capt"> 
+
+										a player using methods to create an advantage beyond normal gameplay, in order to make the game easier.
+
+									</p>
+
+									<p class = "capt">
+										In the server we only allow <q>Visual design modifications</q>  &amp; <b> keybinds</b>. 
+										If you're not sure what this includes, please cosult an admin. 
+									</p>
+
+									<p>
+										exploiting bugs, please report it in Discord. 
+										Its not allowed to exploit the bugs for your own adventage.
+
+									</p>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-c.png' %}" style = "inline-size:30px;"> Using real life currency
+									</h3>
+
+										<p class="capt">
+
+											Selling features such as items, ecash or accounts,  
+											is not allowed
+
+										</p>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-d.png' %}" style = "inline-size:30px;"> Advertising
+									</h3>
+
+										<p class="capt">
+											Partnerships can be requested, by contacting the server owner. Any advertisements which is not whitelisted
+											will result in a ban.
+										</p>
+
+									<div>
+										<div class = "tooltip">
+
+											<p class="hof">High offence</p>
+
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>jail (750+)</b>, <b>ban (7+ days)</b></p>
+
+											</span>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="tab">
+
+								<input type="radio" id="rd5" name="rd">
+								<label class="tab-label" for="rd5">5. Multiple accounts</label>
+
+								<div class="tab-content">
+
+									<p class="capt">
+
+										A multiple accounts means a certain player has two or more in-game accounts,
+										it gives you a game adventage, and its not allowed
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+
+											<p class="hof">High offence</p>
+
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>jail (750+)</b>, <b>ban (7+ days)</b></p>
+
+											</span>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="tab">
+								<input type="radio" id="rd6" name="rd" \>
+								<label class="tab-label" for="rd6">6. Safezones, Vehicle Kills & Spawnkilling </label>
+
+								<div class="tab-content">
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-a.png' %}" style = "inline-size:30px;"> Safezones
+									</h3>
+
+									<p class="capt">
+
+										Every safe zone consideres zones where you recieve a message "safe zone".
+										There you will not be able to do grand theft auto, nor harm other players.
+
+										<strong>list of safezones</strong>
+
+									</p>
+
+									<p class="capt">
+
+										Spawn killing is considered when you harm / murder a player at the player spawn location,
+										Each player should be able to get a chance atleast to get out of their spawn.
+
+									</p>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-b.png' %}" style = "inline-size:30px;"> Vehicles
+									</h3>
+
+									<p class="capt">
+										Per definition this defines using anykind of vehicles with intention to harm, 
+										kill another in-game character. Its not allowed. 
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+											<p class="mof">Minor offence</p>
+											<span class = "tooltxt">
+
+												<p><b>Verbal warning</b>, <b>Kick</b>, <b>Jail (120-499)</b>, <b>mute (1-5 min)</b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="tab">
+
+								<input type="radio" id="rd7" name="rd" \>
+								<label class="tab-label" for="rd7">7 Network  </label>
+
+								<div class="tab-content">
+
+									<h3>§7.1 Virtual Private Network</h3>
+
+									<p class="capt">
+										Virtual Private NSetwork describes any technology
+										that can encapsulate and transmit network data.
+										VPN is not allowed, as the Network define your identity as a player
+									</p>
+
+									<div>
+
+										<strong>
+
+											Using VPN to evade a ban increases the length of the ban with one month. 
+											Assisting other players in this case might result in a punishment
+
+										</strong>
+									</div>
+									
+									<div>
+										<div class = "tooltip">
+
+											<p class="hof">High offence</p>
+
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>jail (750+ )</b>, <b>ban (7+ days)</b></p>
+
+											</span>
+
+										</div>	
+									</div>
+								</div>
+							</div>
+
+							<div class="tab">
+
+								<input type="radio" id="rd8" name="rd" \>
+								<label class="tab-label" for="rd8">8. Threats / Scam </label>
+
+								<div class="tab-content">
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-a.png' %}" style = "inline-size:30px;"> Scam
+									</h3>
+
+									<p class="capt">
+										<q>a confidence game or other faudulent scheme, to make quick profit</q>
+
+										in this context its used when the seller manipulates the price, by using /sellitem before the player gets the chance to use the command /accept
+										Selling Vehicles, houses or skins which is not owned by the seller. 
+
+										We encourage players to check the website to be sure if the player is the owner of the house, vehicle or skin.
+									</p>
+
+							   		<h3>
+										<img src = "{% static 'svg/icons/paragraph-b.png' %}" style = "inline-size:30px;"> Threats towards server and / or players
+									</h3>
+
+									<p class="capt">
+
+										A Threat is defined as a fearfull action against others. Any threats agains any players, or the server is not tolerated
+
+
+									</p>
+
+									<div>
+										<div class = "tooltip">
+											<p class="mod">Moderate offence</p>
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>Kick</b>, <b>jail (500 - 749)</b>, <b>ban (1-6 days)</b></p>
+										</div> /
+
+										<div class = "tooltip">
+
+											<p class="hof">High offence</p>
+
+											<span class = "tooltxt">
+
+												<p><b>warning</b>, <b>jail (750+ )</b>, <b>ban (7+ days)</b></p>
+
+											</span>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+				</section>
+				
+				<section>
+
+					<h2>Discord Community Regulations</h2>
+
+					<div class="col">
+	
+						<div class="tabs">
+	
+							<div class="tab">
+	
+								<input type="radio" id="rd10" name="rd">
+								<label class="tab-label" for="rd10">1. Discord-Channels </label>
+								
+								<div class="tab-content">
+
+									<p> 
+										In Discord we stay on topic all times, the name of the channel is the topic of the channel
+										We follow the game code of conduct, inside the community Discord server aswell, its a part of the game.
+									</p>
+
+									<h3>
+										<img src = "{% static 'svg/icons/paragraph-a.png' %}" style = "inline-size:30px;"/> #server-chat
+									</h3>
+									
+									<p class="capt">
+
+										<ul>
+											<li>Emojis, mentions are not allowed as it might crash the script</li>
+											<li>characters supported in the channel <span>A-Z, a-z, 0-9</span> </li>
+											<li>The maximum characters in a sentence is 255, longer text will not be sent in-game</li>
+										</ul>
+									</p>
+
+									<p>participants will be disciplined if they break the code of conduct
+										What might happend <strong>Role Removeal, shushed </strong></p>
+
+							
+									</ol>
+
+								</div>
+		
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<p><strong>A last note :</strong> 
+
+					the diciplinary of the regulation is regulated by administrators / moderators. 
+					At any context their decision is final. They're free to choose which diciplinary action suits in the given context, with-in reason. 
+					Any complaints regarding an admin's decision should be sent to the <a href="mailto:krigjo25@gmail.com">lead admin</a> of the server.
+				</p>	
+				<p>
+					diciplinary classified as  <div class="hof">High-Offence</div> Has been discussed between the admins, for a <q>fair</q> judgement. 
+					This includes such as any kind of player resets,  repeated offenders, or long-term ban.
+
+				</p>
+				<p> Please follow the server and community regulations, they're common sense. Play fair and do to others what you'd like them to do with you.</p>
+			</main>
+
+			{% include 'footer.html' %}
+	</body>
+
+</html>

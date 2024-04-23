@@ -1,0 +1,133 @@
+// Declearing variables
+
+// font variables
+$baseFont: pricedown
+
+
+// Color variables
+
+$bg: #121212
+$baseColor: #b38a6d
+$white: rgba( 255, 255, 255, 1)
+
+// Others
+
+  $computer = 1000px
+  
+  
+@font-face
+  font-family: $baseFont
+  src: url("../font/$baseFont bl.ttf") format(ttf)
+
+// CSS DOCUMENT
+
+*
+  box-sizing: border-box
+
+
+body,html
+  block-size: 100%
+
+body
+
+  color: $white
+  background: $bg
+  font-size: 16px
+  inline-size: 100%
+  margin-inline: auto
+  writing-mode: horizontal-tb
+
+
+header, main, footer, nav
+
+  inline-size: 100%
+  text-align: center
+  display: inline-block
+  padding-block-start: 20px
+
+// Width device width + 1000
+
+h1
+  font-size: 16px
+
+h2 
+  color: $baseColor
+// CSS Header
+
+header h1 span
+
+  color: $baseColor
+  text-shadow: 0 13.36px 8.896px $baseColor,0 2px 0px #fefe
+
+header a, header a:hover
+
+  color: #fafafa
+  text-decoration: none
+
+
+header h1
+
+  font-size: 50px
+  text-align: center
+  font-family: $baseFont
+  text-shadow: 0 13.36px 8.896px #fefefe,0 2px 1px $baseColor
+
+.slogan
+
+
+  color: white
+  
+  line-height: 27px
+  font-size: 18px
+  pointer-events: none
+  font-family: 'Quintessential', cursive
+  animation: message-frames 1.5s ease 5s forwards
+
+// Navigation menu
+
+nav ul
+  padding-inline-start: 0px
+
+nav ul li
+  display: inline-block
+
+.samp
+  inline-size: 4em
+  margin-inline-start: 4em
+
+.discord
+
+  left: 3em
+  inline-size: 120px
+  position: relative
+
+/// CSS Footer
+
+footer p
+
+  font-size: 1.12em
+  text-align: center
+  text-align: -webkit-center
+
+
+footer p span
+  color: $baseColor
+  font-family: $baseFont
+
+footer cite
+  
+  font-size: 10px
+  color: whitesmoke
+
+footer button
+
+  border: none
+  color:#fefefe
+  background-color: transparent
+
+footer button:hover
+
+  padding: 5px
+  background-color: rgba(	245, 245, 245, 0.3)
+
+

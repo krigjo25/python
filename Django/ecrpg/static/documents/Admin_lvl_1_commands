@@ -1,0 +1,109 @@
+Admin lvl 1 commands
+ 	// Teleport
+		/goto 		- Teleport to a player, 
+		/getp 		- get player
+		/goback, 	- Teleports you back from your last /goto
+		/gotov      - Go to vehicle
+
+	// Jail and mute
+		/ajail		- Jail a player
+		/unjail     - unjails a player
+		/mute		- mutes players /c works still 
+		/unmute     - /unmute players
+	// milicierious
+		/adminhouse - admin zone
+		/kick, /ban - Kick / ban a player
+		/unban      - unbans a player
+		/banned		- list of banned players
+
+		/lotto      - not checked yet
+		/countdown  - Countsdown 
+		/ckl 		- Clear kill list
+		/acc 		- clear chat
+		/aheal      - Heals a player
+
+	// Check stats
+		/speed - Check a player's speed
+		/stats     - Check a players stats 
+		/ip, /oip   - Checks the players ip | Oip not tested
+
+	// Helpers
+		/makehelper - Set a player as helper
+		/removehelper - Removes the player from helpers
+
+Teleport to area :
+/telecf - teleport to the yard of the adminhouse
+/teleec -  Teleports to the Casino
+/telel  -  not tested yet
+/teled(uel) area 1 or 2 
+
+
+Event Commands
+	/em    - Event commands
+
+ 	// start the event 
+		/cevent  1 / 2 - create event between teleports only and Enable the event mode
+		/sevent - close the teleportions
+		/oevent - open the teleportions
+
+   // Give or set weapons
+		/eventgiveweapon - to every players
+		/eventputweapon temp / perm - creating the weapon icon
+
+
+	// Heal and armour
+		/eventheal & /eventarmour equips everyone with armour
+		/eventtrah removes any armour or health icons
+
+	// Other Event commands
+		/eventwallet
+		/eventgiveecash - reward for the winner
+		/eventassign - teleport a player to the event
+
+
+Weapon ids :
+ 
+	Brass nuckles	 = 1
+	Golf club 		 = 2
+	Nitestick		 = 3
+	Knife 	  		 = 4
+	Baseball  		 = 5
+	Shovel      	 = 6
+	Poolcue   		 = 7
+	katana    		 = 8
+	Chainsaw  		 = 9
+	Dildo     		 = 10, 11
+	Vibrator  		 = 12, 13
+	Flowers   		 = 14
+	Cane     		 = 15
+	Grenades  		 = 16	
+	Tear gas  		 = 17	
+	Molotov cocktail = 18
+	Vehicle missile  = 19 // Not in the game	special
+	Hydra flare      = 20 // not in the game	special
+	Jetpack			 = 21 // not in the game 	special
+	9mm Pistols 	 = 22
+	Silenced pistol  = 23
+	Desert eagle     = 24
+	Shotgun 		 = 25
+	Sawn-off shotgun = 26 // not in the game
+	Combat Shotgun   = 27
+	Micro Uzi		 = 28  // Not tested
+	Mp5				 = 29
+	Ak47 			 = 30
+	M4  			 = 31
+	TEC 9 			 = 32
+	County rifle	 = 33
+	Sniper rifle 	 = 34
+	RPG  			 = 35
+	Heatseeking		 = 36
+	Flame-Thrower	 = 37
+	Minigun			 = 38
+	Satchel charges	 = 39 // not in-game
+	Detonator		 = 40
+	spray 			 = 41 // not tested
+	Fire extinguisher= 42 // not tested
+	Camera 			 = 43 // not tested
+	Night vision	 = 44
+	Thermal googles	 = 45
+	Parachute		 = 46

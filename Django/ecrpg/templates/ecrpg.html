@@ -1,0 +1,153 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+	<html lang="en-us">
+			<!-- Infomation about the head-->
+		<head>
+			<!-- Meta data information-->
+			<meta charset="utf-8" />
+			<title>East Coast RPG !</title>
+			<meta name="maintainer" content="krigjo25" />
+			<meta name="description" content="rpg, samp" />
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+			<link rel="stylesheet" type = "text/css" href = "{% static 'css/3dSlider.css' %}" media="screen" />
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/ecrpgHome.sass' %}" media="screen"/>
+			<link rel="stylesheet" type="text/css" href = "{% sass_src 'sass/__ecrpgIndex__.sass' %}" media="screen"/>
+			
+
+		</head>
+
+		<body>
+
+			<div id="curve"></div>
+				{% include 'template/firefly/firefly.html' %}
+				<header>
+
+					<h1>
+						<a href="{% url 'ecrpg' %}">East<span class="sCol">Coast</span> RPG</a>
+					</h1>
+					<q class="slogan">all of your dreams can be true<br>if there is the courage to pursue them</q>
+
+					<nav>
+
+						<ul>
+
+							<li>
+								<a href="https://discord.com/invite/q4kT94QQ?utm_source=Discord%20Widget&utm_medium=Connect">
+									<img src="{% static 'svg/discord.svg' %}" class="discord"></a>
+							</li>
+
+							<li> 
+								<a href="http://files.hzgaming.net/sa-mp-0.3.7-R4-install.exe">
+									<img src="{% static 'img/samp.png' %}" class="samp"></a>
+							</li>
+
+						</ul>
+
+					</nav>
+					<section id="slideshow">
+						<div class="entire-content">
+							<div class="content-carrousel">
+								<figure class="shadow"><img src="{% static 'img/screens/sa-mp-003.png' %}"/></figure>
+								<figure class="shadow"><img src="{% static 'img/screens/sa-mp-022.png' %}"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/567973/pexels-photo-567973.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/776653/pexels-photo-776653.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/54630/japanese-cherry-trees-flowers-spring-japanese-flowering-cherry-54630.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/131046/pexels-photo-131046.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/302515/pexels-photo-302515.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/301682/pexels-photo-301682.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+								<figure class="shadow"><img src="https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg?w=940&h=650&auto=compress&cs=tinysrgb"/></figure>
+					</div>
+					</div>
+					</section>
+				</header>
+
+				<main>
+
+						<article>
+
+							<p>
+								Get ready for a New world of San Andreas EastCoast RPG
+								is a roleplay based gameplay in San andreas multiplayer
+								and it has been online since 2020.
+							</p>
+						</article>
+
+						<article>
+
+							<h2> Management & Game Intelligence</h2>
+
+							<nav>
+								<ul>
+									<a href="{% url 'managementTeam' %}">
+										<li class="btn"> 
+											<img src="{% static 'svg/icons/lawenforcer-svgrepo-com.svg'  %}" style="inline-size: 20px;"/>
+											The Admin team
+										</li>
+									</a>
+
+									<a href="{% url 'playerBans' %}">
+										<li class="btn">
+											<img src="{% static '/svg/icons/banned-wrong-svgrepo-com.svg' %}" style="inline-size: 20px;"/>
+											Banned players
+										</li>
+									</a>
+
+									<a href="{% url 'regulations' %}">
+										<li class="btn">
+											<img src="{% static '/svg/icons/rules-svgrepo-com.svg' %}" style="inline-size: 20px;" />
+											Community Rules
+										</li>
+									</a>
+
+									<a href="{% url 'ecrpgwiki' %}">
+										<li class="btn">
+											<img src="{% static '/svg/icons/university-svgrepo-com.svg' %}" style="inline-size: 20px;" />
+											KnownledgeBase
+										</li>
+									</a>
+								</ul>
+							</nav>
+
+						</article>
+
+						<article>
+
+							<h2>Player Statistics</h2>
+
+							<nav>
+								<ul>
+									<a href="#"><li class="btn">- EastCoast Top 5</li></a>
+									<a href="#"><li class="btn">- EastCoast Job stats</li></a>
+									<a href="#"><li class="btn">- EastCoast Vehicles</li></a>
+									<a href="#"><li class="btn">- EastCoast Business</li></a>
+									<a href="#"><li class="btn">- EastCoast Skins</li></a>
+									<a href="#"><li class="btn">- EastCoast Homes</li></a>
+									<a href="#"><li class="btn">- EastCoast Gallery</li></a>
+
+								</ul>
+							</nav>
+						</article>
+						<article>
+
+							<p>Thank you for visiting the community website, 
+								we're thrilled to enjoy the game with you and
+								feel free to join our community at Discord
+							</p>
+
+						</article>
+					</main>
+				</div>
+			{% include 'footer.html' %}
+
+		</body>
+
+	</html>

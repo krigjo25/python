@@ -1,0 +1,245 @@
+§1. Language - Warn / Jail / Mute
+
+	Native languages are allowed, but in the globalchat we use english so everyone can be included in the convrtsation or understand you
+	
+	1st offence  Warning
+	2nd offence Jail. - 60 seonds
+	3rd offence, mute 300sec
+
+§2. Spamming - Kick /Warn / Mute / jail
+	 	Spam in this context refers to repeated use of the same command and repeatedly state the same statement.
+
+	 	Kicked by the sever for flood request 
+	 	Abusing flood requests may result to:
+
+	 		1st offence Warning
+			2nd offence, mute 300sec
+	 
+	§2.1 Spamming in "/@" May result to :
+		 
+			1st offence Warning
+			2nd offence, mute 300sec
+			3rd offence, jail 120sec
+
+§3. Offences
+	§3.1 	Provocation
+				Provoking a player with purpose, is not accepted in the community, it will result to an appropiate punishment 
+		 			e.g 
+		 			repeaded Spawn killing, hidden insults, Arguing, using offensive nick names. Being stubborn over religious or political views.
+
+	§3.2 	Insults
+				An offence is actually considered by the offended player, but use comon-sense  
+
+			We recommend you notify the offender that the statement or 	action is offending. If it repeats, report it on Discord.
+
+			1st offence
+
+			 the player will be verbally warned that this kind of behavor is not tolerated. 
+
+			2nd offence 
+			the player will be jailed for 120 seconds
+
+	§3.3	Family Insults
+				In this case where refering to any "attack" towards a player's personal relations, such as Family, friends, etc..
+
+				1st offence
+				warning / Kick
+						2nd offence
+						Jail 600 seconds
+
+						Repeated offences may lead to longer jail time, or taken as a Discrimination see §3.4 
+					
+
+
+	§3.4	Discrimination
+				Using offensive comments regarding Sexual gender, sexualorientation, religion or Race, this kind of behavior is not tolerated in the server at all.
+
+					1st offence
+
+					You will recieve a clear warning and it will be logged.
+
+					2nd offence
+					Jail 600 seconds, as a clear warning, logged
+
+					3rd offence 
+					1 week banned from the server
+
+					Repeated offences may lead to longer jail time / perm banned. 
+
+
+§4. Unsupporting play - Warn / Jail / Ban
+	
+	§4.1	Boosting / Win trading 
+				Boosting Ecash, items such as Whiteflag, Blackflag, Assasin note or stats.
+
+			1st offence Warning + jail 300sec
+
+			2nd offence Jail, + ecash reset / item reset
+			
+			3rd offence Jail + ecash reset / item reset + job reset
+
+			Repeated offenses may lead to ban from the profession
+
+
+	§4.2  bot and Software assistance
+			involves a player using methods to create an advantage beyond normal gameplay, in order to make the game easier.
+
+			in the server we allow visual design modifications and <b> keybinds</b>,if you're not sure what this includes, cosult an admin
+
+			This includes exploiting feautures or bugs which is not intended in the game, please use common sense.
+
+					1st offence
+			Verbal warning, kick.
+
+		2nd offence 
+
+			logged Warning / 1 week ban
+
+		3rd offense  
+		1 - 4 weeks ban + Account reset
+
+	§4.4	Using real life currency
+			Selling accouunt / items / Ecash / Betting.
+
+
+				1st offence
+					Verbal Warning
+
+				2nd offence
+					logged warning + item / ecash reset 
+			
+				3rd offence
+					1 week ban + item / ecash reset
+
+
+
+§5. Multiple accounts - Warn / reset / Ban
+		A multiple account is two or more accounts, it gives you an adventage, and its not allowed
+
+
+		1st offense 
+			Warn, account reset
+		2nd offense  
+			1 day ban, accounts reset
+		3rd offense  
+			1 week ban account reset
+
+§6	Vehicles 	- Jail / Kick
+
+	§6.1 	Grand theft auto in vehicle registrations  or other forbidden places 
+
+			1st offense 
+				Kick / 300sec Jail + vehicle reset
+			2nd offense 
+				Kick / 600sec Jail + vehicle reset
+			3rd offense 
+				1 Day ban.
+
+	§6.2 Vehicle kill 
+
+		Automatically kicked from the server, and suspected.
+
+			1st offense 
+				Kick + suspect
+
+			2nd offence 
+				jail 120sec
+
+			3rd offence
+
+§7. Spawn killing 
+	Killing a player at spawn, before the player has spawned propperly ea 15seconds.
+
+ 	Automatically kicks the offender. 
+
+	Repeatedly actions will be considered as Discrimination or bullying redirect to §3.4
+
+	§7.1 Random Deathmatching - Warn / kick / Jail
+
+		This is an RPG Server, we do not randomly kill or attack people.
+
+		Reported player
+
+		First offense warning / kick.
+		Second time jail 120+ seconds
+
+	§7.2. Safe zones - warn / jail / kick
+		Fighting conidered as punching other players in safezone
+
+		1st offense 
+			Warning / slap
+
+		2nd offense 
+			kick / jail 120+ seconds
+
+		3rd offense 
+			Jail 500sec
+
+§10 Virtual Private Network 
+
+	§10.1 Virtual Private Network
+		Virtual Private NSetwork describes any technology that can encapsulate and transmit network data.
+		
+		VPN is not allowed, as the Network define you as a Player
+
+		1st offence
+			Verbal warning
+
+		2nd offense
+			kick
+
+		3rd offense
+			Ban
+
+   		Using VPN to evade a ban increases the length of the ban with one month.
+
+  		Assisting other players in this case will result a day or two ban
+
+§11. Threats / Scam  - Jail / ban / account deletion
+	
+	§12.1. Scam
+ 		( if the seller manipulates the price and sell for other price before the player writes /accept , if you agreed on a price and after few time it's not worth that much, it's not Admin's/player's fault that the price of the item wasn't asked to more exp. Player or an Admin.
+
+	1st offence
+		Logged warning + item / ecash reset
+
+	2nd offence
+	 1 - 4 week ban + account reset
+	Third time 2 months ban + account deletion
+
+	§15.2 	Threats towards server and player
+				A fearfull action, this also includes black mail
+
+				1st offense warning
+				2nd jail / kick
+				3rd 1 - 7 day(s) ban
+
+§12. Breaking the laws as an Authority, E.G fake suspecting/unsuspecting.
+		Goto own site for the laws of San andreas
+		
+		1st offense warning
+		2nd offense jail 120 - 500 seconds
+		3rd offense job reset
+
+§ Playing EastCoast RPG on mobile / tablet
+
+
+
+
+Any continously rulebreaking will the punishmen be decided by the admin team
+
+
+Minor offence
+Verbal warning, Kick, jail (120-500) & mute (1-5 min)
+
+Moderate offence
+warning, 
+jail (500 - 750), 
+ban (1-6 days)
+
+high offence
+Admins has to decide which action is appropiate
+Acoount / item / cash reset,
+
+ban (7+ days)
+jail (750 -)
