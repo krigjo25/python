@@ -1,0 +1,144 @@
+//  Author
+// https://codepen.io/raubaca/pen/PZzpVe
+//@ by Raul Barrera
+
+@charset "UTF-8"
+
+//  HTML Elemets
+
+label
+    text-align: left
+    padding-block-start: 1em
+
+label > a, label > a:hover, label > a:visited
+
+    color:#121212
+    text-decoration: none
+
+// Radio Button
+input[type="radio"]
+
+    display: none
+
+input:checked + .tab-label::after
+
+    transform: rotate(90deg)
+
+
+input:checked ~ .tab-content
+
+    //padding: 16px
+    inline-size: 100%
+    animation: resize ease-in 2s forwards
+
+.tab-content > div
+
+    margin-block-end: 10px
+    max-inline-size: 100%
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .7)
+
+.tab-content h3
+    text-align: start
+//     Classes
+
+.col
+
+    padding-inline-end: 0px
+    padding-inline-start: 0px
+
+.row .col:last-child
+
+    margin-left: 1em
+  
+.tabs
+
+    border-radius: 8px
+
+  
+.tab
+
+    overflow: hidden
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, .5)
+
+.tab-label
+
+    padding: 1em
+    display: flex
+    cursor: pointer
+    font-weight: bold
+    background: transparent
+    justify-content: space-between
+
+
+.tab-label:hover
+    background-color: rgba(255, 255, 255, .03)
+//    Icons
+
+.tab-label::after
+
+    content: "❯"
+    width: 1em
+    height: 1em
+    text-align: center
+    transition: ease-in .55s
+
+.tab-content
+
+    max-height: 0
+    padding: 0 1em
+    transition: ease-in 1s
+    background: transparent
+
+.tab-close
+
+    padding: 1em
+    display: flex
+    cursor: pointer
+    font-size: 0.75em
+    justify-content: flex-end
+
+.capt
+
+    top: -10px
+    left: 0
+    font-size: 11px
+    position: relative
+    inline-size: 185px
+    margin-inline-start: 64px
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.2)
+
+@keyframes resize
+    0%
+        max-block-size: 0
+
+    100%
+
+        max-block-size: 1000px
+       
+// Comuputers
+@media screen
+
+  @media (min-width: 900px)
+
+    .tab-content div h3
+
+        text-align: start
+        margin-inline-start: 35px
+
+    input:checked ~ .tab-content
+
+        max-inline-size: 100%
+
+    .tab
+        inline-size: 49%
+        display: inline-grid
+
+    .capt
+
+        left: 0px
+        font-size: 16px
+        text-align: start
+        inline-size: 263px
+        margin-inline-start: 100px
+
+

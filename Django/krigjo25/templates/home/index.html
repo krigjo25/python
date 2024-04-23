@@ -1,0 +1,158 @@
+{% load static %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		{% include 'home/head.html' %}
+
+	</head>
+
+	<body>
+
+		{% block page_content %}
+
+		<div id="curve">
+
+			{% include 'home/header.html' %}
+	
+			<main>
+
+				<article>
+				
+					<h2> Greetings, I'm Kristoffer </h2>
+
+					<div>
+						<p>
+							i don't know what to say about me, i'm just me.
+							1/3 of the time used to maintain / improve the love for python / sql.
+							rest of the not nurdy time, i'm living life as other people.
+						</p>
+					</div>
+				</article>
+
+				<article>
+					
+					<h2> What i can do for you</h2>
+					<div>
+						<p>Python dept knownledge in </p>
+						<ul>
+							<li>Generally bots</li>
+							<li>PDF module</li>
+							<li>database connections</li>
+							creating bots, 
+							creating PDFs,
+							creating databases 
+
+						</ul>
+					</div>
+				</article>
+
+				<article>
+
+					<h2> Work Context</h2>
+
+					<div>
+						
+						<img src="{% static 'img/svg/infinity.svg' %}">
+
+					</div>
+
+				</article>
+			</main>
+
+		</div>
+		<footer>
+
+			<nav>
+
+				<div class="col">
+
+					<div class="tabs">
+
+						<div class="tab">
+
+							<input type="radio" id="rd1" name="rd">
+							<label class="tab-label" for="rd1">Discord Bots</label>
+							
+							<div class="tab-content">
+								{% for rp in dBots %}
+								<div>
+									
+
+								<a href="{{ rp.link }}"><h3><img src={% static rp.img %} alt='python logo' width="30px">{{ rp.title }}</h3></a>
+
+								<p class="capt">{{ rp.description }}</p>
+								</div>
+								
+								{% endfor %}
+							</div>
+	
+						</div>
+
+						<div class="tab">
+
+							<input type="radio" id="rd2" name="rd">
+							<label class="tab-label" for="rd2">Database</label>
+							
+							<div class="tab-content">
+								{% for db in databases %}
+
+								<div>
+									<a href="{{ db.link }}">
+										<h3>
+											<img src={% static db.img %} alt='Mariadb logo' width="30px">
+											{{ db.title }}
+										</h3>
+									</a>
+
+
+									<p class="capt">{{ db.description }}</p>
+									{% endfor %}
+								</div>
+							</div>
+	
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="col">
+
+					<div class="tabs">
+
+						<div class="tab">
+
+							<a href="{% url 'blogIndex' %}">
+								<label class="tab-label">knownledge base</label>
+							</a>
+
+						</div>
+
+						<div class="tab">
+
+							<a href="mailto:krigjo25@gmail.com">
+								<label class="tab-label">Hire me</label>
+							</a>
+
+						</div>
+					
+
+						<div class="tab">
+
+							<input type="radio" id="rd3" name="rd">
+							<label for="rd3" class="tab-close">Close &times;</label>
+
+						</div>
+					</div>
+				</div>
+
+			</section>
+			</nav>
+		</footer>
+	</body>
+</html>
+
+{% endblock %}

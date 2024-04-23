@@ -1,0 +1,43 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% include '../home/head.html' %}
+		<link rel="stylesheet" type="text/css" href="{% sass_src 'sass/__blogIndex__.sass' %}"/>
+	</head>
+	<body>
+		<div id="curve">
+			{% include '../home/header.html' %}
+	
+			<main>
+				<article>
+					{% for category in Tag %}
+					<section>
+						<ul class="crd">
+							<li>
+								<a href="{% url 'blogPost' category.name %}">
+
+									<button class="btag">
+										<img src = "{% static 'img/svg/tags-svgrepo-com.svg' %}" alt = 'read-me' style = 'inline-size:23px; margin-inline:1px;' />
+
+										<h2> #{{ category.name }}</h2>
+
+									</button>
+
+								</a>
+
+							</li>
+						</ul>
+					</section>
+					{% endfor %}
+				</article>
+
+            </main>
+
+		</div>
+
+	</body>
+</html>
+

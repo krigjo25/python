@@ -1,0 +1,85 @@
+{% load static %}
+{% load sass_tags %}
+{% block foo %}
+   {% include "firefly.html" %}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title> krigjo25</title>
+		<meta description="Tombstone Protector" />
+		<meta name="maintainer" content="@krigjo25">
+		<meta name="edited" content="@krigjo25" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="python, django, cv">
+		<meta http-equiv="content-security-policy|content-type|defult-style|refresh">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" type = "text/css" href = "{% sass_src 'templates/firefly/firefly.sass' %}" media="screen" />
+		<link rel="stylesheet" type = "text/css" href = "{% sass_src 'css/index.sass' %}" media="screen" />
+        <link rel= "stylesheet" type = "text/css" href = "{% sass_src 'css/accordion.sass' %}" media = "screen">
+    </head>
+	{% block page_content %}
+	<body>
+		<div id="curve">
+
+			<header>
+	
+				<h1> The Technology of tomorrow </h1>
+				<h1> The feature is now. </h1>
+			
+			</header>
+	
+			<main>
+
+							<input type="radio" id="rd1" name="rd">
+							<label class="tab-label" for="rd1">Portefolio</label>
+	
+							<div class="tab-content">
+	
+								<h3><img src='static/img/logo/pythonlogo.svg' alt='' width="100px">{{ p.title }}</h3>
+	
+								<div class ='ddown'>
+	
+									<img src={% static p.img %} alt='' width = '100px' height = '75px'>
+		
+									<div class='ddownContent'>
+		
+													<img src={% static p.img %} alt='' width="350">
+		
+													<p class="capt">{{ p.description }}</p>
+													<button><a href="{% url 'index' %}">GoHome</a></button>
+													<h5 class = "capt">Technology used in the project</h5>
+													<p>{{ p.tech }}</p>
+		
+									</div>
+	
+								</div>
+							</div>
+	
+						  </div>
+	
+						  <div class="tab">
+	
+							<input type="radio" id="rd3" name="rd">
+							<label for="rd3" class="tab-close">Close &times;</label>
+	
+						</div>
+						</div>
+					  </div>
+	
+					
+					<div class="tab">
+					<label class="tab-label col"><a href='/blog'>Blog</a></label>
+					<label class="tab-label col"><a href='mailto:krigjo25@gmail.com'>Hire Me</a></label>
+					</div>
+				</section>
+				</nav>
+			</main>
+
+		</div>
+
+	</body>
+    {% endblock %}
+</html>
+
