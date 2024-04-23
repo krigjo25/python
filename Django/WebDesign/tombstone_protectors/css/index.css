@@ -1,0 +1,198 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	width: 86%; /*89em margin 5em*/
+	margin: 1em 5em;
+	background-color: rgba(249, 247, 241, 0.7)
+	box-shadow: 0.313em 0.625em 1.750em 0.750em rgba(0,0,0,0.75);
+	-moz-box-shadow: 0.313em 0.625em 1.750em 0.750em rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0.313em 0.625em 1.750em 0.750em rgba(0,0,0,0.75);
+
+}
+#curve {
+	background-color: rgba(217, 215, 199, .9);
+}
+
+header > h1 {
+	font-weight: 400;
+	text-align: center;
+	font-family: 'Rye', cursive;
+}
+hr {
+	width: 100%;
+	border-top: medium double #000;
+}
+hr.eight {
+    height: 0;
+    padding: 0;
+    color: #000;
+    border: none;
+    overflow: visible; /* For IE */
+    text-align: center;
+    border-top: medium double #333;
+}
+hr.eight:after {
+    top: -0.7em;
+    content: "§";
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    position: relative;
+	display: inline-block;
+    background: rgba(217, 215, 199,1);
+}
+h1 > a:link {
+	color: #000;
+	text-decoration: none;
+}
+dt {
+	float: left;
+	margin: 0em 1em;
+}
+dl > dt:nth-child(2) {
+	right:	-3em;
+	position: relative;
+}
+dl > dt:nth-child(3) {
+	right: -7em;
+	position: relative;
+}
+.subtitle {
+	width: 100%;
+	font-weight: 400;
+	padding: 0em 2em;
+}
+
+ article > p {
+ 	width: 10em;
+	font-family: 'Roboto', sans-serif; 
+}
+ nav {
+ 	padding: 0em 0em 3em 0em;
+ }
+header > nav > ul > li {
+	float: left;
+	width: 7em;
+	padding: 0.250em;
+	list-style: none;
+	text-align: center;
+}
+ nav > ul > li > a:link {
+ 	color: #000;
+ 	cursor: pointer;
+ 	text-decoration: none;
+ 	font-family: 'Fredericka the Great', cursive;
+
+ }
+
+ footer {
+ 	width: 100%;
+ 	text-align: center;
+ 	display: inline-block;
+ 	padding: 2em 0em 3em 0em;
+ 	text-align: -webkit-center;
+ }
+ footer > article > p {
+ 	width: 17em;
+ }
+ footer > nav > ul > li {
+ 	display: inline-block;
+ }
+article > #aut {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+ footer > article > p > a:link {
+ 	color: #000;
+ 	cursor: pointer;
+ 	font-weight: bold;
+
+ }
+
+ 										/* The Video element */
+video {
+  display: block;
+  margin-bottom: 12px; 
+}
+
+video,
+.content h1 {
+  -webkit-column-span: all;
+  -moz-column-span: all;
+  column-span: all;
+  clear: both; }
+
+.cnvs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* to avoid seeing the video in color for a second before the JavaScript runs
+   * show a black background instead */
+  background-color: black;
+  margin-bottom: 25px; }
+
+.myCanvas {
+  border: 2px dotted black;
+  margin: 0 20px; }
+
+.vc {
+  width: 373px;
+  margin: 0 auto;
+  position: relative; }
+
+.ctrl {
+  position: absolute;
+  bottom: 0px;
+  opacity: .5;
+  -webkit-transition: opacity .7s linear;
+  transition: opacity .7s linear; }
+  .ctrl:hover {
+    opacity: 1; }
+
+.hidden {
+  display: none; }
+
+.pp,
+.mu {
+  width: 25px;
+  height: 25px;
+  float: left;
+  text-indent: -9999em;
+  border-right: solid 1px #555; }
+  .pp:hover,
+  .mu:hover {
+    cursor: pointer; }
+
+.paused {
+  background: #ccc url(../images/controls-sprite.png) no-repeat 0 -75px; }
+
+.playing {
+  background-position: 0 -50px; }
+
+.timer {
+  width: 321px;
+  height: 25px;
+  background: #ccc;
+  float: left;
+  text-align: center;
+  line-height: 25px;
+  overflow: hidden; }
+
+.mu {
+  overflow: hidden;
+  border-right: none;
+  border-left: solid 1px #555; }
+
+.unmuted {
+  background: #ccc url(../pfolio/img/btn/controls-sprite.png) no-repeat 0 -25px; }
+
+.muted {
+  background-position: 0 0; }
+
+#canvasOverlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #000;
+  margin-bottom: 25px; }
