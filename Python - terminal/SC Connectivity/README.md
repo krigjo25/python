@@ -26,7 +26,7 @@
 ### Video link
 
 The video link below will show you how to parse through urls
-[Youtube](https://www.youtube.com/watch?v=YzmVe6icEZI)
+[Youtube](https://www.youtube.com/watch?v=j-iIdt9iBcY)
 
 ##  Project Description
 
@@ -45,6 +45,8 @@ By default, the application will run the connectivity checks synchronosuly. In o
 
 ## Credits
 
+##  Notes from the developer
+
 Project developed with love for python by @kigjo25<br>
 
 ###  Libraries used
@@ -53,5 +55,3 @@ Project developed with love for python by @kigjo25<br>
 #### [pythonping by Alessandro Maggio](https://pypi.org/project/pythonping/)
 #### [requests by  Kenneth Reitz](https://requests.readthedocs.io/en/latest/)
 #### [sys by the python developer team](https://docs.python.org/3/library/sys.html)
-
-https://github.com/krigjo25/contactinformation
