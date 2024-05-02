@@ -1,0 +1,4 @@
+/*SQL Statements */
+
+CREATE DATABASE IF NOT EXISTS birthdays;
+CREATE TABLE IF NOT EXISTS birthdays (id INT PRIMARY KEY, name VARCHAR(255) NOT NULL, birthday DATE NOT NULL);

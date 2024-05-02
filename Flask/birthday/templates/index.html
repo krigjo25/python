@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <header>
+        <h1>Birthdays</h1>
+            <div class='alert'>
+                <span>{{ message }} <b>{{ msg }}</b></span>
+            </div>
+            <form action="/" method="post">
+                <div class='grid-container'>
+                    <div class='item'>
+                        <label for='name'>Name</label>
+                    </div>
+                    <div class='item-1'>
+                        <label for='bday'>Birthday</label>
+                    </div>
+                    <div>
+                    </div>
+                    <div class='item-3'>
+                        <input id='name' autocomplete="off" autofocus name="name" placeholder="e.g Jhon Doe" type="text" required>
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class='item-4'>
+                    <input id='bday' autocomplete="off" autofocus name="bday"  type="date" required>
+                    <i class="bi bi-calendar2-check-fill"></i>
+                    </div>
+                    <div class='item-5'>
+                        <button id='sub' name='add_record' type="submit" value='submit'><i class="bi bi-database-add"></i> Record</button>
+                    </div>
+
+                </div>
+            </form>
+    </header>
+    <main class="container">
+        <section>
+            <h2>Recorded Birthdays</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <form id='myform'action='/' method="POST">
+                        <th><button class='orderby' name='ORDER_name' value='name'><i class="bi bi-person"></i></button>Name</th>
+                        <th> <button class='orderby' name='ORDER_bday' value='bday'><i class="bi bi-calendar2-check-fill"></i></button> Birthday</th>
+                        </form>
+                        <th>Modify</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form id='myform'action='/' method="POST">
+                        {% for entry in entries %}
+                            <tr>
+                                <td contenteditable='plaintext-only' name='{{ entry["id"] }}'>{{ entry['name'] }}</td>
+                                <td contenteditable='plaintext-only' name='{{ entry["id"] }}'>{{ entry['birthday']}}</td>
+                                <td><button class="edit" name='update' type='submit' value='{{entry["id"]}}'><i class="bi bi-pencil-fill"></i></button></td>
+                                <td><button class='del' name='del_record' typze='submit' value='{{entry["id"]}}'><i class="bi bi-trash-fill"></i></button></td>
+                            </tr>
+                    {% endfor %}
+                    </form>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+{% endblock %}
