@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    {% if transactions %}
+        <h2> Trading History </h2>
+        <table>
+            <th> Status </th>
+            <th> Quanity </th>
+            <th> Stock abbrivation </th>
+            <th> price </th>
+            <th> Date </th>
+
+
+        {% for stock in transactions %}
+            <tr>
+                {% if stock['status'] == 'BOUGHT' %}
+                    <td class='green'>{{ stock['status'] }}</td>
+                {% else %}
+                    <td class='red'>{{ stock['status'] }}</td>
+                {% endif %}
+                <td>{{ stock['qty'] }}</td>
+                <td>{{ stock['abbrivation'] }}</td>
+                <td>{{ stock['price'] | usd}}</td>
+                <td>{{ stock['time_stamp'] }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        {% else %}
+        <h3> No Recorded transactions to show </h3>
+    {% endif %}
+
+{% endblock %}

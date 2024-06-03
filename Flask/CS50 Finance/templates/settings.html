@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <div class='grid_container'>
+        <div class='grid-item'>
+
+            <form action="/settings" method="post">
+                <h3> Account Settings </h3>
+                <div class="mb-3">
+                    <label>New username</label>
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+                </div>
+                <div class="mb-3">
+                    <label>New Password</label>
+                    <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+                    <label>Confirm password </label>
+                    <input class="form-control mx-auto w-auto" name="match_pass" placeholder="Password Confirmation" type="password">
+                    <label> To save the new changes, confirm with your old password</label>
+                    <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm password" type="password">
+                </div>
+                    <button class="btn btn-primary" type="submit">Confirm changes</button>
+                </form>
+            </div>
+        </div>
+{% endblock %}
