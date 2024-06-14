@@ -10,7 +10,7 @@
 
 ##  ProjectInformation
 
-The project was created as an assignment from [cs50 finance problem set 09](https://cs50.harvard.edu/x/2024/weeks/9/)
+The project was created as an assignment for[Flask Challenge - CS50 finance](https://cs50.harvard.edu/x/2024/weeks/9/)
 
 ### Project start
 
@@ -20,15 +20,18 @@ The project was created as an assignment from [cs50 finance problem set 09](http
 
 ##  Project Description
 
-A demo version of a finance website where stocks can be bought and sold
+The Web Application is a "demo" financial website where stocks can be bought and sold
+The Web Application requires the users to be logged in to purchase or sell stocks
+
 
 available functionallities:
 
--   Register a username with password
--   login using a login form
--   Buy / sell / quote a share
+-   User registrations
+-   User logins
+-   Purchase / sell / quote a share
+
+### User interface
 -   Support for change username / password
--   Support for required login
 
 ### Pages in the project
 
@@ -36,12 +39,9 @@ available functionallities:
 -   index.html
 *   Transaction History can be seen in the index
 
-
-
-
 ## Credits
 
-Project developed with love for python by @kigjo25<br>
+Project developed with love for python by @krigjo25<br>
 
 ###  Responsories
 

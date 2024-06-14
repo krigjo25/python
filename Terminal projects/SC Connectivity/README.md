@@ -9,7 +9,7 @@
 ### [Libraries](#libraries)<br>
 ### [Project Credits](#ProjectCredits)
 
-##  ProjectInformation
+##  About SC Connectivity
 
 ### Version
 
@@ -17,22 +17,18 @@
 
 ### Project start
 
-01.12-22
-
-### Project end
-
-31.12-22
+01.12-22 | 31.12 - 22
 
 ### Video link
 
-The video link below will show you how to parse through urls
+The video below shows how to use the program.
 [Youtube](https://www.youtube.com/watch?v=j-iIdt9iBcY)
 
 ##  Project Description
 
-the website connectivity checker provides a few options through a command-line interface(CLI).
-
-By default, the application will run the connectivity checks synchronosuly. In other words the app performs the checks one after another. The behavior can not be changed.
+Website Connectivity tool provides a few options through the command-line interface.
+By default, the application will run the connectivity checks synchronosuly. In other words the app performs the checks one after another. 
+The behavior can not be changed in this version.
 
 ###   Command Line Commands
 
@@ -51,7 +47,7 @@ Project developed with love for python by @kigjo25<br>
 
 ###  Libraries used
 
-#### [argparse  by Thomas Waldmann](https://pypi.org/project/argparse/)
-#### [pythonping by Alessandro Maggio](https://pypi.org/project/pythonping/)
-#### [requests by  Kenneth Reitz](https://requests.readthedocs.io/en/latest/)
-#### [sys by the python developer team](https://docs.python.org/3/library/sys.html)
+#### [argparse      - by Thomas Waldmann](https://pypi.org/project/argparse/)
+#### [pythonping    - by Alessandro Maggio](https://pypi.org/project/pythonping/)
+#### [requests      - by  Kenneth Reitz](https://requests.readthedocs.io/en/latest/)
+#### [sys           - by the python developer team](https://docs.python.org/3/library/sys.html)

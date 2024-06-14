@@ -2,23 +2,27 @@
 
 ## Introduction
 
-This project is based on CS50's instructions developed by krigjo25
+The project was not based on CS50's instructions to develop a webpage,
+the choice of create class based Web application was a curious project created by @krigjo25
 
-## Python
+##  About Birthdays
 
-### Table Functionallity
+###  JavaScript
 
-- Inserting a new record ✅
--   Delete a record ✅
--   Edit a record (using contenteditable)  ✅
--   Order by name, bday ✅
+The JavaScript serves as a client to fetch the content from contenteditable contents from a specific
+button and send it through ajax to the server side, its a work around as the server can not do multi-tasking naturally.
+So on submit the ajax sends through the code to the server.
 
-## JavaScript
+#### Table Functionallity
 
-The JavaScripts serves as a client to fetch the ajax content from a specific button to fetch its row values.
+-   Delete a record                         ✅
+-   Order by name, bday                     ✅
+-   Inserting a new record                  ✅
+-   Edit a record (using contenteditable)   ✅
 
--   Using ajax to send responses to the server ✅
--   Submit the form ✅
+#### SQL
+
+Refering to the .sql files in this section.
 
 ## Credits
 
@@ -31,7 +35,8 @@ The JavaScripts serves as a client to fetch the ajax content from a specific but
 
 #### Database
 
-[CS50 - birthdays]()
+### SQL
+The SQL is partly created by CS50, but i saw a reason to upgrade the SQL
 
 
 ### Contact Information
@@ -39,19 +44,14 @@ The JavaScripts serves as a client to fetch the ajax content from a specific but
 -   Discord : krigjo25#5588
 -   messenger : krigjo25
 
-Author notes<br>
-« Everything is just perfect as it is.»
+## Project summary
 
-## Challanges
+### Challanges
 
-- Encountered a challange regarding sending content editable data to the server
 
-I created a function containing ajax to send the information which was required to do the task.
+-   During the project several challanges occured under the development some about the contenteditable attribute and form submission.
+A function was created containing ajax to send the information as an alternative way instead of sending it directly to the server.
+In order to create that function i had to loop through the content, by using a for loop and ensuring the button value matches.
 
-- While looping through the contenteditable content
-The challenge was solved by using a for loop to interate through the content and ensuring the values matches with the button value
 
-- Encountered a problem with the form submission with the edit button
 
-Which i tried to solve where the server fetches the clicked button and the data was processed through javascript.
-There were another wqay, which was quite easier fetching the whole ajax content, and use it to gain the ability to edit the contenteditable text.
