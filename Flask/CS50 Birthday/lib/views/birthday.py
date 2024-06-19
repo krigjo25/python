@@ -15,7 +15,7 @@ class Index(MethodView):
     def get(self): return render_template('index.html', entries = self.DB.execute('SELECT * FROM birthdays;'))
 
     def post(self):
-        print(request.form)
+
         #   Json Requests
         if request.is_json:
             if self.process(request.get_json()) == True:
@@ -40,10 +40,6 @@ class Index(MethodView):
             #   Ensure the user is not already registered
             for i in self.DB.execute('SELECT * FROM birthdays;'):
                 if i['name'] == request.form['name'] and request.form['birthday'] == i['birthday']: raise Exception(f'Can not duplicate an exsisting record')
-
-            #   Ensure every character is alphabetic
-            #for i in request.form['name']:
-                #if not str(i).isalpha():raise Exception('One or more characters are not alphabetic character ')
 
         except Exception as e:
             flash(f'{e}')
