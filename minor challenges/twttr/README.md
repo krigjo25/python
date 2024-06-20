@@ -1,25 +1,25 @@
-# bank
+# Twttr
 
-## About bank
+## About this project
 
-A program to ensure the value of the prompted message
+A program to ensure the removeal of vowels
 
-Usage : type in the terminal python bank.py,
-and follow the instruction from the prompted message
+Usage : type in the terminal python twttr.py,
+wait for the prompt then follow instruction
 
 Originally this project was created as an
 assignment at CS50P - Introduction to Python.
 
 ##  About the testing network
 
-Implements the testing network <strong>pytest</strong> to test the code.
-The testing network uses assertion to test values and raise known exceptions.
+Implements the testing network <strong>pytest</strong>
+to test the code.The testing network uses assertion to
+test values and raise known exceptions.
+
 
 ##  Credits
 
 ### Responsories
-
-[os, sys -  Matthijs labots]()
 
 [pytest - Holger Krekel ( and many other developers)](https://github.com/pytest-dev/pytest)
 
