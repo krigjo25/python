@@ -1,11 +1,10 @@
-# Figlet
+# Emojize
 
-## About Figlet
+## About Emojize
 
-Implemented a command-line program to print out a text in a different font
-using the pyfiglet responsory
+Implemented a  program to print out emojis.
 
-Useage : python pyfiglet.py [Optional : -f / --fonts] [Optional : font name]
+Useage : python emoji.py [:emoji name:]
 
 Originally this project was created as an assignment at CS50P - Introduction to Python.
 
@@ -17,7 +16,7 @@ No testing framework used for this project
 
 ### Responsories
 
-[pyfiglet - by Peter Waller](https://github.com/pwaller/pyfiglet)
+[emoji - by Taehoon Kim](https://github.com/carpedm20/emoji/)
 
 ###  Disclamers
 

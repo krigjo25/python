@@ -1,39 +1,46 @@
 #   Importing responsories
-'''
-    Title : Figlet
-    Description :   A program to
-
-    Base by :
-    Developed by : @krigjo25
-    Date Started : 25.11-23
-    Date Submited : 25.11-23
-    Date re-Submited : N/A
-
-'''
 import sys
 from pyfiglet import Figlet, FontNotFound
 
-def PyFiglet():
 
+def main():
+
+    #   Initalizing command-line arguments
     arg = ['-f', '--font']
-    f = Figlet()
 
-    try :
+    try:
 
-        if len(sys.argv) > 1 and sys.argv[1] in arg:
-            f = Figlet(font=sys.argv[2])
-            prmpt = input('prompt : ')
-            print(f.renderText(prmpt))
-            sys.exit()
+        #   Ensure the command-line arguments does not exceed 3 arguments
+        if len(sys.argv) > 3:
+            raise Exception('To many command-line arguments')
 
-    except (FontNotFound, ValueError) as e:
+        #   Ensure the command-line command exsists
+        if sys.argv[1] not in arg:
+            raise Exception("Command not found")
 
-        #   Exception error
-        sys.exit(f'Invalid usage')
+        #   Ensure the font exists
+        if not Figlet(font=str(sys.argv[2])):
+            raise FontNotFound
 
+    except (FontNotFound, ValueError, Exception) as e:
+
+        sys.exit(
+            f"{e}, USEAGE : python pyfiglet.py [Optional : -f / --fonts] [Optional : font name]")
+
+    #   Initializing a prompt
+    prompt = input('Type a text:')
+
+    #   Ensure the command-line arguments equals 1
     if len(sys.argv) == 1:
-        prmpt = input('prompt:')
-        print(f.renderText(prmpt))
 
-if '__name__' == '__main__':
-    PyFiglet()
+        print(Figlet().renderText(prompt))
+
+    #   Ensure the command-line arguments equals 2
+    elif len(sys.argv) == 3:
+
+        print(Figlet(font=str(sys.argv[2])).renderText(prompt))
+
+    return sys.exit()
+
+if __name__ == '__main__':
+    main()

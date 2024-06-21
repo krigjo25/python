@@ -1,11 +1,10 @@
-# Figlet
+# Crypto currency
 
-## About Figlet
+## About Crypto Currency
 
-Implemented a command-line program to print out a text in a different font
-using the pyfiglet responsory
+Implemented a Command-line program to calculate the price for crypto currency.
 
-Useage : python pyfiglet.py [Optional : -f / --fonts] [Optional : font name]
+Useage : python bitcoin.py [numberic value]
 
 Originally this project was created as an assignment at CS50P - Introduction to Python.
 
@@ -17,7 +16,9 @@ No testing framework used for this project
 
 ### Responsories
 
-[pyfiglet - by Peter Waller](https://github.com/pwaller/pyfiglet)
+[requests - by Paul Dyson](https://github.com/jaraco/inflect)
+[os, sys -  Matthijs labots]()
+[json - Python.org](https://docs.python.org/3/library/json.htmlhttps://docs.python.org/3/library/json.html)
 
 ###  Disclamers
 
