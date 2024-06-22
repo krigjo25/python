@@ -1,25 +1,26 @@
-# Bank
+# Deep Thoughts
 
 ## About this project
 
-A program to ensure the value of the prompted message
+Implements a functionallity that prints out
+either Yes or No.
 
-Usage : type in the terminal python bank.py,
-and follow the instruction from the prompted message
+Usage : type in the terminal python deep.py,
+wait for the prompt then type 42 / forty two etc
+
 
 Originally this project was created as an
 assignment at CS50P - Introduction to Python.
 
-##  About the testing framework
+##  About the testing network
 
-No testing framework for this project
+Testing network has not been used in this project
 
 ##  Credits
 
 ### Responsories
 
 [os, sys -  Matthijs labots]()
-
 
 ###  Disclamers
 

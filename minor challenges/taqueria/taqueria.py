@@ -1,34 +1,35 @@
 def main():
 
-    x = 0
+    '''
+        Title   : Taqueria Shop
+        author  : krigjo25
+        Description :
+            Usage : type in the terminal python taqueria.py,
+            wait for the prompt then type something
+    '''
+    #   Initializing a counter variable
+    n = 0
+
+    #   Initializing a dicitionary
+    menu = {
+                "Baja Taco": 4.00, "Burrito": 7.50,
+                "Bowl": 8.50, "Nachos": 11.00,
+                "Quesadilla": 8.50, "Super Burrito": 8.50,
+                "Super Quesadilla": 9.50, "Taco": 3.00,
+                "Tortilla Salad": 8.00}
     while True:
 
         try:
 
             #   Initializing Prompt
-            prmpt = str(input('Item :').title())
+            item = str(input('Item :').title())
 
-            #   Initializing dicitionary
-            dictionary = {
-                            "Baja Taco": 4.00,
-                            "Burrito": 7.50,
-                            "Bowl": 8.50,
-                            "Nachos": 11.00,
-                            "Quesadilla": 8.50,
-                            "Super Burrito": 8.50,
-                            "Super Quesadilla": 9.50,
-                            "Taco": 3.00,
-                            "Tortilla Salad": 8.00}
-
-            if prmpt in dictionary:
-                x += dictionary[prmpt]
+            if item in menu:
+                n += menu[item]
 
         except EOFError as e:
-            print(e)
             break
 
-        else :
-            print('$%.2f' % (x))
+        print('$%.2f' % (n))
 
-if __name__ == '__main__':
-    main()
+main()

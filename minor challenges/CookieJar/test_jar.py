@@ -1,4 +1,3 @@
-
 #   Importing responsories
 import pytest
 from jar import Jar

@@ -12,22 +12,7 @@ Originally this project was created as an assignment at CS50P - Introduction to 
 
 ##  About the testing network
 
-Implements the testing network <strong>pytest</strong>
-to test the code.The testing network uses assertion to
-test values.
-
-
-##  Credits
-
-### Responsories
-
-[pytest - Holger Krekel ( and many other developers)](https://github.com/pytest-dev/pytest)
-
-##  Credits
-
-### Responsories
-
-[os, sys -  Matthijs labots]()
+No testing framework for this project
 
 ###  Disclamers
 

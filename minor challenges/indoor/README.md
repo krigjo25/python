@@ -1,13 +1,14 @@
-# Taqueria shop
+# Indoor voice
 
 ## About this project
 
-A Program that behaves like a automatic menu
-when the desired selection is sent to back-end,
-it outputs the total price.
+Implements a program to replace white-spaces with dots.
 
-Usage : type in the terminal python taqueria.py,
-wait for the prompt then type something
+Implements a program to calculate the tip by procentage.
+
+USEAGE : In your terminal type python tip.py and follow the
+instruction for the prompted message
+
 
 Originally this project was created as an
 assignment at CS50P - Introduction to Python.

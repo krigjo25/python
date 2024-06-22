@@ -1,25 +1,26 @@
-# Bank
+# Extensions
 
 ## About this project
 
-A program to ensure the value of the prompted message
+Implements a program that print outs document name,
+if the document exists with-in the 3D array
 
-Usage : type in the terminal python bank.py,
-and follow the instruction from the prompted message
+Usage : type in the terminal python extensions.py,
+type in a file name with and extension.
+
 
 Originally this project was created as an
 assignment at CS50P - Introduction to Python.
 
-##  About the testing framework
+##  About the testing network
 
-No testing framework for this project
+Testing network has not been used in this project
 
 ##  Credits
 
 ### Responsories
 
 [os, sys -  Matthijs labots]()
-
 
 ###  Disclamers
 

@@ -1,12 +1,8 @@
-'''
-    Title : Bank
-    Description :   A program that prompts user for owned cash
+class Jar:
 
-    Base by : CS50 Problem set 09 Introduction to Python
-    Developed by : @krigjo25
-    Date Started : 25.11-23
-    Date Submited : 24.11-23
-    Date re-Submited : N/A
+    '''
+        #   Author : @Krigjo25
+        #   Date : 11-22
 
         #   __init__ should initialize a cookie jar with the given capacity, which represents the maximum number of cookies that can fit in the cookie jar.
         #   If capacity is not a non-negative int, though, __init__ should instead raise a ValueError.
@@ -17,8 +13,7 @@
         #   Counter should return the number of cookies actually in the cookie jar.
         #   Structure your class per the below.
         #   You may not alter these methods’ parameters, but you may add your own methods.
-'''
-class Jar:
+    '''
 
     def __init__(self, capacity = 12):
 
@@ -64,13 +59,9 @@ class Jar:
             #   Raising valueError if the capacity is less than 1
 
         '''
-        try :
-            if self.__capacity < 1: raise ValueError()
-
-        except ValueError as e:
-            print(e)
-
         self.__capacity = x
+
+        if self.__capacity < 1: raise ValueError()
         return self.__capacity
 
     @property
@@ -85,11 +76,7 @@ class Jar:
 
             #   Raising ValueError if there is less than zero cookies left
         '''
-        try:
-            #   Ensure the cookie is not in the variable
-            if '🍪' not in x: self._cookie = 'zero cookies'
 
-            #   Ensure  there is cookies left
-            else: self._cookie = x
-        except ValueError as e:
+        if '🍪' not in x: self._cookie = 'zero cookies'
+        else: self._cookie = x
         return self._cookie

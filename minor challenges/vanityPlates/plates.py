@@ -1,85 +1,94 @@
-def main():
+class VanityPlates():
 
-    if PlateValidation(input("Plate: ").upper()):
-        return print("valid")
-
-    else:
-        return print("invalid")
-
-
-def PlateValidation(plate):
-
-    #   Ensure the string meets the requirements
-    if CheckLengthAndSymbols(plate):
-        if CheckTheNumbers(plate):
-            if PlateDesign(plate):
-                return True else: return False
-        else:
-            return False
-    else:
-        return False
-
-
-def CheckLengthAndSymbols(arg):
-
-    #   Ensures the maximum of characters is 6 while minimum is 2
-    if len(arg) <= 6 and len(arg) > 1:
-
-        #   Ensures that the string is numeric
-        if str(arg).isalnum():
-            return True
-        else:
-            return False
-
-    else:
-        return False
-
-
-def CheckTheNumbers(arg):
     '''
-        Checking for the first digit in the string,
-        if the number starts with 0 return false.
+        VanityPlates
+
+        1. Has to start with at least two letters :v:
+        2. Length has to be maximum of 6 characters and no less than 2 characters :v:
+        3. Numbers can only be at the end. (AAA222), (AAAAAA) not (AA22AA)(AA2AA2)
+        4. Only numbers or letters and numbers can not start with 0 :v:
     '''
 
-    #   Iterating through the argument
-    for i in str(arg):
+    def __init__(self):
+        self.e = 'Invalid'
 
-        #   Ensures the first digts is not 0
-        if i.isdigit():
-            if i.startswith('0'):
-                return False
+    def PlateValidation(self):
+
+        #   Initializing variables
+        plate = str(input('Plate: ').upper())
+
+        #   Iterating throught the plate
+        if self.CheckLengthAndSymbols(plate):
+            if self.CheckTheNumbers(plate):
+
+                if self.PlateDesign(plate): print('Valid')
+
+                else : print(self.e)
+
+            else: print(self.e)
+
+        else: print(self.e)
+
+        return
+
+    def CheckLengthAndSymbols(self, arg):
+
+        #   Checking if there is maximum of 6 character
+        if len(arg) <= 6 and len(arg) > 1:
+
+            #   Return True if arg is only number and letters
+            if str(arg).isalnum(): return True
+            else: return False
+
+        else: return False
+
+    def CheckTheNumbers(self, arg):
+
+        '''
+            Checking for the first digit in the string,
+            if the number starts with 0 return false.
+        '''
+
+        #   Iterating through the argument
+        for i in str(arg):
+
+            #   Checking the first Integer
+            if i.isdigit():
+                if i.startswith('0'): return False
+                else: return True
+
             else:
-                return True
+                continue
 
-    return True
+        return True
 
+    def PlateDesign(self, arg):
 
-def PlateDesign(arg):
-    '''
-                    PlateDesign
-        If the numbers are in the middle of the prompt
-        the user will recive an error.
+        '''
+                        PlateDesign
+            If the numbers are in the middle of the prompt
+            the user will recive an error.
 
-    '''
+        '''
 
-    #   Ensures the first two character is letters
-    if str(arg[0:2]).isalpha():
+        #   Checking if the first Two Characters is letters
 
-        #   Ensures the numbers is at the end of the plate
-        if str(arg[2:]).isnumeric():
-            return True
-        elif str(arg[3:]).isnumeric():
-            return True
-        elif str(arg[4:]).isnumeric():
-            return True
-        elif str(arg).isalpha():
-            return True
-        else:
-            return False
+        if str(arg[0:2]).isalpha():
 
-    else:
-        return False
+            #   Checking if the numbers is at the end
+            a = len(arg)
+
+            if str(arg[2:]).isnumeric():return 'True'
+            elif str(arg[3:]).isnumeric(): return 'True'
+            elif str(arg[4:]).isnumeric(): return 'True'
+            elif str(arg).isalpha(): return 'True'
+            else: return False
+
+        else: return False
 
 
-if __name__ == "__main__":
-    main()
+
+if __name__ == '__main__':
+
+    vp = VanityPlates()
+    vp.PlateValidation()

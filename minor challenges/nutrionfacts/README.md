@@ -1,25 +1,18 @@
-# Bank
+# Nutrition Facts
 
 ## About this project
 
-A program to ensure the value of the prompted message
+A program that returns calories of a inputted fruit.
+    USEAGE :    In the terminal type nutrition.py
+                Follow the instruction for the prompted message.
 
-Usage : type in the terminal python bank.py,
-and follow the instruction from the prompted message
 
 Originally this project was created as an
 assignment at CS50P - Introduction to Python.
 
-##  About the testing framework
+##  About the testing network
 
-No testing framework for this project
-
-##  Credits
-
-### Responsories
-
-[os, sys -  Matthijs labots]()
-
+Testing network has not been used in this project
 
 ###  Disclamers
 

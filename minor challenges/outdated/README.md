@@ -1,25 +1,19 @@
-# Bank
+# Outdated
 
 ## About this project
 
-A program to ensure the value of the prompted message
+A Program to convert a formated date into a american way date
 
-Usage : type in the terminal python bank.py,
-and follow the instruction from the prompted message
+Usage : type in the terminal python outdated.py,
+wait for the prompt then type an date
+e.g
 
 Originally this project was created as an
 assignment at CS50P - Introduction to Python.
 
-##  About the testing framework
+##  About the testing network
 
-No testing framework for this project
-
-##  Credits
-
-### Responsories
-
-[os, sys -  Matthijs labots]()
-
+Testing network has not been used in this project
 
 ###  Disclamers
 
