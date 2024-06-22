@@ -1,4 +1,4 @@
-#   WordGames
+#   Adventures
 
 ## Table of content
 
@@ -7,7 +7,7 @@
 >>  ### Contact
 >>  ### Disclaimers
 
->   ## [WordGames](#WordGames)
+>   ## [Adventures](#Adventures)
 >>  ### Project information 
 >>  ### Features
 >>  ### Updates
@@ -33,11 +33,6 @@ My name is Kristoffer, everybody calling me Kriss.<br>
 I'm born in 94 from Norway, which is translated to "the way to the north"<br>
 usually i do study Python, SQL, Philiosophy & C++, otherwise im just being a human.
 
-### Disclaimer
-
-The developer can only have the responsibility,<br>
-for how the projects is created, how it is used,<br>
-is another story.
 
 ### Contact information
 
@@ -58,43 +53,34 @@ is another story.
 
 ## Feautures
 
-### Available games
+### Available Adventures
 
-*   JumbleGame
-*   Scrabble
-*   Eightball
-*   Madlibs
-
-### Eightball
-
-The game works with asking any question into the input field.<br>
-Questions containing numbers will output a ValueError.
-
-The program sends you a feedback ;
-
-*      if the question can not be asked, by sending an exception in this case a ValueError.
-
-*      With a Philiosopic answer if the question can be asked.
-
-### JumbleGame
-
-The intention of the game is to unscrabble a given word.<br>
-The given word is based on category which is saved in a MariaDB database<br>
-except random, the category random is an API by [API-Ninja](https://api-ninjas.com/).
-
-
-### Scrabble
-
-The intention of the game is to send a valid English word into the program<br>
-Then the program will check if the word does actually exists with an API by [API-Ninja](https://api-ninjas.com/).
-
--   If the word does not exists, the player will recieve zero points for the word
-
-The points system is ranged for each letter as in scrabble.
+*   MadLabs
 
 ### Madlibs
 
 The intention of the game is to prompt the user for x words, and generate a madlib story
+
+USAGE : In your terminal, type adventures.py,
+then follow the instructions for every prompted message
+
+## Credentials
+
+### MadlibStories
+
+The authors of madlibs story is unkown
+- The Photographer by []()
+- Butterfly by []()
+- Apple and apple by []()
+
+### Responsories
+
+-   requests [Kenneth Reitz](https://requests.readthedocs.io/en/latest/)<nt>
+
+### API
+
+-   [NAPI Ninjas](https://api-ninjas.com/)<br>
+
 
 ## Notes
 
@@ -134,24 +120,3 @@ Database is used to store information the database can be static which means val
 dynamically which means the values can change.
 
 `tables` are created to sort data in columns and rows
-
-
-## Credentials
-
-### MadlibStories
-
-The authors of madlibs story is unkown
-- The Photographer by []()
-- Butterfly by []()
-- Apple and apple by []()
-
-### Responsories
-
--   requests [Kenneth Reitz](https://requests.readthedocs.io/en/latest/)<nt>
-
-### API
-
--   [NAPI Ninjas](https://api-ninjas.com/)<br>
-
-##  Notes
-

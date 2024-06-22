@@ -106,7 +106,6 @@ class AdventureGames():
     
             return
 
-    def DungeonGenerator(self): pass
 
 if __name__ == '__main__':
     w = AdventureGames()
