@@ -4,6 +4,7 @@ import sys
 import random as r
 import time as t
 
+from pylib.command_line_tool import CommandlineInterface
 from dotenv import load_dotenv
 
 
@@ -373,6 +374,26 @@ class WordGames():
         """
             Command-line tool to interact with the games
         """
-        pass
+
+        cmd = CommandlineInterface()
+
+        if cmd.CommandLineOptions().credits: 
+            return cmd.ProgramCredits()
+            
+        elif cmd.CommandLineOptions().info: 
+            return cmd.Porgaminfo()
+        
+        elif cmd.CommandLineOptions().rsp: 
+            return self.RockScissorPaper()
+
+        elif cmd.CommandLineOptions().scrabble: 
+            return self.Scrabble()
+        
+        elif cmd.CommandLineOptions().eight: 
+            return self.EightBall()
+        
+        elif cmd.CommandLineOptions().jumble: 
+            return self.JumbleGame()
+
 if __name__ == "__main__":
     WordGames().main()

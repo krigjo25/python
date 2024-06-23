@@ -4,7 +4,7 @@ import random as r
 
 class GameOver():
 
-    def GameOver_replies(self, n, answer):
+    def roundover(self, n, answer):
 
         if answer == n:
 

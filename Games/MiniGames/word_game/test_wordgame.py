@@ -2,4 +2,4 @@
 import pytest
 
 #   Importing local libraries
-from games import WordGames as w
+from wordgames import WordGames as w

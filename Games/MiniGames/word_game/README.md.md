@@ -52,6 +52,10 @@
 *   Scrabble
 *   Eightball
 
+### How to use the program
+
+> USEAGE : In your terminal, type python wordgames.py -h
+
 ### Eightball
 
 The game works with asking any question into the input field.<br>
@@ -62,9 +66,6 @@ The program sends you a feedback ;
 *      if the question can not be asked, by sending an exception in this case a ValueError.
 
 *      With a Philiosopic answer if the question can be asked.
-
-USAGE : In your terminal, type games.py,
-then follow the instructions for every prompted message
 
 ### JumbleGame
 
@@ -83,8 +84,6 @@ Then the program will check if the word does actually exists with an API by [API
 -   If the word does not exists, the player will recieve zero points for the word
 
 The points system is ranged for each letter as in scrabble.
-
-> USAGE : In your terminal, type games.py,<br>then follow the instructions for every prompted message
 
 ## Credentials
 
