@@ -2,48 +2,40 @@
 
 ## Table of content
 
->   ## [Introduction](#Introduction)
->>  ### About the Maintainer
->>  ### Contact
->>  ### Disclaimers
+## [About The Author](#about-the-author)
+### Disclaimer
 
->   ## [IntGames](#IntGames)
->>  ### Project information 
->>  ### Features
->>  ### Updates
+## [IntGames](#IntGames)
+### Project information 
+### Features
+### Updates
 
->   ## [Credentials](#Credentials)
->>  ### Responsories
->>  ### APIs
->>  ### References
+## [Credentials](#Credentials)
+### Responsories
+### APIs
+### References
 
->   ## [Notes](#Notes)
->>  ### Python functions
->>  ### Python Try, except, else
->>  ### Python List
->>  ### Python del
->>  ### SQL Database
+## [Project Summary](#Notes)
+### Python functions
+### Python Try, except, else
+### Python List
+### Python del
+### SQL Database
 
 
 ## Introduction
 
-### About the Maintainer
+### About the Author
+[About krigjo25](https://github.com/krigjo25/)
 
-
-My name is Kristoffer, everybody calling me Kriss.<br>
-I'm born in 94 from Norway, which is translated to "the way to the north"<br>
-usually i do study Python, SQL, Philiosophy & C++, otherwise im just being a human.
 
 ### Disclaimer
 
-Some of the projects in this file may have been used in 
+Some of the projects in this file may have been used in CS50P - Introduction to Python.
 
 This code snippet may be used to debug
 your own code, but don't copy it,
 Please be aware, and respect the [Academic Honesty Policy](https://cs50.harvard.edu/x/2023/honesty/).
-### Contact information
-
-[Contact Information](https://github.com/krigjo25/contactinformation)
 
 ## Available games
 
@@ -58,8 +50,8 @@ while the players has won,
 
 Based on level the difficulty may vary, but the user gets a hint if the user types in a less or greater than answer.
 
-USAGE : In your terminal type python games.py, 
-follow the instuctions given by the prompted message
+> USAGE : In your terminal, type intgames.py -h to view the commands available for the game
+
 
 ### The Little proffesor
 
@@ -68,9 +60,7 @@ the user to solve, the mathimatical question is randomly generated, by a code.
 The following program has a level system where the higher level,
 the more difficult the mathimatical question can be.
 
-USAGE : In your terminal, type games.py,
-then follow the instructions for every prompted message
-
+> USAGE : In your terminal, type intgames.py -h to view the commands available for the game
 
 Originally this game was created as an
 assignment at CS50P - Introduction to Python Programming.
@@ -92,12 +82,11 @@ follow the instuctions given by the prompted message
 This project uses the testing framework <strong>pytest</strong>.
 
 
-USEAGE : Type in your terminal pytest <strong>testing/</strong>
-In order to test the whole dictionary
+> USEAGE : Type in your terminal pytest <strong>testing/</strong> In order to test the whole dictionary
 
-USEAGE : Type in your terminal pytest <strong>test_intgame -s</strong> to see a more detailed test.
+>USEAGE : Type in your terminal pytest <strong>test_intgame -s</strong> to see a more detailed test.
 
-USEAGE : Type in your terminal pytest <strong>test_intgame -k "classname"</strong>, in order to test the classes
+>USEAGE : Type in your terminal pytest <strong>test_intgame -k "classname"</strong>, in order to test the classes
 
 ## Credentials
 
@@ -106,6 +95,3 @@ USEAGE : Type in your terminal pytest <strong>test_intgame -k "classname"</stron
 -   [pytest - by pytest team](https://github.com/pytest-dev/pytest)
 -   [random - by Python developer team]()
 -   [requests - by Kenneth Reitz](https://requests.readthedocs.io/en/latest/)<nt>
-
-### Contact information
-[About the developer](https://github.com/krigjo25)

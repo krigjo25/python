@@ -17,7 +17,7 @@
 >>  ### APIs
 >>  ### References
 
->   ## [Notes](#Notes)
+>   ## [Project Summary](#project-summary)
 >>  ### Python functions
 >>  ### Python Try, except, else
 >>  ### Python List
@@ -27,16 +27,9 @@
 
 ## Introduction
 
-### About the Maintainer
+### About The Author
+[about krigjo25](https://github.com/krigjo25/)
 
-My name is Kristoffer, everybody calling me Kriss.<br>
-I'm born in 94 from Norway, which is translated to "the way to the north"<br>
-usually i do study Python, SQL, Philiosophy & C++, otherwise im just being a human.
-
-
-### Contact information
-
-[Contact Information](https://github.com/krigjo25/contactinformation)
 
 ##  WordGames
 
@@ -91,8 +84,7 @@ Then the program will check if the word does actually exists with an API by [API
 
 The points system is ranged for each letter as in scrabble.
 
-USAGE : In your terminal, type games.py,
-then follow the instructions for every prompted message
+> USAGE : In your terminal, type games.py,<br>then follow the instructions for every prompted message
 
 ## Credentials
 
@@ -104,7 +96,7 @@ then follow the instructions for every prompted message
 
 -   [NAPI Ninjas](https://api-ninjas.com/)<br>
 
-## Notes
+## Project Summary
 
 ### Python functions
 

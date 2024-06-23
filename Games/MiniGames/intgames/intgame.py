@@ -2,12 +2,15 @@
 import sys
 import random as r
 
+from pylib.command_line_tool import CommandlineInterface
+
 class IntegerGames():
 
     '''
         #   Title   :       A Collection of Integer Games
         #   Author :        krigjo25
         #   Description :   
+                Creating a collection of Integer games
     '''
 
     def GameLevel(self, lvl):
@@ -113,7 +116,7 @@ class IntegerGames():
         while True:
 
             #   Initializing the game
-            print(f'Lives le14ft : {lives}\tCurrent Score : {score}\t Current level: {lvl}')
+            print(f'Lives left : {lives}\tCurrent Score : {score}\t Current level: {lvl}')
             n = self.GameFormula(lvl)
 
             #   Prompting the user for the output
@@ -181,32 +184,19 @@ class IntegerGames():
                     sys.exit(f"Number of levels won:{lvl}")
 
     def main(self):
+        cmd = CommandlineInterface()
 
-        arg = ['-h', '-tlp', '-gtn']
-        try:
-            if len(sys.argv) != 2:
-                raise Exception(" Too many or too few arguments")
-        
-            if str(sys.argv[1]) not in arg: raise Exception(" Command not found")
-        except Exception as e:
-            sys.exit(f"USEAGE : python intgame.py -h to see available commands\n{e}")
-
-        if sys.argv[1] == '-h':
-            print('Title             :  Minigames')
-            print('Author            :  krigjo25')
-            print('version           :  v0.0.1')
-            print('Description       :\n ')
-            print('Commands available:\n-h -- Support window\n-tlp -- The Little Proffessor Game\n-gtn -- Guess The Number game')
-
+        if cmd.CommandLineOptions().credits: 
+            return cmd.ProgramCredits()
             
-        if sys.argv[1] == '-gtn':
-            print('Starting Game : Guess The Number')
-            self.GuessTheNumber()
+        elif cmd.CommandLineOptions().info: 
+            return cmd.Porgaminfo()
+        
+        elif cmd.CommandLineOptions().tlp: 
+            return self.LittleProffessor()
 
-        elif sys.argv[1] == '-tlp':
-            print('Starting Game : The Little Proffessor')
-            self.LittleProffessor()
-
+        elif cmd.CommandLineOptions().gtn: 
+            return self.GuessTheNumber()
 
 if __name__ == '__main__':
     IntegerGames().main()

@@ -100,7 +100,7 @@ class WordGames():
 
             #   Prepare and retrieve the category
             prompt = input("Select one of the categories below :")
-            prompt = str(prompt.content).lower()
+            prompt = str(prompt).lower()
 
             try :
 
@@ -367,126 +367,12 @@ class WordGames():
                 
                 return
 
-    def madlibsStory(self):
 
-        #   Initializing variable and the library list
-        madlibs = ""
-        madlibslist = ["the photographer", "butterfly"]
-
-        #   Iterating through the list, and assignt values into a string
-        for i in madlibslist: madlibs += f"{i.capitalize()}, "
-
-        #   Checking if there is a story to type
-        while True:
-
-            try:
-
-                #   Prompting the user for a message
-                prompt = input(f"Choose a story between : {madlibs} :").lower()
-
-                #   Returns false, returns only true if prompt = None, why?
-                if prompt not in madlibslist : raise TypeError(" Story does not exist, contact the maintainer to fix it.")
-
-                for i in prompt:
-                    if str(i).isdigit(): raise ValueError("The title of story does not contain numbers")
-            except Exception as e: print(e)
-            else:
-                print(f"You've choosen {prompt.capitalize()}.\ninput atlast two words in the following inputs.")
-                break
-
-        while True:
-
-            try:
-
-                #   Story inputs
-                adjectives = input("Adjectives for the story? (seperate with \",\" comma): ").split(",")
-                color = input("Colours for the story? (seperate with \",\" comma):").split(",")
-                things = input("Things for the story? (seperate with \",\" comma)").split(",")
-                location = input("Locations for the story? (seperate with \",\" comma)").split(",")
-                person = input("Names of people of the story : (seperate with \",\" comma)").split(",")
-                animals = input("Names of animals / insects of the story (seperate with \",\" comma)").split(",")
-                verbs = input("Verbs for the story? (seperate with \",\" comma)").split(",")
-                food = input("food products for the story? (seperate with \",\" comma)").split(",")
-                clothes = input("clothes for the story? (seperate with \",\" comma)").split(",")
-                profession = input("professions for the story? (seperate with \",\" comma)").split(",")
-
-                #   Initializing a 2D array
-                words = [adjectives, color, things, location, person, animals, verbs, food, profession]
-
-                for i in words:
-
-                    #   1D Lists¨
-                    if len(i) < 2:
-
-                        #   Error messages based on index
-                        match words.index(i):
-
-                            case 0: raise ValueError("There has to be more than 1 adjective")
-                            case 1: raise ValueError("There has to be more than 1 color")
-                            case 2: raise ValueError("There has to be more than 1 thing")
-                            case 3: raise ValueError("There has to be more than 1 location")
-                            case 4: raise ValueError("There has to be more than 1 person")
-                            case 5: raise ValueError("There has to be more than 1 animal")
-                            case 6: raise ValueError("There has to be more than 1 verb")
-                            case 7: raise ValueError("There has to be more than 1 food product")
-                            case 8: raise ValueError("There has to be more than 1 proffesion")
-                            case 9: raise ValueError("There has to be more than 1 cloth")
-
-                    for j in i:
-                        for k in j:
-
-                            if str(k).isdigit(): raise ValueError("The string can not contain any numbers.")
-
-                #   Clear some space
-                del words
-
-                #   Terminate the while loop
-                break
-    
-            except Exception as e : print(e)
-
-        #   Initializing variable
-        madlibs = ""
-
-        match prompt:
-
-            case "the photographer":
-
-                #   Creating strings
-                string = f"Say {food[r.randrange(0,len(food))]}, The Photographer said as the camera flashed!"
-                string1 = f"{person[r.randrange(0,len(person))]} and I had gone to {location[r.randrange(0,len(location))]} to get our photos taken on my birthday."
-                string2 = f"The first photo we really wanted was a picture of us dressed as {animals[r.randrange(0,len(animals))]}, pretending to be a {profession[r.randrange(0,len(profession))]}."
-                string3 = "When we saw the second photo, it was exactly what I wanted."
-                string4 = f"We both looked like {things[r.randrange(0,len(things))]} wearing {clothes[r.randrange(0,len(clothes))]} and {verbs[r.randrange(0,len(verbs))]} -- that were exctly what i had in mind."
-
-                #   Print output
-                print(string, string1, string2, string3, string4)
-
-                #   Clear some space
-                del string3, string4
-
-            case "butterfly":
-
-                #   Creating strings
-                string = f"Last night I dreamed I was a {adjectives[r.randrange(0,len(adjectives))]} butterfly with {color[r.randrange(0,len(color))]} splocthes that looked like {things}."
-                string1 = f"I flew to {location[r.randrange(0,len(location))]} with my bestfriend and {person[r.randrange(0,len(person))]} who was a {adjectives[r.randrange(0,len(adjectives))]} {animals[r.randrange(0,len(animals))]}."
-                string2 = f"We ate some {food[r.randrange(0,len(food))]} when we got there and then decided to {verbs[r.randrange(0,len(verbs))]} and the dream ended when I said-- lets {verbs[r.randrange(0,len(verbs))]}."
-
-                #   Print output
-                print(string, string1, string2)
-
-                # clear some space
-
-        #   Clear some memory
-        del string, string1, string2
-        del adjectives, color
-        del things, location
-        del animals, verbs
-        del food, profession
-        del prompt, madlibslist
-
-        return
-
+    def main(self): 
+        
+        """
+            Command-line tool to interact with the games
+        """
+        pass
 if __name__ == "__main__":
-    wordgames = WordGames()
-    wordgames.madlibsStory()
+    WordGames().main()
