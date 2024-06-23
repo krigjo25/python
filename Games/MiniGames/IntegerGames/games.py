@@ -2,14 +2,8 @@
 import sys
 import random as r
 
-#from os import getenv
-#from dotenv import load_dotenv
-
 #   Importing local libraries
-#from Games.MiniGames.IntegerGames.dict.gamedict import GameOver
-#from Games.MiniGames.IntegerGames.pylib.mariadb import MariaDB
-
-#load_dotenv()
+from intgames.dict.gamedict import GameOver
 
 class IntegerGames():
 
@@ -19,7 +13,7 @@ class IntegerGames():
         #   Description :   
     '''
 
-    def GameLevel(self):
+    def GameLevel(self, lvl):
 
         '''
             #   Choosing the difficulty level of the game
@@ -28,9 +22,6 @@ class IntegerGames():
 
         while True:
 
-
-            #   Prompting the user for a level
-            lvl = input('level : ')
 
             try :
                 #   Ensure the input is an integer
@@ -120,13 +111,12 @@ class IntegerGames():
          #   Initializing Game Configurations
         lives = 3
         score = 0
-        lvl = self.GameLevel()
+        lvl = self.GameLevel(input('lvl :'))
 
         while True:
 
             #   Initializing the game
             n = self.GameFormula(lvl)
-            print(n)
             #   Prompting the user for the output
             answer = input(f'{n[1]} = :')
 

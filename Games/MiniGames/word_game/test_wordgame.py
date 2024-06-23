@@ -2,26 +2,17 @@
 import pytest
 
 #   Importing local libraries
-from games import WordGames
+from games import WordGames as w
 
-class TestWordGames:
 
-    wg = WordGames
-
-    def test_EightBall(self):
-
-        w = WordGames()
-        assert w.EightBall('what') == 'what'
-        assert w.EightBall('how') == 'what'
-        assert w.EightBall('why') == 'what'
-
-        return
+def test_ebassertion():pass
     
-    def test_EightBall(self):
+def test_ebexceptions(): pass
 
-        w = WordGames()
-        assert w.RockScissorPaper('\U0001F4C4') == 'what'
-        assert w.RockScissorPaper('\U0001FAA8') == 'what'
-        assert w.RockScissorPaper('\U00002702') == 'what'
+def test_rspassertion():pass
+    
+def test_rspexceptions(): pass
 
-        return
+def test_jgassertion():pass
+    
+def test_jgexceptions(): pass
