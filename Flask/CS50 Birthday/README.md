@@ -2,8 +2,6 @@
 
 ##  About Birthdays
 
-### Introduction to the project
-
 The choice of using class baseed views, was an interesting approach. Ass classed based views are more structured and easier to maintain.
 
 Originally this web application was created as an assignment at xCS50, but not based on their instructions to develop a web application in their own way
