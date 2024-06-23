@@ -3,6 +3,7 @@ import sys
 import random as r
 
 from pylib.command_line_tool import CommandlineInterface
+from pylib.dict.game_over import GameOver
 
 class IntegerGames():
 
@@ -184,6 +185,7 @@ class IntegerGames():
                     sys.exit(f"Number of levels won:{lvl}")
 
     def main(self):
+
         cmd = CommandlineInterface()
 
         if cmd.CommandLineOptions().credits: 
