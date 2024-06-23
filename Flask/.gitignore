@@ -1,1 +1,3 @@
+#   Ingoring specsific files
 _pycache__
+*.pyc
