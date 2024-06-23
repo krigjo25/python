@@ -14,7 +14,12 @@ assignment at xCS50 - Introduction to Computer Science.
 
 ##  Credits
 
-[recover_linkedlist - by xCS50]()
+[flask - by the pallets project]()
+[flask_session - by the pallets project]()
+[pytest -]()
+[SQL ALchomy - ]()
+[CS50 - CS50Team]()
+[helpers - CS50Team]()
 
 ###  Disclamers
 

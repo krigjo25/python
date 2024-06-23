@@ -1,7 +1,6 @@
 #   Importing responsories
-from markupsafe import Markup
 from flask.views import MethodView
-from flask import jsonify, redirect, render_template, request, flash
+from flask import  render_template, request, flash
 
 # CS50 responsories
 from cs50 import SQL
