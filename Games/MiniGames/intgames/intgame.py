@@ -84,12 +84,10 @@ class IntegerGames():
         match lvl:
 
             case 5:
-
                 n = abs(x - y)
                 txt = f"{x} - {y} = "
             
             case 6:
-
                 n = abs(x * y)
                 txt = f"{x} * {y} = "
 

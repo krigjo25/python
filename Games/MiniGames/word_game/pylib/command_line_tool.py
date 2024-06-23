@@ -54,17 +54,27 @@ class CommandlineInterface():
         
         """
             Libraries used in the project :\n
+            
+            requests  - by Kenneth Reitz
+            os, sys -  by
+            dotenv -   by 
+            pytest - pytest - by pytest team\n
             sys - Python built-in responsories\n
             random - Python built-in responsories\n
+            
+            
+            
             argparse - Python command line tool responsories\n
+
+            Project Created by : @krigjo25\n
+            Copyrights all rights reserver 2024\n
         """
         return sys.exit("""
             Libraries used in the project :
-            pytest - pytest - by pytest team
+            
             sys - Python built-in responsories
             random - Python built-in responsories
             argparse - Python command line tool responsories\n
             
-            Project Created by : @krigjo25
-            Copyrights all rights reserver 2024
+
         """)

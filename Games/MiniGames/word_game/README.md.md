@@ -2,27 +2,21 @@
 
 ## Table of content
 
->   ## [Introduction](#Introduction)
->>  ### About the Maintainer
->>  ### Contact
->>  ### Disclaimers
+## [Introduction](#Introduction)
+### About the author
 
->   ## [WordGames](#WordGames)
->>  ### Project information 
->>  ### Features
->>  ### Updates
+## [WordGames](#WordGames)
+### Project information 
+### Features
+### Updates
 
->   ## [Credentials](#Credentials)
->>  ### Responsories
->>  ### APIs
->>  ### References
+## [Credentials](#Credentials)
+### Responsories
+### APIs
+### References
 
->   ## [Project Summary](#project-summary)
->>  ### Python functions
->>  ### Python Try, except, else
->>  ### Python List
->>  ### Python del
->>  ### SQL Database
+## [Project Summary](#project-summary)
+### SQL Database
 
 
 ## Introduction
@@ -33,18 +27,9 @@
 
 ##  WordGames
 
-### Project info
+### Project information
 
-> Project start :<br>
->   26.01-21
->
->   Last update :<br>
->   29.01-23
->
->   SQL Database:<br>
->   mariadb
-
-## Feautures
+> USEAGE : In your terminal, type python wordgames.py -h
 
 ### Available games
 
@@ -52,18 +37,15 @@
 *   Scrabble
 *   Eightball
 
-### How to use the program
-
-> USEAGE : In your terminal, type python wordgames.py -h
 
 ### Eightball
 
 The game works with asking any question into the input field.<br>
 Questions containing numbers will output a ValueError.
 
-The program sends you a feedback ;
+The program sends you a feedback:
 
-*      if the question can not be asked, by sending an exception in this case a ValueError.
+*      if the question can not be asked, by sending the user a ValueError
 
 *      With a Philiosopic answer if the question can be asked.
 
@@ -72,9 +54,6 @@ The program sends you a feedback ;
 The intention of the game is to unscrabble a given word.<br>
 The given word is based on category which is saved in a MariaDB database<br>
 except random, the category random is an API by [API-Ninja](https://api-ninjas.com/).
-
-USAGE : In your terminal, type games.py,
-then follow the instructions for every prompted message
 
 ### Scrabble
 
@@ -89,7 +68,9 @@ The points system is ranged for each letter as in scrabble.
 
 ### Responsories
 
--   requests [Kenneth Reitz](https://requests.readthedocs.io/en/latest/)<nt>
+-   [requests  - by Kenneth Reitz](https://requests.readthedocs.io/en/latest/)
+-   [sys, random -  by Python developer team]()
+-   [dotenv -   by Saurabh Kumar](https://github.com/theskumar/python-dotenv)
 
 ### API
 
@@ -97,34 +78,7 @@ The points system is ranged for each letter as in scrabble.
 
 ## Project Summary
 
-### Python functions
-
-During the project I have learned alot about Python functions<br>
-How to define a function, how the syntax of a function works in real life.
-
-
-### Python Try, except, else
-
-I have learned the importance of using `Try, except, else`,<br>
-in the code, it has a better structure.
-
-its a better design as developers can see what you are attempting to do <br>
-
-
-### Python List
-
-During the projects I've learned how to declear, initialize<br>
-a 1D Array or 2D Arrays. To make the workflow easier for to read.
-
-List or arrays are a short term solution to store information which is going to be used in the project.
-
-### Python del
-
-Using Python's `del` is important to clear space from memory, to avoid using unneccessary memories, for the sake of resources.
-
-
 ### SQL Database
-
 
 During the project I have learned the basic understanding of a<br>
 `Structure Query Language` hereby it's Alias will be used (`SQL`).
