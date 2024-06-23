@@ -108,4 +108,4 @@ USEAGE : Type in your terminal pytest <strong>test_intgame -k "classname"</stron
 -   [requests - by Kenneth Reitz](https://requests.readthedocs.io/en/latest/)<nt>
 
 ### Contact information
-[About the developer]()
+[About the developer](https://github.com/krigjo25)
