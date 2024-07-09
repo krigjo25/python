@@ -27,6 +27,15 @@ class CommandlineInterface():
         parser.add_argument('-i', '--info', dest = 'info', help = '%(prog)s info Center', action='store_true')
         parser.add_argument('-c', '--credits', dest = 'credits', help = '%(prog)s Credential Center', action='store_true')
         parser.add_argument('-r', '--rsp', dest = 'rsp', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
+
+        #   Game Guide
+        parser.add_argument('-faq --rps', dest = 'faq', help ='Game Guides', action='store_true')
+        parser.add_argument('-faq --jumble', dest = 'faq', help ='Game Guides', action='store_true')
+        parser.add_argument('-faq --Scrable', dest = 'faq', help ='Game Guides', action='store_true')
+        parser.add_argument('-faq --eightball', dest = 'faq', help ='Game Guides', action='store_true')
+        
+
+
         
         
         

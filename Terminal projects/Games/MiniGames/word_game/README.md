@@ -72,9 +72,11 @@ The points system is ranged for each letter as in scrabble.
 -   [sys, random -  by Python developer team]()
 -   [dotenv -   by Saurabh Kumar](https://github.com/theskumar/python-dotenv)
 
+
 ### API
 
 -   [NAPI Ninjas](https://api-ninjas.com/)<br>
+-   [Random Human Generator - AbhinRustagi](https://randomuser.me/)<br>
 
 ## Project Summary
 

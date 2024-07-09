@@ -59,7 +59,7 @@ class NinjaAPI():
             #   API by API-Ninja
             # Using an api to check wether the word exist or not.
         """
-        print("Test ninja definition")
+
         parse = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
         response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-Api-Token")})
         json = dict(response.json())
@@ -74,8 +74,30 @@ class NinjaAPI():
                 if "valid" in i :  json = j
 
         #   Clear some memory
-        del word
-        del parse
-        del response
+        del word, parse, response
 
         return json
+
+class GenerateNames():
+        def GenerateRandomNames(self, total):
+
+            """
+                Generates only firstnames
+                API by RandomUserGenerator
+            """
+
+            parse = f'https://randomuser.me/api/?results={total}'
+            response = req.get(parse)
+            json = response.json()
+            string = ""
+
+            try:
+                if response.status_code != req.codes.ok:
+                    raise Exception(response.status_code)
+
+            except Exception as e: 
+                return e
+
+            for i in json['results']:
+    
+                return i['name']['first']

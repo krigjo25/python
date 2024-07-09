@@ -2,10 +2,9 @@
 import os
 import sys
 import random as r
-
 from dotenv import load_dotenv
 
-from pylib.apis import NinjaAPI
+from pylib.apis import NinjaAPI, GenerateNames
 from pylib.databasePython import MariaDB
 from dictionary.gamedicitonary import Philosopher, JumbleCategory, GameOver, ReactionGame, ScrabbleGame
 from pylib.command_line_tool import CommandlineInterface
@@ -199,6 +198,7 @@ class WordGames():
 
         return
 
+
     def Scrabble(self):
 
         '''
@@ -212,36 +212,53 @@ class WordGames():
             #   Player required : 1 - 2
 
         '''
-        #   Initializing lists
-        word = []
+        #   Initializing list / Dictionaries
+        
+        name = []
+        word = {}
+        score = {}
 
+        #   Prompts the words for both players
+        print(f"Welcome to the Scrabble Game (terminal version) !\nAvailable dictionaries : :england:, :flag_us:")
+        print(f"How to play : First you will be prompted for number of bots ask for your name\n then just type in a word to collect points.\nHowever if the word is false, no points is collected otherwise each letter has a point.\n")
+
+        totalplayers = int(input("Number of players : "))
+        bots = int(input("Number of bots to include in the game: "))
+        
+
+        if totalplayers > 0:
+
+            for i in range(0, totalplayers):
+                name.append(input(f"Player {i}'s name: "))
+            
+        if bots > 0:
+
+            for i in range(0,bots):
+                bot = GenerateNames().GenerateRandomNames(int(bots))
+                name.append(f'( Bot ) {bot}')
+                print(f"( bot ) {bot} just joined the party")
+            print()
+        
+        """
         while True:
+
+            for i in range(0, totalplayers):
+                word.append(input(f"{name[0]}: "))
 
             try:
 
-                #   Prompts the words for both players
-                print(f"Welcome to the Scrabble Game terminal version !")
-                print(f'Available dictionaries : :england:, :flag_us:')
-                print(f"How to play : First we will ask for your name\n then just type in a word to collect points.")
-                print(f"However if the word is false, no points is collected otherwise each letter has a point.")
-
-                name = [input("Player one's name: "), input("Player two's name: ")]
-                
-                #   Wait for an answer before handling the string
-                word = [input(f"{name[0]}: "), input(f"{name[1]}: ")]
-
                 for i in word:
-
                     if bool(ScrabbleGame().CheckWord(i)) == False:  
                         raise ValueError(f'"{i}" Is not a word')
+                    else:
+                        score.append(ScrabbleGame().ComputeScore(i))
+
 
             except (ValueError, TypeError) as e: 
                 print("An error occured\n {e}\n Try again...")
 
-            score = [ScrabbleGame().ComputeScore(word[0]), ScrabbleGame().ComputeScore(word[1])]
-
             #   Clear memories
-            del i, word
+            del word
 
             #   Ensure the the player whom has the highest score
             if score[0] > score[1]:
@@ -252,7 +269,7 @@ class WordGames():
 
             else:
                 return print(f"Game over\n {GameOver().TowTie()}")
-
+"""
     def RockScissorPaper(self):
 
         '''
@@ -319,7 +336,6 @@ class WordGames():
                 del prompt
                 
                 return
-
 
     def main(self): 
         

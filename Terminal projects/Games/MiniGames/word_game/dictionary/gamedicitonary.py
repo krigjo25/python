@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 #   Custom libraries
 from pylib.databasePython import MariaDB
-from pylib.apis import NinjaAPI
+from pylib.apis import GenerateNames, NinjaAPI
 
 load_dotenv()
 
