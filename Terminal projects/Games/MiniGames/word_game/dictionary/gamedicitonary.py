@@ -1,6 +1,5 @@
 # Python Repositories
 import random as r
-import requests as req
 
 from os import getenv
 
@@ -9,6 +8,7 @@ from dotenv import load_dotenv
 
 #   Custom libraries
 from pylib.databasePython import MariaDB
+from pylib.apis import NinjaAPI
 
 load_dotenv()
 
@@ -66,7 +66,8 @@ class Philosopher():
                         11:'The ocean is blue',
                         12:'Mulan has the highest kill-count of any Disney character.',
                         13:'The infinity sign is called a lemniscate.',
-                        14:'why do you ask me?. '
+                        14:'why do you ask me?. ',
+                        15:"..."
 
 }
 
@@ -87,16 +88,15 @@ class ReactionGame():
     def RockScissorPaper(self):
 
         dictionary = {
-                        1:'\U0001FAA8',          #  somewhat rock
-                        2:'\U00002702',          #  ✂️
-                        3:'\U0001F4C4'           #  📄
+                        1:'\U0001FAA8',     #  rock
+                        2:'\U00002702',     #  ✂️
+                        3:'\U0001F4C4'      #  📄
 }
 
         #   Randomize the dictionary
-        r.shuffle(dictionary)
-        x = r.randrange(1,len(dictionary))
+        #r.shuffle(dictionary)
 
-        return dictionary.get(x)
+        return dictionary.get(r.randrange(1,len(dictionary)))
 
     def Computer(self, arg):
 
@@ -156,8 +156,8 @@ class ReactionGame():
         elif arg == '\U0001F4C4':
 
             dictionary = {
-                            1:f'{bot} threw {arg1} at you, but you grabbed it with his {arg}, and wrapped it into a :package: \n you gave a :package: to {bot}, how considerate of you !',
-                            2:f'You wrappend {bot}\'s {arg1} into a :gift: and sent it to the North-Pole, Santa were stoned for the Christmas ',
+                            1:f'{bot} threw {arg1} at you, but you grabbed it with his {arg}, and wrapped it into a 📦 \n you gave a 📦 to {bot}, how considerate of you !',
+                            2:f'You wrappend {bot}\'s {arg1} into a 🎁 and sent it to the North-Pole, Santa were stoned for the Christmas ',
                             3:f'You made a mumified version of {bot}',
                             4:""
                     }
@@ -167,7 +167,7 @@ class ReactionGame():
             dictionary = {
                             1:f'Noone : \'\'\n{bot} : Oh snap',
                             2:f'You succsessfully cut the {arg1} with a {arg}',
-                            3:f'you showed of with his :scissors: which he thought were a knife, but the goal were reached, {bot} ran.',
+                            3:f'you showed of with his ✂️ which he thought were a knife, but the goal were reached, {bot} ran.',
                             4:""
                     }
 
@@ -191,8 +191,7 @@ class ScrabbleGame():
             #   Author : krigjo25
             #   Date   :  12.01-23
 
-            #   Prompts the words for each player
-            #   Calculating the score for both words
+            #   Calculating the score for letters
             #   Returning score from string
 
         '''
@@ -225,9 +224,8 @@ class ScrabbleGame():
 
     def CheckWord(self, arg):
 
-        #print(bool(self.APINinja(arg)))
         #   Checking if api ninja has the word
-        if APITools().NinjaCheck(arg): return True
+        if NinjaAPI().Check(arg): return True
         else: return False
 
 class JumbleCategory():
@@ -360,141 +358,3 @@ class GameOver():
             case 2 : x = "What did the tie say to the bowtie?, What a tie"
 
         return x
- 
-class MathDictionary():
-
-    def Operators(self):
-
-        '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Dictionary for game Won
-        '''
-
-        #   Randomizing an integer
-        x = r.randrange(0,2)
-
-        #   Matching x
-        match x:
-            case 0 : x = "+"
-            case 1 : x = "-"
-            case 2 : x = "/"
-            case 3 : x = "*"
-
-        return x
-
-    def intGame(self, num, x):
-
-        if x > num:
-
-
-            dictionary = {
-                            1:'Well well, we like the answer more humble than a greater answer',
-                            2:'The given number is not humble enough, try again.',
-                            3:'is greater than the answer ',
-                            4:'Do you know why the equal sign are so humble? neither were less or greater !',
-                            }
-
-        elif x < num:
-
-            dictionary = {
-                            1:f"is less, we want more",
-                            2:f'is less than i ask for',
-                            3:f'is less akward than :100:',
-                            4:f'is less humble',
-                            }
-
-        else:
-
-            dictionary = {
-                            1:f'Thank you for the humble answer, sir ',
-                            2:f'Well thats equal..'
-                           }
-
-        #   Randomize the dictionary
-        x = r.randrange(1,len(dictionary))
-
-        #   Clear some space
-        del x, num
-
-        return dictionary.get(x)
-
-class APITools():
-
-    #   API-Ninja
-    def NinjaCheck(self, word):
-
-        """
-            #   API by API-Ninja
-            # Using an api to check if the word exist in the online dictionary.
-        """
-
-        parse = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
-        response = req.get(parse, headers={'X-Api-Key': getenv("DictionaryToken")})
-
-        try:
-            if response.text["valid"] == False: raise ValueError()
-
-        except Exception : return False
-
-        #   Clear some space
-        del word
-        del parse
-        del response
-
-        return 
-
-    def NinjaChoice(self):
-
-        '''
-            #   API by API-Ninja
-            #   API to choose a randomly generated word
-        '''
-
-        parse = 'https://api.api-ninjas.com/v1/randomword'
-        response = req.get(parse, headers={'X-Api-Key': getenv("DictionaryToken")})
-        string = ""
-
-        try:
-
-            if response.status_code != req.codes.ok: raise Exception("Something went wrong with the connection to Ninja API")
-        except Exception as e : return e
-        else:
-
-            for i in response.text:
-                if i.isalpha(): string += i
-
-        #   Clear some space
-        del parse, response
-
-        return string
-    
-    def NinjaDefinition(self, word):
-
-        """
-            #   API by API-Ninja
-            # Using an api to check wether the word exist or not.
-        """
-        print("Test ninja definition")
-        parse = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
-        response = req.get(parse, headers={'X-Api-Key': getenv("DictionaryToken")})
-        json = dict(response.json())
-
-        try:
-            if response.status_code != req.codes.ok: raise Exception(response.status_code)
-
-        except Exception as e: return e
-        else:
-
-            for i, j in json.items(): 
-                if "valid" in i :  json = j
-
-        #   Clear some memory
-        del word
-        del parse
-        del response
-
-        return json
-
-class Madlibs(): pass

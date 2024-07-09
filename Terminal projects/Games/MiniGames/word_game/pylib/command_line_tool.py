@@ -10,8 +10,8 @@ class CommandlineInterface():
     '''
     version = "0.0.1"
     author = "krigjo25"
-    name = "IntegerGames"
-    description = "Collection of Integer Games"
+    name = "Word_Games"
+    description = "Collection of Word Games"
 
     def CommandLineOptions(self):
 

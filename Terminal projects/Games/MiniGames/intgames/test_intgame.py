@@ -5,11 +5,11 @@ import pytest
 from intgame import IntegerGames as ig
 
 # Configure the testing cases
-class Testcase():
+class TestConfigurations():
   pass
 
 # Testing the game level function
-class TestGameLevel(Testcase):
+class TestGameLevel(TestConfigurations):
 
   # Testing the game level
   def test_gamelvl(self):

@@ -1,14 +1,13 @@
 #   Importing Responsories
 import os
 import sys
-import time as t
 import random as r
 
 from dotenv import load_dotenv
 
-
+from pylib.apis import NinjaAPI
 from pylib.databasePython import MariaDB
-from dictionary.gamedicitonary import Philosopher, JumbleCategory, GameOver, ReactionGame, ScrabbleGame, APITools, Madlibs
+from dictionary.gamedicitonary import Philosopher, JumbleCategory, GameOver, ReactionGame, ScrabbleGame
 from pylib.command_line_tool import CommandlineInterface
 
 load_dotenv()
@@ -92,7 +91,7 @@ class WordGames():
         
 
             if prompt in category[0]: 
-                answer = APITools().NinjaChoice()
+                answer = NinjaAPI().Choice()
             else:
 
                 try :
@@ -165,43 +164,32 @@ class WordGames():
 
         '''
             #   Author : krigjo25
-            #   Date   :  12.01-23
+            #   Description :
+                prompts the user to type in a question,
+    
 
             #   Prompt the user for an answerAsk a question with what, how or why
             #   Combine the answers
             #   Send a philliosofically answer
 
         '''
-
-        #   Initializing array
+        arr = ['what', 'how']
 
         #   Print an output
         print("Ask the Philiosopher a question")
 
-        #   Initialize a string
-        quiz = ""
-
         #   Prompting the user for a question
-        prompt = input("Question :" ).split(" ")
+        prompt = str(input("Question :" ))
+        quiz = prompt
 
-        try :
+        prompt = prompt.split(" ")
 
-            for i in prompt:
-                quiz += f"{i} "
-
-            #   Ensure the condition is met
-            if str(prompt).isdigit():
-                raise ValueError('Numeric inputs is not valid.')
-
-        except Exception as e :
-            sys.exit(e)
-
+        
         #   Ensure that prompt is in arr
-        if prompt[0] in ['what', 'how']: 
+        if prompt[0].lower() in arr: 
             prompt = Philosopher().Answer()
 
         else:
-
             prompt = Philosopher().DumbFacts() 
 
         print(f"Answer for {quiz}\n{prompt}")
@@ -227,44 +215,43 @@ class WordGames():
         #   Initializing lists
         word = []
 
-        lvl = self.GameLevel()
-
         while True:
 
             try:
 
                 #   Prompts the words for both players
+                print(f"Welcome to the Scrabble Game terminal version !")
                 print(f'Available dictionaries : :england:, :flag_us:')
+                print(f"How to play : First we will ask for your name\n then just type in a word to collect points.")
+                print(f"However if the word is false, no points is collected otherwise each letter has a point.")
 
+                name = [input("Player one's name: "), input("Player two's name: ")]
+                
                 #   Wait for an answer before handling the string
-                word = [input("Player one :"), input("Player two :")]
+                word = [input(f"{name[0]}: "), input(f"{name[1]}: ")]
 
                 for i in word:
 
-                    if bool(ScrabbleGame().NinjaCheck(i)) == False:  
+                    if bool(ScrabbleGame().CheckWord(i)) == False:  
                         raise ValueError(f'"{i}" Is not a word')
 
             except (ValueError, TypeError) as e: 
                 print("An error occured\n {e}\n Try again...")
 
+            score = [ScrabbleGame().ComputeScore(word[0]), ScrabbleGame().ComputeScore(word[1])]
+
+            #   Clear memories
+            del i, word
+
+            #   Ensure the the player whom has the highest score
+            if score[0] > score[1]:
+                return print(f"Scoreboard:\n{name[0]} has {score[0]}points\n {name[1]} has {score[1]}points\n{name[0]} won ! congratulations")
+
+            elif score[0] < score[1]:
+                return print(f"Scoreboard:\n{name[0]} has {score[0]}points\n{name[1]} has {score[1]}points\n{name[1]} won ! congratulations")
+
             else:
-
-                score = [ScrabbleGame().ComputeScore(word[0]), ScrabbleGame().ComputeScore(word[1])]
-
-                #   Clear memories
-                del i, lvl, word
-
-                #   Ensure the the player whom has the highest score
-                if score[0] > score[1]: 
-                    return print("Player 1 is the winner")
-
-                elif score[0] < score[1]:
-                    return print("Player 2 is the winner")
-
-                else:
-
-                    return print(f"Game over\n {GameOver().TowTie()}")
-
+                return print(f"Game over\n {GameOver().TowTie()}")
 
     def RockScissorPaper(self):
 
@@ -284,34 +271,31 @@ class WordGames():
         #   Initializing an array with Rock, Scissors, Paper
         arr = [ "rock", "scissors", "paper"]
 
-
-
-        #   Game Configuration
-        #lvl = self.GameLevel()
+        prompt = str(input("Rock, Scissors or Paper : ")).lower()
 
         try :
 
-            prompt = str(input("Rock, Scissors or Paper : ")).lower()
-
             #   Error messages
-            if prompt not in arr: raise ValueError("Choose between Rock, Scissors or paper")
-            elif prompt.isalpha() : pass
-            else: raise ValueError("Prompted message contains digits, it can only contain alpha()")
+            if prompt not in arr: 
+                raise ValueError("Choose between Rock, Scissors or paper")
 
-        except Exception as e : print(e)
+            elif prompt.isdigit():
+                raise ValueError("Prompted message contains digits, it can only contain alpha()")
+
+        except Exception as e : 
+            sys.exit(e)
 
         else:
 
             dictionary = {
                         "rock": "\U0001FAA8",
                         "scissors": "\U00002702",
-                        "paper": "\U0001F4C4"
-            }
+                        "paper": "\U0001F4C4"}
 
             prompt = dictionary.get(prompt)
+
             #   Computer chooses between one of Rock, Scissors and paper
             x = rsp.RockScissorPaper()
-            print(x, prompt)
 
             #   Check for winner and print out output
             if prompt == x: print(GameOver().TowTie())
@@ -343,6 +327,12 @@ class WordGames():
             Command-line tool to interact with the games
         """
 
+        try :
+            if len(sys.argv) < 2: raise Exception("Usage : python wordgames.py -h or --help to view the command list")
+
+        except Exception as e:
+            sys.exit(e)
+
         cmd = CommandlineInterface()
 
         if cmd.CommandLineOptions().credits: 
@@ -364,4 +354,4 @@ class WordGames():
             return self.JumbleGame()
 
 if __name__ == "__main__":
-    WordGames().JumbleGame()
+    WordGames().main()
