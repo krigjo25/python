@@ -3,7 +3,7 @@ import sys
 from pylib.command_line_tool import CommandlineInterface
 from gamecollection import WordGames
 
-def main(self): 
+def main(): 
         
     """
         Command-line tool to interact with the games

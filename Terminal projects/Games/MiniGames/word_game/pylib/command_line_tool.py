@@ -32,10 +32,10 @@ class CommandlineInterface():
         games.add_argument('-r', dest = 'rsp', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
 
         #   Game Guide
-        faq.add_argument('--f-rsp', dest = 'faq_rps', help ='How to use Rock Scissors\'n Paper', action='store_true')
-        faq.add_argument('--f-jumble', dest = 'faq_jumble', help ='How to use Jumble', action='store_true')
-        faq.add_argument('--f-Scrabble', dest = 'faq_scrabble', help ='How to use Scrabble', action='store_true')
-        faq.add_argument('--f-eightball', dest = 'fag_eightball', help ='How to use Eightball', action='store_true')
+        faq.add_argument('-f--rsp', dest = 'faq_rps', help ='How to use Rock Scissors\'n Paper', action='store_true')
+        faq.add_argument('-f--jumble', dest = 'faq_jumble', help ='How to use Jumble', action='store_true')
+        faq.add_argument('-f--Scrabble', dest = 'faq_scrabble', help ='How to use Scrabble', action='store_true')
+        faq.add_argument('-f--eightball', dest = 'fag_eightball', help ='How to use Eightball', action='store_true')
 
         #   Initializing the parser
         cmd = parser.parse_args(sys.argv[1:])
@@ -55,32 +55,31 @@ class CommandlineInterface():
 
     def ProgramCredits(self): 
         return sys.exit("""
-            Libraries used in the project :\n
+            Libraries used in the project :
             
             requests  - by Kenneth Reitz
             os, sys -  by
             dotenv -   by 
-            pytest - pytest - by pytest team\n
-            sys - Python built-in responsories\n
-            random - Python built-in responsories\n
-            argparse - Python command line tool responsories\n
+            pytest - pytest - by pytest team
+            sys - Python built-in responsories
+            random - Python built-in responsories
+            argparse - Python command line tool responsories
 
-            Project Created by : @krigjo25\n
-            Copyrights all rights reserver 2024\n
+            Project © Created by : @krigjo25
         """)
  
     def faqrps(self):
         
         return sys.exit(
             """ 
-            Frequently Asked Questions : Rock, Scissors and paper\n
+            Frequently Asked Questions : Rock, Scissors and paper
             USEAGE : python wordgames.py -rsp\n
-            1. Type in either Rock, Scissors or Paper\n
+            1. Type in either Rock, Scissors or Paper
             The bot then will randomly choose Rock, Scissors or paper, then print out a message.\n
         """)
     def faqjumble(self):
         return sys.exit(""" 
-            Frequently Asked Questions : Jumble\n
+            Frequently Asked Questions : Jumble
             USEAGE : python wordgames.py -j\n
             1.\n
         """)
@@ -88,7 +87,7 @@ class CommandlineInterface():
     def faqeightball(self):
 
         return sys.exit(""" 
-            Frequently Asked Questions : Eightball\n
+            Frequently Asked Questions : Eightball
             USEAGE : python wordgames.py -e\n
             1. Type in a sentence and the eightball will reply\n
         """)
@@ -97,10 +96,10 @@ class CommandlineInterface():
         """ 
             Frequently Asked Questions : Scrabble
             USEAGE : python wordgames.py -s\n
-            1. Type in how many human will play\n
-            2.  Type in how many bots will play\n
-            3. Select name for the human players\n
-            4. Every participants types in a word\n
+            1. Type in how many human will play
+            2.  Type in how many bots will play
+            3. Select name for the human players
+            4. Every participants types in a word
             5. wait for the program to calculate\n
            
         """
