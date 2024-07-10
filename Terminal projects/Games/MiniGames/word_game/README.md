@@ -29,7 +29,7 @@
 
 ### Project information
 
-> USEAGE : In your terminal, type python wordgames.py -h to view the list of commands
+> USEAGE : In your terminal, type wg -h to view the list of commands
 
 ### Available games
 
