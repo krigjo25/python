@@ -13,70 +13,8 @@ from pylib.apis import GenerateNames, NinjaAPI
 
 load_dotenv()
 
-class Philosopher():
 
-    '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Dictionary for Eightball game
-    '''
-
-    def __init__(self):
-        return
-
-    def Answer(self):
-
-        dictionary = {
-                    1:'What do you sense about it?',
-                    2:'What can  you actually do about it?',
-                    3:'What are you really, deep down?',
-                    4:'Just let it go, its not your issue.',
-                    5:'Just let your self, experience the question.',
-                    6:'Visualize the question, and the answer will arrive.',
-                    7:'If an human is a genious, then The best answers always comes from with-in, just believe in your self enough.',
-                    8:'As Socrates once said, you already know the answer of the question, since you had the idea of asking the question.',
-                    9:'Would you be able to let it go?',
-                    10:'A Question does not arise with out it\'s answer, so place your attention on where the question has arised',
-                    11:'From where does the question actually arise? Your mind or heart?',
-                    12:'Life is just like one of the elements on earth, just flow with it',
-                    13:'Einstein said once if the world were ending, and i had one hour to solve a problem " i would use 50 minutes to think about the issue, then use the 10 last minutes to solve the issue".',
-                    14:'As the thought araises from with-in it can only be answered from with-in',
-                    15:'Answers comes from with-in your self.'
-}
-
-        #   Randomize the dictionary
-        x = r.randrange(1,len(dictionary))
-
-        return dictionary.get(x)
-
-    def DumbFacts(self):
-
-        dictionary = {
-                        1:'Thoughts are like a librarynth, you will be lost',
-                        2:'Dear lost boy, thoughts are like a labarynth you won\'t find the exit, when you take the wrong turn',
-                        3:'When you search after an answer with why, it\'s like searching for something which doesn\'t exists.',
-                        4:'life is why',
-                        5:'Things tends to be what it is, neither less or more, but equal to what it is.',
-                        6:'The opposite sides of a die will always add up to seven.',
-                        7:'The King of Hearts is the only king in a deck of cards without a mustache.',
-                        8:'There is always an answer with-in, just compenplate on it',
-                        9:'Alaska is the only state whose name is on one row on a keyboard.',
-                        10:'A "jiffy" is about one trillionth of a second.',
-                        11:'The ocean is blue',
-                        12:'Mulan has the highest kill-count of any Disney character.',
-                        13:'The infinity sign is called a lemniscate.',
-                        14:'why do you ask me?. ',
-                        15:"..."
-
-}
-
-        #   Randomize the dictionary
-        x = r.randrange(1,len(dictionary))
-
-        return dictionary.get(x)
-
-class ReactionGame():
+class GameOver():
 
     '''
             #   Author : krigjo25
@@ -85,18 +23,6 @@ class ReactionGame():
             #   Dictionary for Emoji game
     '''
     #   arg Game Dictionaries
-    def RockScissorPaper(self):
-
-        dictionary = {
-                        1:'\U0001FAA8',     #  rock
-                        2:'\U00002702',     #  ✂️
-                        3:'\U0001F4C4'      #  📄
-}
-
-        #   Randomize the dictionary
-        #r.shuffle(dictionary)
-
-        return dictionary.get(r.randrange(1,len(dictionary)))
 
     def Computer(self, arg):
 
@@ -176,6 +102,60 @@ class ReactionGame():
         string += dictionary.get(x)
         return dictionary.get(x)
 
+    def PhilisophicalAnswer(self):
+
+            dictionary = {
+                        1:'What do you sense about it?',
+                        2:'What can  you actually do about it?',
+                        3:'What are you really, deep down?',
+                        4:'Just let it go, its not your issue.',
+                        5:'Just let your self, experience the question.',
+                        6:'Visualize the question, and the answer will arrive.',
+                        7:'If an human is a genious, then The best answers always comes from with-in, just believe in your self enough.',
+                        8:'As Socrates once said, you already know the answer of the question, since you had the idea of asking the question.',
+                        9:'Would you be able to let it go?',
+                        10:'A Question does not arise with out it\'s answer, so place your attention on where the question has arised',
+                        11:'From where does the question actually arise? Your mind or heart?',
+                        12:'Life is just like one of the elements on earth, just flow with it',
+                        13:'Einstein said once if the world were ending, and i had one hour to solve a problem " i would use 50 minutes to think about the issue, then use the 10 last minutes to solve the issue".',
+                        14:'As the thought araises from with-in it can only be answered from with-in',
+                        15:'Answers comes from with-in your self.'
+    }
+
+            #   Randomize the dictionary
+            x = r.randrange(1,len(dictionary))
+
+            return dictionary.get(x)
+
+    def DumbFacts(self):
+
+        dictionary = {
+                        1:'Thoughts are like a librarynth, you will be lost',
+                        2:'Dear lost boy, thoughts are like a labarynth you won\'t find the exit, when you take the wrong turn',
+                        3:'When you search after an answer with why, it\'s like searching for something which doesn\'t exists.',
+                        4:'life is why',
+                        5:'Things tends to be what it is, neither less or more, but equal to what it is.',
+                        6:'The opposite sides of a die will always add up to seven.',
+                        7:'The King of Hearts is the only king in a deck of cards without a mustache.',
+                        8:'There is always an answer with-in, just compenplate on it',
+                        9:'Alaska is the only state whose name is on one row on a keyboard.',
+                        10:'A "jiffy" is about one trillionth of a second.',
+                        11:'The ocean is blue',
+                        12:'Mulan has the highest kill-count of any Disney character.',
+                        13:'The infinity sign is called a lemniscate.',
+                        14:'why do you ask me?. ',
+                        15:"..."
+
+}
+
+        #   Randomize the dictionary
+        x = r.randrange(1,len(dictionary))
+
+        return dictionary.get(x)
+
+    def RandomCorrectAnswer(): pass
+    def RandomIncorrectAnswer(): pass
+    def RandomTowaTieAnswer(): pass
 class ScrabbleGame():
 
     """ 
@@ -274,57 +254,6 @@ class JumbleCategory():
         del db
 
         return  word[x]
-
-class GameOver():
-
-
-    def __init__(self):
-        return
-        
-    #   When the answer is correct
-    def CorrectAnswer(self):
-
-        ''' List of winner answers
-        '''
-
-        dictionary = {}
-
-        #   Randomize the dictionary
-        x = r.randrange(1,len(dictionary))
-
-        return dictionary.get(x)
-
-    def IncorrectAnswer(self):
-
-        ''' List of loosing answers
-
-        '''
-        dictionary = {}
-
-        #   Randomize the dictionary
-        x = r.randrange(1,len(dictionary))
-
-        return dictionary.get(x)
-
-    def TowTie(self):
-
-        '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Dictionary for game Ties
-        '''
-
-        #   Randomizing an integer
-        x = r.randrange(0,2)
-
-        #   Matching x
-        match x:
-            case 0 : x = "The computer draws a tie"
-            case 1 : x = "let's tie a tie"
-            case 2 : x = "What did the tie say to the bowtie?, What a tie"
-
-        return x
 
 class FrequentlyAskedQuestion():
 

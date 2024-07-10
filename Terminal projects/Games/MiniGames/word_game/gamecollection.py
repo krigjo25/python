@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 from pylib.apis import NinjaAPI, GenerateNames
 from pylib.databasePython import MariaDB
-from pylib.dictionary import Philosopher, JumbleCategory, GameOver, ReactionGame, ScrabbleGame
+from pylib.dictionary import JumbleCategory, GameOver, ScrabbleGame
 
 
 load_dotenv()
@@ -143,7 +143,7 @@ class WordGames():
                 for i in word: 
                     string += f"{i} "
 
-                print(f'words tried : ( {string} )\nCounted {len(word)} attempts.\n{GameOver().CorrectAnswer()}')
+                print(f'words tried : ( {string} )\nCounted {len(word)} attempts.\n{GameOver().RandomCorrectAnswer()}')
 
             
            
@@ -155,17 +155,11 @@ class WordGames():
 
     def EightBall(self):
 
-        '''
-            #   Author : krigjo25
-            #   Description :
-                prompts the user to type in a question,
-    
-
-            #   Prompt the user for an answerAsk a question with what, how or why
-            #   Combine the answers
-            #   Send a philliosofically answer
+        ''' Classic Eightball Game
 
         '''
+
+        #   Initializing an array
         arr = ['what', 'how']
 
         #   Print an output
@@ -180,10 +174,10 @@ class WordGames():
         
         #   Ensure that prompt is in arr
         if prompt[0].lower() in arr: 
-            prompt = Philosopher().Answer()
+            prompt = GameOver().PhilisophicalAnswer()
 
         else:
-            prompt = Philosopher().DumbFacts() 
+            prompt = GameOver().DumbFacts() 
 
         print(f"Answer for {quiz}\n{prompt}")
 
@@ -194,15 +188,7 @@ class WordGames():
 
     def Scrabble(self):
 
-        '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Prompts the words for each player
-            #   Calculating the score for both words
-            #   Printing the winner
-
-            #   Player required : 1 - 2
+        ''' Classic Scrabble game
 
         '''
         #   Initializing list / Dictionaries
@@ -281,58 +267,54 @@ class WordGames():
 
         '''
 
-        #   Initializing classes
-        rsp = ReactionGame()
-
-        #   Initializing an array with Rock, Scissors, Paper
-        arr = [ "rock", "scissors", "paper"]
 
         prompt = str(input("Rock, Scissors or Paper : ")).lower()
 
         try :
 
             #   Error messages
-            if prompt not in arr: 
+            if prompt not in [ "rock", "scissors", "paper"]: 
                 raise ValueError("Choose between Rock, Scissors or paper")
-
-            elif prompt.isdigit():
-                raise ValueError("Prompted message contains digits, it can only contain alpha()")
 
         except Exception as e : 
             sys.exit(e)
 
-        else:
+        def RockScissorPaper(arg = ['Rock', 'Scissor', 'Paper']):
 
             dictionary = {
-                        "rock": "\U0001FAA8",
-                        "scissors": "\U00002702",
-                        "paper": "\U0001F4C4"}
+                    'rock':'\U0001FAA8',     #  rock
+                    'scissor':'\U00002702',     #  ✂️
+                    'paper':'\U0001F4C4'}     #  📄
 
-            prompt = dictionary.get(prompt)
+            if arg == None:
 
-            #   Computer chooses between one of Rock, Scissors and paper
-            x = rsp.RockScissorPaper()
+                #   Randomize the dictionary
+                r.shuffle(arg)
 
-            #   Check for winner and print out output
-            if prompt == x: print(GameOver().TowTie())
+                return dictionary.get(arg[r.randrange(len(arg))])
+            return dictionary.get(arg)
+       
+        prompt = RockScissorPaper(prompt)
+            
+        #   Computer chooses between one of Rock, Scissors and paper
+        x = RockScissorPaper()
 
-            else:
+        #   Check for winner and print out output
+        if prompt == x: sys.exit(GameOver().RandomTowaTieAnswer())
+        else:
 
-                #   If the user win
-                if prompt == '\U0001F4C4' and x =='\U0001FAA8': print(f" {rsp.Player(prompt,x)}")
-                if prompt == '\U0001FAA8' and x =='\U00002702': print(f" {rsp.Player(prompt,x)}")
-                if prompt == '\U00002702' and x =='\U0001F4C4': print(f" {rsp.Player(prompt,x)}")
+            #   If the user win
+            if prompt == '\U0001F4C4' and x =='\U0001FAA8': print(f" {GameOver().Player(prompt,x)}")
+            if prompt == '\U0001FAA8' and x =='\U00002702': print(f" {GameOver().Player(prompt,x)}")
+            if prompt == '\U00002702' and x =='\U0001F4C4': print(f" {GameOver().Player(prompt,x)}")
 
-                 #   if the bot wins
-                if x == '\U0001F4C4' and prompt =='\U0001FAA8': print(f"{rsp.Computer(x)}")
-                if x == '\U0001FAA8' and prompt =='\U00002702': print(f"{rsp.Computer(x)}")
-                if x == '\U00002702' and prompt =='\U0001F4C4': print(f"{rsp.Computer(x)}")
+                #   if the bot wins
+            if x == '\U0001F4C4' and prompt =='\U0001FAA8': print(f"{GameOver().Computer(x)}")
+            if x == '\U0001FAA8' and prompt =='\U00002702': print(f"{GameOver().Computer(x)}")
+            if x == '\U00002702' and prompt =='\U0001F4C4': print(f"{GameOver().Computer(x)}")
 
-                #   Clear fields
-                del x
-                del rsp
-                del arr
-                del prompt
+            #   Clear Memories
+            del x, prompt
                 
-                return
+        return
 
