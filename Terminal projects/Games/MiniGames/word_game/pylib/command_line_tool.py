@@ -34,23 +34,22 @@ class CommandlineInterface():
         games.add_argument('-rsp', dest = 'rspGame', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
 
         #   Game Guides
-        faq = guide.add_parser('faq', help="USEAGE: faq -h")
-        faq.add_argument_group('Arguments')
+        faq = guide.add_parser( 'faq', help="USEAGE: -f -h")
+        faq = faq.add_argument_group('Available Guides')
 
 
         #   How can i group it and make one of them a optional rather than required?
-        faq.add_argument('jumble', help ='How to use Jumble Game', nargs='?')
-        faq.add_argument('eightball', help ='How to use Eightball Game', nargs='?', default= False)
-        faq.add_argument('scrabble', help ='How to use Scrabble Game', nargs='?')
-        faq.add_argument('rsp', help ='How to use Rock, Scissors, Paper Game', nargs='?')
+        faq.add_argument('--games', help ='faq --games [game name] [--list for list of available guides]', nargs= "?" )
+        faq.add_argument('--eightball', help ='How to use Eightball Game', nargs='?')
+        faq.add_argument('--scrabble', help ='How to use Scrabble Game', nargs='?')
+        faq.add_argument('--rsp', help ='How to use Rock, Scissors, Paper Game', nargs='?')
 
         cmd = parser.parse_args(sys.argv[1:])
-        print(cmd)
         
         try :
 
             if not cmd:
-                raise Exception("Command not found")
+                raise Exception("404 : Command not found")
 
         except (ArgumentError, Exception) as e: 
             sys.exit(e)
@@ -58,7 +57,7 @@ class CommandlineInterface():
         return cmd
     
     def Porgaminfo(self):
-        return sys.exit(f"\n\nProgram name : {self.name}\nVersion : {self.version}\nDescription : {self.description}\n")
+        return sys.exit(f"\n\nProgram name : {self.name}\nVersion : beta{self.version}\nDescription : {self.description}\n")
 
     def ProgramCredits(self): 
         return sys.exit("""
@@ -74,40 +73,3 @@ class CommandlineInterface():
 
             Project © Created by : @krigjo25
         """)
- 
-    def faqrps(self):
-        
-        return sys.exit(
-            """ 
-            Frequently Asked Questions : Rock, Scissors and paper
-            USEAGE : python wordgames.py -rsp\n
-            1. Type in either Rock, Scissors or Paper
-            The bot then will randomly choose Rock, Scissors or paper, then print out a message.\n
-        """)
-    def faqjumble(self):
-        return sys.exit(""" 
-            Frequently Asked Questions : Jumble
-            USEAGE : python wordgames.py -j\n
-            1.\n
-        """)
-
-    def faqeightball(self):
-
-        return sys.exit(""" 
-            Frequently Asked Questions : Eightball
-            USEAGE : python wordgames.py -e\n
-            1. Type in a sentence and the eightball will reply\n
-        """)
-
-    def faqscrabble(self):
-        """ 
-            Frequently Asked Questions : Scrabble
-            USEAGE : python wordgames.py -s\n
-            1. Type in how many human will play
-            2.  Type in how many bots will play
-            3. Select name for the human players
-            4. Every participants types in a word
-            5. wait for the program to calculate\n
-           
-        """
-        return sys.exit()

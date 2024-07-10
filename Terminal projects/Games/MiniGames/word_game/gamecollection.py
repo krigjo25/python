@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 
 from pylib.apis import NinjaAPI, GenerateNames
 from pylib.databasePython import MariaDB
-from dictionary.gamedicitonary import Philosopher, JumbleCategory, GameOver, ReactionGame, ScrabbleGame
-from pylib.command_line_tool import CommandlineInterface
+from pylib.dictionary import Philosopher, JumbleCategory, GameOver, ReactionGame, ScrabbleGame
+
 
 load_dotenv()
 

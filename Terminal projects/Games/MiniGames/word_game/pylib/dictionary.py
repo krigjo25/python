@@ -1,4 +1,5 @@
 # Python Repositories
+import sys
 import random as r
 
 from os import getenv
@@ -24,7 +25,6 @@ class Philosopher():
     def __init__(self):
         return
 
-    #   AskQ dictionaries
     def Answer(self):
 
         dictionary = {
@@ -178,23 +178,12 @@ class ReactionGame():
 
 class ScrabbleGame():
 
-    '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
+    """ 
+        Calculates scores in the game
 
-            #   Dictionary for Scrabble Game
-    '''
+    """
 
     def ComputeScore(self, word):
-        
-        '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Calculating the score for letters
-            #   Returning score from string
-
-        '''
 
         #   Initializing variables
         result = 0
@@ -221,25 +210,13 @@ class ScrabbleGame():
 
                 if i == j:
                     result += POINTS[alpha.index(i)]
+
         #   Clear memories
         del alpha, POINTS, word
 
         return result
 
-    def CheckWord(self, arg):
-
-        #   Checking if api ninja has the word
-        if NinjaAPI().Check(arg): return True
-        else: return False
-
 class JumbleCategory():
-
-    '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Dictionary for JumbleGame
-    '''
 
     def __init__(self) -> None:
         pass
@@ -300,48 +277,34 @@ class JumbleCategory():
 
 class GameOver():
 
-    '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Dictionary for game won, losses, tie
-    '''
 
     def __init__(self):
         return
-
+        
     #   When the answer is correct
     def CorrectAnswer(self):
 
+        ''' List of winner answers
         '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
 
-            #   Dictionary for game Won
-        '''
-        
-        x = "Congratulation you guessed correct"
+        dictionary = {}
 
-        #   Returning the value
-        return x
+        #   Randomize the dictionary
+        x = r.randrange(1,len(dictionary))
+
+        return dictionary.get(x)
 
     def IncorrectAnswer(self):
 
+        ''' List of loosing answers
+
         '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
+        dictionary = {}
 
-            #   Dictionary for game losses
-        '''
+        #   Randomize the dictionary
+        x = r.randrange(1,len(dictionary))
 
-        x = r.randrange(0, 3)
-        
-        match x:
-            case 0: x = "Incorrect Answer"
-            case 1: x = "EEE"
-            case 2: x = "Try again..."
-
-        return x
+        return dictionary.get(x)
 
     def TowTie(self):
 
@@ -362,3 +325,47 @@ class GameOver():
             case 2 : x = "What did the tie say to the bowtie?, What a tie"
 
         return x
+
+class FrequentlyAskedQuestion():
+
+        def WordGames(self, arg = None):
+
+            arg = str(arg).lower()
+            if arg == 'jumble':
+                return sys.exit(
+                                """ 
+                                    Frequently Asked Questions : Jumble
+                                    USEAGE : python wordgames.py -j\n
+                                    1.\n
+                                """)
+
+            elif arg == 'eightball':
+                return sys.exit(""" 
+                    Frequently Asked Questions : Eightball
+                    USEAGE : python wordgames.py -e\n
+                    1. Type in a sentence and the eightball will reply\n
+                """)
+
+            elif arg == 'scrabble':
+                return sys.exit(""" Frequently Asked Questions : Scrabble
+                                    USEAGE : python wordgames.py -s\n
+                                    1. Type in how many human will play
+                                    2.  Type in how many bots will play
+                                    3. Select name for the human players
+                                    4. Every participants types in a word
+                                    5. wait for the program to calculate\n
+                
+                                    """)
+
+            elif arg == 'rsp':
+                return sys.exit(""" Frequently Asked Questions : Rock Scissor'n Paper
+                                    USEAGE : python wordgames.py -rsp\n
+                                    1. Type in how many human will play
+                                    2.  Type in how many bots will play
+                                    3. Select name for the human players
+                                    4. Every participants types in a word
+                                    5. wait for the program to calculate\n
+                
+                                    """)
+    
+            else : return sys.exit('List of available games :\nJumble\nRock Scissors\'n Paper (n)\nScrabble\nEightball\nEnd Of List\n')
