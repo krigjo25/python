@@ -15,16 +15,16 @@ def main():
     except Exception as e:
         sys.exit(e)
         
-    if CommandlineInterface().CommandLineOptions().rsp: 
+    if CommandlineInterface().CommandLineOptions().rspGame: 
         return WordGames().RockScissorPaper()
 
-    elif CommandlineInterface().CommandLineOptions().scrabble: 
+    elif CommandlineInterface().CommandLineOptions().scrabbleGame: 
         return WordGames().Scrabble()
         
-    elif CommandlineInterface().CommandLineOptions().eight: 
+    elif CommandlineInterface().CommandLineOptions().eightballGame: 
         return WordGames().EightBall()
         
-    elif CommandlineInterface().CommandLineOptions().jumble: 
+    elif CommandlineInterface().CommandLineOptions().jumbleGame: 
         return WordGames().JumbleGame()
 
         #   Game Guides
@@ -33,13 +33,17 @@ def main():
             
     elif CommandlineInterface().CommandLineOptions().info: 
         return CommandlineInterface().Porgaminfo()
-    elif CommandlineInterface().CommandLineOptions().faq_rps:
+
+    elif CommandlineInterface().CommandLineOptions().rsp:
         return CommandlineInterface().faqrps()
-    elif CommandlineInterface().CommandLineOptions().faq_eightball:
+
+    elif CommandlineInterface().CommandLineOptions().eightball:
         return CommandlineInterface().faqeightball()
-    elif CommandlineInterface().CommandLineOptions().faq_jumble:
+
+    elif CommandlineInterface().CommandLineOptions().jumble:
         return CommandlineInterface().faqjumble()
-    elif CommandlineInterface().CommandLineOptions().faq_scrabble:
+
+    elif CommandlineInterface().CommandLineOptions().scrabble:
         return CommandlineInterface().faqscrabble()
 
 if __name__ == "__main__":

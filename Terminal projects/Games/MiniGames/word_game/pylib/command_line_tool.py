@@ -20,25 +20,32 @@ class CommandlineInterface():
         parser  = ArgumentParser(prog = self.name, formatter_class= ArgumentDefaultsHelpFormatter, description= self.description, epilog= f"Thanks for using this v{self.version} of %(prog)s")
         
         #   Initializing parser groups
-        faq = parser.add_argument_group('How to')
+
         games = parser.add_argument_group('Available Games')
+        guide = parser.add_subparsers(title = 'How To', help='Game Guides')
+        
         
         #   Initializing The helper interface
-        games.add_argument('-j', dest = 'jumble', help ='The Jumble Game', action='store_true')
-        games.add_argument('-e', dest = 'eight', help ='EightBall Game', action='store_true')
-        games.add_argument('-s', dest = 'scrabble', help ='Scrabble Game', action='store_true')
+        games.add_argument('-j', dest = 'jumbleGame', help ='The Jumble Game', action='store_true')
+        games.add_argument('-e', dest = 'eightballGame', help ='EightBall Game', action='store_true')
+        games.add_argument('-s', dest = 'scrabbleGame', help ='Scrabble Game', action='store_true')
         games.add_argument('-i', dest = 'info', help = '%(prog)s info Center', action='store_true')
         games.add_argument('-c', dest = 'credits', help = '%(prog)s Credential Center', action='store_true')
-        games.add_argument('-r', dest = 'rsp', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
+        games.add_argument('-rsp', dest = 'rspGame', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
 
-        #   Game Guide
-        faq.add_argument('-f--rsp', dest = 'faq_rps', help ='How to use Rock Scissors\'n Paper', action='store_true')
-        faq.add_argument('-f--jumble', dest = 'faq_jumble', help ='How to use Jumble', action='store_true')
-        faq.add_argument('-f--Scrabble', dest = 'faq_scrabble', help ='How to use Scrabble', action='store_true')
-        faq.add_argument('-f--eightball', dest = 'fag_eightball', help ='How to use Eightball', action='store_true')
+        #   Game Guides
+        faq = guide.add_parser('faq', help="USEAGE: faq -h")
+        faq.add_argument_group('Arguments')
 
-        #   Initializing the parser
+
+        #   How can i group it and make one of them a optional rather than required?
+        faq.add_argument('jumble', help ='How to use Jumble Game', nargs='?')
+        faq.add_argument('eightball', help ='How to use Eightball Game', nargs='?', default= False)
+        faq.add_argument('scrabble', help ='How to use Scrabble Game', nargs='?')
+        faq.add_argument('rsp', help ='How to use Rock, Scissors, Paper Game', nargs='?')
+
         cmd = parser.parse_args(sys.argv[1:])
+        print(cmd)
         
         try :
 
