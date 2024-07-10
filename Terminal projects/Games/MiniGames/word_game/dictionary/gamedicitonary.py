@@ -198,7 +198,6 @@ class ScrabbleGame():
 
         #   Initializing variables
         result = 0
-        word = str(word).lower()
 
         #   Initializing arrays
         alpha = [   'a', 'b', 'c', 'd',
@@ -215,10 +214,15 @@ class ScrabbleGame():
                     3, 1, 1, 3,
                     10, 1, 1, 1,
                     1, 4, 4, 8,
-                    4, 10 ]
+                    4, 10]
 
-        for i in word: 
-            if i in alpha: result += POINTS[alpha.index(i)]
+        for i in str(word).lower(): 
+            for j in alpha:
+
+                if i == j:
+                    result += POINTS[alpha.index(i)]
+        #   Clear memories
+        del alpha, POINTS, word
 
         return result
 

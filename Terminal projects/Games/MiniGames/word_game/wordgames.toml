@@ -1,0 +1,19 @@
+# pyproject.toml
+
+[build-system]
+"requires = ["certifi>=2024.7.4", "charset-normalizer>=3.3.2",
+"colorama>=0.4.6", "idna>=3.7", "iniconfig>=2.0.0",
+"Jinja2>=3.1.4", "mariadb>=1.1.10","packaging>=24.1", "pluggy>=1.5.0","python-dotenv>=1.0.1", 
+"requests>=2.32.3", "setuptools>=70.1.0", "urllib3>=2.2.2", "wheel"]
+
+build-backend = "setuptools.build_meta", "certifi.build_meta", "python_dotenv.build_meta", "mariadb.build_meta", "urllib3.build_meta"
+
+[project]
+name = "Word Games"
+version = "0.0.1"
+description = "A collection of Word Games"
+readme = "README.md"
+authors = [{ name = "@krigjo25", email = "krigjo25@outlook.com" }]
+
+[project.scripts]
+game = "__main__:main"

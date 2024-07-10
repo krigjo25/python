@@ -3,6 +3,10 @@ import os, sys
 import random as r
 import requests as req
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 class NinjaAPI():
 
     #   API-Ninja
@@ -12,21 +16,15 @@ class NinjaAPI():
             #   API by API-Ninja
             # Using an api to check if the word exist in the online dictionary.
         """
-
-        parse = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
-        response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-Api-Token")})
-
-        try:
-            if response.text["valid"] == False: raise ValueError()
-
-        except Exception : return False
-
+        
+        parse = f'https://api.api-ninjas.com/v1/dictionary?word={str(word).lower()}'
+        response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-API-Key")})
+        json = response.json()
+        
         #   Clear some space
-        del word
-        del parse
-        del response
+        del word, parse, response
 
-        return 
+        return json['valid']
 
     def Choice(self):
 
@@ -36,23 +34,19 @@ class NinjaAPI():
         '''
 
         parse = 'https://api.api-ninjas.com/v1/randomword'
-        response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-Api-Token")})
-        string = ""
+        response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-API-Key")})
+        json = response.json()
 
         try:
 
-            if response.status_code != req.codes.ok: raise Exception("Something went wrong with the connection to Ninja API")
+            if response.status_code != req.codes.ok: raise Exception(f"Something went wrong with the connection to Ninja API: {response.status_code}")
         except Exception as e : return e
-        else:
-
-            for i in response.text:
-                if i.isalpha(): string += i
 
         #   Clear some space
         del parse, response
 
-        return string
-    
+        return json['word'][0]
+
     def Definition(self, word):
 
         """
@@ -61,35 +55,34 @@ class NinjaAPI():
         """
 
         parse = f'https://api.api-ninjas.com/v1/dictionary?word={word}'
-        response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-Api-Token")})
-        json = dict(response.json())
+        response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-API-Key")})
+        json = response.json()
 
         try:
             if response.status_code != req.codes.ok: raise Exception(response.status_code)
 
         except Exception as e: return e
-        else:
-
-            for i, j in json.items(): 
-                if "valid" in i :  json = j
-
+        
         #   Clear some memory
         del word, parse, response
 
-        return json
+        for i, j in dict(json).items(): 
+            if "valid" in i :  
+                return True
+        
+        return False
 
 class GenerateNames():
         def GenerateRandomNames(self, total):
 
             """
                 Generates only firstnames
-                API by RandomUserGenerator
+                API by RandomUserGenerator.me
             """
 
             parse = f'https://randomuser.me/api/?results={total}'
             response = req.get(parse)
             json = response.json()
-            string = ""
 
             try:
                 if response.status_code != req.codes.ok:
@@ -98,6 +91,9 @@ class GenerateNames():
             except Exception as e: 
                 return e
 
+            #   Clear memories
+            del parse, response
+
             for i in json['results']:
-    
+            
                 return i['name']['first']

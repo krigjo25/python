@@ -14,12 +14,6 @@ load_dotenv()
 
 class WordGames():
 
-    '''
-        #   Author : krigjo25
-        #   Date   :  12.01-23
-
-        #   Collection of Classic WordGames
-    '''
 
     def __init__(self): pass
 
@@ -198,7 +192,6 @@ class WordGames():
 
         return
 
-
     def Scrabble(self):
 
         '''
@@ -213,63 +206,69 @@ class WordGames():
 
         '''
         #   Initializing list / Dictionaries
-        
-        name = []
-        word = {}
-        score = {}
+        score = []
+        winner = []
+        sorted_score = []
 
         #   Prompts the words for both players
         print(f"Welcome to the Scrabble Game (terminal version) !\nAvailable dictionaries : :england:, :flag_us:")
         print(f"How to play : First you will be prompted for number of bots ask for your name\n then just type in a word to collect points.\nHowever if the word is false, no points is collected otherwise each letter has a point.\n")
 
-        totalplayers = int(input("Number of players : "))
+        #   Initialize variables
+        human = int(input("Number of players : "))
         bots = int(input("Number of bots to include in the game: "))
         
-
-        if totalplayers > 0:
-
-            for i in range(0, totalplayers):
-                name.append(input(f"Player {i}'s name: "))
-            
-        if bots > 0:
-
-            for i in range(0,bots):
-                bot = GenerateNames().GenerateRandomNames(int(bots))
-                name.append(f'( Bot ) {bot}')
-                print(f"( bot ) {bot} just joined the party")
-            print()
         
-        """
-        while True:
 
-            for i in range(0, totalplayers):
-                word.append(input(f"{name[0]}: "))
+        #   Ensure total players has a greater value than 0
+        if human > 0:
 
-            try:
+            for i in range(human):
 
-                for i in word:
-                    if bool(ScrabbleGame().CheckWord(i)) == False:  
-                        raise ValueError(f'"{i}" Is not a word')
-                    else:
-                        score.append(ScrabbleGame().ComputeScore(i))
+                name = input(f"Player name : ")
+                score.append({'name': {name}, 'word': input(f"{name}'s word : "), 'points': 0})
+        
+        #   Ensure total bots has a greater value than 0
+        if bots > 0 :
+
+            for i in range(bots):
+                score.append({ 'name': f'( Bot ) {GenerateNames().GenerateRandomNames(1)}', 'word': NinjaAPI().Choice(),'points': 0})
+
+        for i in score:
+
+            #   Ensure the word is actually a word
+            if NinjaAPI().Check(i['word']):
+                i['points'] = ScrabbleGame().ComputeScore(i['word'])
+
+            #   Sorting the Score
+            sorted_score.append(i['points'])
+            sorted_score = sorted(sorted_score)         
+
+        for i in score:
+
+            #   Appending winners to new dictionary
+            if i['points'] == sorted_score[-1]:
+                winner.append({
+                                'name': i['name'],
+                                'word': i['word'],
+                                'points': i['points']
+                })
+
+        #   Clear Memories
+        del human, bots, score
+        del sorted_score
 
 
-            except (ValueError, TypeError) as e: 
-                print("An error occured\n {e}\n Try again...")
+        if len(winner) > 1:
+            print(f'There were a tie between {len(winner)} players.')
+            for i in winner:
+                print(f"{i['name']} with the word {i['word']}, tied the round with {i['points']} points")
+            return
 
-            #   Clear memories
-            del word
+        else:
+            for i in winner:
+                return print(f"{i['name']} with the word {i['word']}, won the round with just {i['points']} points")
 
-            #   Ensure the the player whom has the highest score
-            if score[0] > score[1]:
-                return print(f"Scoreboard:\n{name[0]} has {score[0]}points\n {name[1]} has {score[1]}points\n{name[0]} won ! congratulations")
-
-            elif score[0] < score[1]:
-                return print(f"Scoreboard:\n{name[0]} has {score[0]}points\n{name[1]} has {score[1]}points\n{name[1]} won ! congratulations")
-
-            else:
-                return print(f"Game over\n {GameOver().TowTie()}")
-"""
     def RockScissorPaper(self):
 
         '''
@@ -337,37 +336,3 @@ class WordGames():
                 
                 return
 
-    def main(self): 
-        
-        """
-            Command-line tool to interact with the games
-        """
-
-        try :
-            if len(sys.argv) < 2: raise Exception("Usage : python wordgames.py -h or --help to view the command list")
-
-        except Exception as e:
-            sys.exit(e)
-
-        cmd = CommandlineInterface()
-
-        if cmd.CommandLineOptions().credits: 
-            return cmd.ProgramCredits()
-            
-        elif cmd.CommandLineOptions().info: 
-            return cmd.Porgaminfo()
-        
-        elif cmd.CommandLineOptions().rsp: 
-            return self.RockScissorPaper()
-
-        elif cmd.CommandLineOptions().scrabble: 
-            return self.Scrabble()
-        
-        elif cmd.CommandLineOptions().eight: 
-            return self.EightBall()
-        
-        elif cmd.CommandLineOptions().jumble: 
-            return self.JumbleGame()
-
-if __name__ == "__main__":
-    WordGames().main()

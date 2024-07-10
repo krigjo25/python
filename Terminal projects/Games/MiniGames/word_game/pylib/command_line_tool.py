@@ -9,36 +9,33 @@ class CommandlineInterface():
         The command line Interface
     '''
     version = "0.0.1"
-    author = "krigjo25"
-    name = "Word_Games"
+    author = "Krigjo25"
+    name = "wg"
     description = "Collection of Word Games"
 
     def CommandLineOptions(self):
 
         '''Constructing the argparser'''
-        #   Creating a argumentParser
-        parser  = ArgumentParser(prog = self.name, formatter_class= ArgumentDefaultsHelpFormatter, description= self.description, epilog= f"{self.version} - by {self.author}")
-
+        #   Initializing the parser
+        parser  = ArgumentParser(prog = self.name, formatter_class= ArgumentDefaultsHelpFormatter, description= self.description, epilog= f"Thanks for using this v{self.version} of %(prog)s")
+        
+        #   Initializing parser groups
+        faq = parser.add_argument_group('How to')
+        games = parser.add_argument_group('Available Games')
         
         #   Initializing The helper interface
-        parser.add_argument('-jg', '--jumble', dest = 'jumble', help ='The Jumble Game', action='store_true')
-        parser.add_argument('-e', '--eightball', dest = 'eight', help ='EightBall Game', action='store_true')
-        parser.add_argument('-s', '--scrabble', dest = 'scrabble', help ='Scrabble Game', action='store_true')
-        parser.add_argument('-i', '--info', dest = 'info', help = '%(prog)s info Center', action='store_true')
-        parser.add_argument('-c', '--credits', dest = 'credits', help = '%(prog)s Credential Center', action='store_true')
-        parser.add_argument('-r', '--rsp', dest = 'rsp', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
+        games.add_argument('-j', dest = 'jumble', help ='The Jumble Game', action='store_true')
+        games.add_argument('-e', dest = 'eight', help ='EightBall Game', action='store_true')
+        games.add_argument('-s', dest = 'scrabble', help ='Scrabble Game', action='store_true')
+        games.add_argument('-i', dest = 'info', help = '%(prog)s info Center', action='store_true')
+        games.add_argument('-c', dest = 'credits', help = '%(prog)s Credential Center', action='store_true')
+        games.add_argument('-r', dest = 'rsp', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
 
         #   Game Guide
-        parser.add_argument('-faq --rps', dest = 'faq', help ='Game Guides', action='store_true')
-        parser.add_argument('-faq --jumble', dest = 'faq', help ='Game Guides', action='store_true')
-        parser.add_argument('-faq --Scrable', dest = 'faq', help ='Game Guides', action='store_true')
-        parser.add_argument('-faq --eightball', dest = 'faq', help ='Game Guides', action='store_true')
-        
-
-
-        
-        
-        
+        faq.add_argument('--f-rsp', dest = 'faq_rps', help ='How to use Rock Scissors\'n Paper', action='store_true')
+        faq.add_argument('--f-jumble', dest = 'faq_jumble', help ='How to use Jumble', action='store_true')
+        faq.add_argument('--f-Scrabble', dest = 'faq_scrabble', help ='How to use Scrabble', action='store_true')
+        faq.add_argument('--f-eightball', dest = 'fag_eightball', help ='How to use Eightball', action='store_true')
 
         #   Initializing the parser
         cmd = parser.parse_args(sys.argv[1:])
@@ -48,20 +45,16 @@ class CommandlineInterface():
             if not cmd:
                 raise Exception("Command not found")
 
-
         except (ArgumentError, Exception) as e: 
             sys.exit(e)
 
         return cmd
     
     def Porgaminfo(self):
-         
-        
         return sys.exit(f"\n\nProgram name : {self.name}\nVersion : {self.version}\nDescription : {self.description}\n")
 
     def ProgramCredits(self): 
-        
-        """
+        return sys.exit("""
             Libraries used in the project :\n
             
             requests  - by Kenneth Reitz
@@ -70,20 +63,45 @@ class CommandlineInterface():
             pytest - pytest - by pytest team\n
             sys - Python built-in responsories\n
             random - Python built-in responsories\n
-            
-            
-            
             argparse - Python command line tool responsories\n
 
             Project Created by : @krigjo25\n
             Copyrights all rights reserver 2024\n
-        """
-        return sys.exit("""
-            Libraries used in the project :
-            
-            sys - Python built-in responsories
-            random - Python built-in responsories
-            argparse - Python command line tool responsories\n
-            
-
         """)
+ 
+    def faqrps(self):
+        
+        return sys.exit(
+            """ 
+            Frequently Asked Questions : Rock, Scissors and paper\n
+            USEAGE : python wordgames.py -rsp\n
+            1. Type in either Rock, Scissors or Paper\n
+            The bot then will randomly choose Rock, Scissors or paper, then print out a message.\n
+        """)
+    def faqjumble(self):
+        return sys.exit(""" 
+            Frequently Asked Questions : Jumble\n
+            USEAGE : python wordgames.py -j\n
+            1.\n
+        """)
+
+    def faqeightball(self):
+
+        return sys.exit(""" 
+            Frequently Asked Questions : Eightball\n
+            USEAGE : python wordgames.py -e\n
+            1. Type in a sentence and the eightball will reply\n
+        """)
+
+    def faqscrabble(self):
+        """ 
+            Frequently Asked Questions : Scrabble
+            USEAGE : python wordgames.py -s\n
+            1. Type in how many human will play\n
+            2.  Type in how many bots will play\n
+            3. Select name for the human players\n
+            4. Every participants types in a word\n
+            5. wait for the program to calculate\n
+           
+        """
+        return sys.exit()
