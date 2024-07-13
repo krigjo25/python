@@ -201,17 +201,17 @@ class WordGames():
         lvl = 1
         lives = 3
 
-        #   Initializing the classes
-
         #   Initializing a list
         categories = [i for i in SQL('JumbleGame.db').SelectRecord("categories")]
 
         while True:
 
-            category = []
             print(f"Please select one of the categories below:\n")
 
-            #   Ensure the list is not the last element
+            #   Initializing a list
+            category = []
+
+            #   Ensure that it is not the last element
             for i, j in enumerate(categories):
 
                 if categories[i] != categories[-1]:
@@ -219,12 +219,13 @@ class WordGames():
 
                 else:
                     print(str(j['categories']).title())
+    
                 category.append(j['categories'])
 
-            #   Prepare and retrieve the category
+            #   Prompt the user for an input
             prompt = input("category > ").lower()
             prompt = str(prompt)
-
+            
             try :
 
                 #   Ensure the category doesn't exists
@@ -236,17 +237,24 @@ class WordGames():
                 print(f"Category \"{prompt}\", does not exists\nTry again\n")  
                 continue
 
+            #   Ensure the prompt equals the category requested
             if prompt == categories[0]['categories']:
                 answer = NinjaAPI().Choice()
+
             else :
+
+                #   Reset the list
                 category = []
+
                 for i, j in enumerate(categories):
+
+                    #   Ensure that the prompted message equals the category requested
                     if prompt == categories[i]['categories']:
                         print(f"Select a sub category from {categories[i]['categories']}:\n", end="")
 
                         for k in categories[i]:
 
-                            #   Up for improving
+                            #   Ensure that the element does not contains some elements
                             if categories[i][k] != categories[i]['id'] and categories[i][k] != categories[i]['categories'] and categories[i][k] != None:
                                 category.append(categories[i][k])
 
@@ -257,14 +265,16 @@ class WordGames():
                 else: print(f"{category[i]}\n".title())
 
             for i,j in enumerate(categories):
+
+                #   Ensure the prompted message equals the requested element
                 if categories[i]['categories'] == prompt:
                     prompt = input("Type in a sub category>")
                     category = [i for i in SQL('JumbleGame.db').SelectRecord(categories[i]['categories'], prompt)] 
 
             #   Initializing lists
             word = []
-            
             answer = []
+
             for i, j in enumerate(category):
                 for k in category[i]:
 
@@ -303,15 +313,19 @@ class WordGames():
 
             if str(prompt) != str(answer):
                 lives -= 1
+                arg = f"[ ! ] Words tried             : ({string})\n[ ! ] The correct answer      : {answer}\n[ ! ] Your lives decreased as you missed on this one."
             else:
 
                 #   Increments
                 lvl += 1
                 lives += 1
 
-                print(f"[ ! ] words tried : ( {string} )\n[ ! ] Counted {len(word)} attempts.\n[ ! ] Your lives increased to {lives}.\n[ ! ] You've answered {lvl} words.\n[ ! ]{counter}s was used on this question\norrectly.\n")
+                arg = f"[ ! ] words tried : ( {string} )\n[ ! ] Counted {len(word)} attempts.\n[ ! ] Your lives increased to {lives}.\n[ ! ] You've answered {lvl} words.\n[ ! ]{counter}s was used on this question\norrectly.\n"
+
+            print(arg)
 
             #   Clear Memories
             del string, prompt, answer
             del lives, word, counter
+
         return 

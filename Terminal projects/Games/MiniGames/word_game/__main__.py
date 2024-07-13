@@ -1,7 +1,7 @@
-
+#   Importing responsories
 import sys
 
-from gamecollection import WordGames
+from pylib.gamecollection import WordGames
 from pylib.dictionary import FrequentlyAskedQuestion
 from pylib.command_line_tool import CommandlineInterface
 
@@ -14,8 +14,8 @@ def main():
 
     try :
         if len(sys.argv) < 2: raise Exception()
-        #   Games
 
+        # Games
         if CommandlineInterface().CommandLineOptions().rspGame:
             return WordGames().RockScissorPaper()
 
