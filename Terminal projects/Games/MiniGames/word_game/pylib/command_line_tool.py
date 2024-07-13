@@ -57,15 +57,18 @@ class CommandlineInterface():
 
     def ProgramCredits(self): 
         return sys.exit("""
-            Libraries used in the project :
-            
+    Responsories used in the project :
+
             requests  - by Kenneth Reitz
             os, sys -  by
-            dotenv -   by 
+            dotenv -   by Saurabh Kumar
+            sqlite - by sqlite team
             pytest - pytest - by pytest team
             sys - Python built-in responsories
             random - Python built-in responsories
             argparse - Python command line tool responsories
 
+    APIS
+            NAPI Ninjas - https://api-ninjas.com/
             Project © Created by : @krigjo25
         """)
