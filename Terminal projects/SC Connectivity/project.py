@@ -62,8 +62,6 @@ class SCChecker():
         #   Ping through a list of websites
         #   Ping through given links of websites
 
-        #   Rules
-        #   requires root user
         '''
 
         try:

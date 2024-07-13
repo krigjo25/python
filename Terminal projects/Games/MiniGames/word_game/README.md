@@ -70,6 +70,9 @@ The points system is ranged for each letter as in scrabble.
 ### Responsories
 
 -   [requests  - by Kenneth Reitz](https://requests.readthedocs.io/en/latest/)
+
+-   [mariadb  - by mariadb team]()
+-   [sqlite - by sqlite team]()
 -   [sys, random -  by Python developer team]()
 -   [dotenv -   by Saurabh Kumar](https://github.com/theskumar/python-dotenv)
 

@@ -2,7 +2,7 @@
 import sys
 
 from gamecollection import WordGames
-from pylib.dictionary import FrequentlyAskedQuestions
+from pylib.dictionary import FrequentlyAskedQuestion
 from pylib.command_line_tool import CommandlineInterface
 
 
@@ -16,7 +16,7 @@ def main():
         if len(sys.argv) < 2: raise Exception()
         #   Games
 
-        if CommandlineInterface().CommandLineOptions().rspGame: 
+        if CommandlineInterface().CommandLineOptions().rspGame:
             return WordGames().RockScissorPaper()
 
         elif CommandlineInterface().CommandLineOptions().scrabbleGame: 
@@ -28,7 +28,7 @@ def main():
         elif CommandlineInterface().CommandLineOptions().jumbleGame: 
             return WordGames().JumbleGame()
 
-        #   Intigrated programs
+        #   Faq
         elif CommandlineInterface().CommandLineOptions().credits: 
             return CommandlineInterface().ProgramCredits()
                 
@@ -36,20 +36,13 @@ def main():
             return CommandlineInterface().Porgaminfo()
 
         elif CommandlineInterface().CommandLineOptions().games:
-            return FrequentlyAskedQuestions.WordGames(CommandlineInterface().CommandLineOptions().games)
-        
-        elif CommandlineInterface().CommandLineOptions().eightball:
-            return FrequentlyAskedQuestions.WordGames(CommandlineInterface().CommandLineOptions().eightball)
-        
-        elif CommandlineInterface().CommandLineOptions().rsp:
-            return FrequentlyAskedQuestions.WordGames(CommandlineInterface().CommandLineOptions().rsp)
-        elif CommandlineInterface().CommandLineOptions().scrabble:
-            return FrequentlyAskedQuestions.WordGames(CommandlineInterface().CommandLineOptions().scrabble)
-        
+            print(CommandlineInterface().CommandLineOptions().games)
+            return FrequentlyAskedQuestion.WordGames(FrequentlyAskedQuestion().WordGames(str(CommandlineInterface().CommandLineOptions().games)))
+
         else : raise Exception()
 
     except Exception as e:
-        sys.exit("Usage : python wordgames.py -h or --help to view the command list")
+        sys.exit(f"USEAGE : python wordgames.py -h or --help to view the command list\n{e}")
 
 
 if __name__ == "__main__":

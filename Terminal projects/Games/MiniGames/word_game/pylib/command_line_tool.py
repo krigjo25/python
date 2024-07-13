@@ -2,7 +2,6 @@
 import sys
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, ArgumentError
 
-
 class CommandlineInterface():
 
     '''
@@ -17,7 +16,7 @@ class CommandlineInterface():
 
         '''Constructing the argparser'''
         #   Initializing the parser
-        parser  = ArgumentParser(prog = self.name, formatter_class= ArgumentDefaultsHelpFormatter, description= self.description, epilog= f"Thanks for using this v{self.version} of %(prog)s")
+        parser  = ArgumentParser(prog = self.name, formatter_class=ArgumentDefaultsHelpFormatter, description= self.description, epilog= f"Thanks for using this v{self.version} of %(prog)s")
         
         #   Initializing parser groups
 
@@ -29,8 +28,6 @@ class CommandlineInterface():
         games.add_argument('-j', dest = 'jumbleGame', help ='The Jumble Game', action='store_true')
         games.add_argument('-e', dest = 'eightballGame', help ='EightBall Game', action='store_true')
         games.add_argument('-s', dest = 'scrabbleGame', help ='Scrabble Game', action='store_true')
-        games.add_argument('-i', dest = 'info', help = '%(prog)s info Center', action='store_true')
-        games.add_argument('-c', dest = 'credits', help = '%(prog)s Credential Center', action='store_true')
         games.add_argument('-rsp', dest = 'rspGame', help ='Rock Scissors and paper Game (Emoji game)', action='store_true')
 
         #   Game Guides
@@ -39,12 +36,11 @@ class CommandlineInterface():
 
 
         #   How can i group it and make one of them a optional rather than required?
-        faq.add_argument('--games', help ='faq --games [game name] [--list for list of available guides]', nargs= "?" )
-        faq.add_argument('--eightball', help ='How to use Eightball Game', nargs='?')
-        faq.add_argument('--scrabble', help ='How to use Scrabble Game', nargs='?')
-        faq.add_argument('--rsp', help ='How to use Rock, Scissors, Paper Game', nargs='?')
-
+        faq.add_argument('-games', help ='-games --[game name] [--list for list of available guides]', nargs= "?" )
+        faq.add_argument('-c', dest = 'credits', help = '%(prog)s Credential Center', action='store_true')
+        faq.add_argument('-i', dest = 'info', help = '%(prog)s info Center', action='store_true')
         cmd = parser.parse_args(sys.argv[1:])
+
         
         try :
 

@@ -2,18 +2,18 @@
 import os
 import sys
 import random as r
+import time
 from dotenv import load_dotenv
 
+from pylib.db import SQLite as SQL
 from pylib.apis import NinjaAPI, GenerateNames
-from pylib.databasePython import MariaDB
-from pylib.dictionary import JumbleCategory, GameOver, ScrabbleGame
+from pylib.dictionary import GameOver, ScrabbleGame
 
 
 load_dotenv()
 
 
 class WordGames():
-
 
     def __init__(self): pass
 
@@ -27,7 +27,6 @@ class WordGames():
 
         while True:
 
-
             try :
                 #   Ensure the input is an integer
                 if not str(lvl).isdigit() or lvl == None: 
@@ -40,138 +39,33 @@ class WordGames():
             except ValueError as e: 
                 sys.exit(f"USEAGE: In the terminal type intgame.py -h for commands.\n{e},")
 
-
-            return int(lvl)
-
-    def JumbleGame(self):
-
-        #   Initializing the classes
-
-        jumble = JumbleCategory()
-
-        #   Configure the jumble Settings
-        word = []
-        
-        sub = ""
-        lives = 3
-        lvl = self.GameLevel(input('Choose a level:'))
-
-
-        for i in [i for i in MariaDB(database= os.getenv("database")).SelectTable("categories", "categories")]: 
-            sub += f"{i}, ".capitalize()
-
-
-
-        while True:
-
-            print(f"Please select one of the categories below:\n\n{sub}")
-            
-            #   Prepare and retrieve the category
-            prompt = input("category:")
-            prompt = str(prompt).lower()
-
-            try :
-
-                if len(prompt) < 2: 
-                    raise ValueError("Category has to contain more than one character")
-
-                if prompt not in [i for i in MariaDB(database= os.getenv("database")).SelectTable("categories", "categories")]: 
-                    raise ValueError("Category does not exits")
-
-            except ValueError as e: 
-                print(e)
-
-        
-
-            if prompt in category[0]: 
-                answer = NinjaAPI().Choice()
-            else:
-
-                try :
-
-                    #   Fetch sub categories from database
-                    category = MariaDB(database=os.getenv("database")).SelectRow("categories", prompt )
-
-                except Exception as e: 
-
-                    print(e)
-
-                sub = ""
-
-                #   Iterate through the categories and add category to variable
-                for i in category[2:]:
-                    sub += f"{i}, "
-
-                print(f"Selected category {category[1]}\n{sub}")
-                
-                prompt = input("Type in a category:")
-
-                #   Fetching the answer from the database
-                answer = MariaDB(database=os.getenv("database")).SelectColumn(category[1], "roles", prompt, "characters")
-
-                #   Randomizing the answer
-                answer = answer[r.randrange(0, len(answer))]      
-                
-
-            #   Clear memories
-            del category, sub
-            del prompt
-
-            #   Declear a string variable
-            string = ""
-        
-            #   The confusing answer
-            virvel = jumble.JumbleGenerator(answer)
-
-            #   Prompting the user for a word
-            prompt = input(f"Guess the jumbled word (q to quit): \"{virvel}\"")
-
-            try :
-                 if lives == 0: raise Exception()
-                 elif "q" in prompt: raise Exception("User Quit") 
-
-            except Exception as e:
-
-                print(e)
-                sys.exit(f"Game Summary\nWords tried : ({string})\n\nThe correct answer : {answer}")
-                
-
-            word.append(prompt)
-
-            if prompt == answer:
-
-                for i in word: 
-                    string += f"{i} "
-
-                print(f'words tried : ( {string} )\nCounted {len(word)} attempts.\n{GameOver().RandomCorrectAnswer()}')
-
-            
-           
-
-            #   #   Clear some memories
-            del word, string
-            del virvel, prompt
-            del answer, lives
+            return lvl
 
     def EightBall(self):
 
         ''' Classic Eightball Game
 
         '''
-
-        #   Initializing an array
-        arr = ['what', 'how']
-
         #   Print an output
         print("Ask the Philiosopher a question")
 
         #   Prompting the user for a question
         prompt = str(input("Question :" ))
+
+        try:
+            if prompt.isdigit(): raise ValueError()
+
+        except ValueError as e:
+            del prompt
+            sys.exit("Math, Albert Einstein once said \" If i had one hour to solve a challange, i would use the 55minutes to contemplate on it, then the remaining 5 minutes to solve it.\"")
+        
         quiz = prompt
 
         prompt = prompt.split(" ")
 
-        
+        #   Initializing an array
+        arr = ['what', 'how']
+
         #   Ensure that prompt is in arr
         if prompt[0].lower() in arr: 
             prompt = GameOver().PhilisophicalAnswer()
@@ -181,8 +75,8 @@ class WordGames():
 
         print(f"Answer for {quiz}\n{prompt}")
 
-         #  Clear memories
-        del quiz, prompt
+        #  Clear Memory
+        del quiz, prompt, arr
 
         return
 
@@ -191,24 +85,20 @@ class WordGames():
         ''' Classic Scrabble game
 
         '''
-        #   Initializing list / Dictionaries
+        #   Initializing lists
         score = []
         winner = []
         sorted_score = []
 
-        #   Prompts the words for both players
         print(f"Welcome to the Scrabble Game (terminal version) !\nAvailable dictionaries : :england:, :flag_us:")
         print(f"How to play : First you will be prompted for number of bots ask for your name\n then just type in a word to collect points.\nHowever if the word is false, no points is collected otherwise each letter has a point.\n")
 
         #   Initialize variables
         human = int(input("Number of players : "))
         bots = int(input("Number of bots to include in the game: "))
-        
-        
 
         #   Ensure total players has a greater value than 0
         if human > 0:
-
             for i in range(human):
 
                 name = input(f"Player name : ")
@@ -216,7 +106,6 @@ class WordGames():
         
         #   Ensure total bots has a greater value than 0
         if bots > 0 :
-
             for i in range(bots):
                 score.append({ 'name': f'( Bot ) {GenerateNames().GenerateRandomNames(1)}', 'word': NinjaAPI().Choice(),'points': 0})
 
@@ -257,29 +146,15 @@ class WordGames():
 
     def RockScissorPaper(self):
 
-        '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Prompt the user for a string
-            #   Combine the answers
-            #   Send a philliosofically answer
-
-        '''
-
-
-        prompt = str(input("Rock, Scissors or Paper : ")).lower()
+        prompt = input("Rock, Scissor or Paper : ")
 
         try :
 
-            #   Error messages
-            if prompt not in [ "rock", "scissors", "paper"]: 
-                raise ValueError("Choose between Rock, Scissors or paper")
+            if str(prompt).lower() not in [ "rock", "scissor", "paper"]: raise ValueError("Choose between Rock, Scissors or paper")
 
         except Exception as e : 
             sys.exit(e)
-
-        def RockScissorPaper(arg = ['Rock', 'Scissor', 'Paper']):
+        def RockScissorPaper(arg = None):
 
             dictionary = {
                     'rock':'\U0001FAA8',     #  rock
@@ -288,18 +163,20 @@ class WordGames():
 
             if arg == None:
 
+                arg = ['rock', 'scissor', 'paper']
                 #   Randomize the dictionary
                 r.shuffle(arg)
 
                 return dictionary.get(arg[r.randrange(len(arg))])
+
             return dictionary.get(arg)
        
-        prompt = RockScissorPaper(prompt)
-            
+        prompt = RockScissorPaper(prompt)  
+
         #   Computer chooses between one of Rock, Scissors and paper
         x = RockScissorPaper()
 
-        #   Check for winner and print out output
+        #  Ensure the user and computer is tie
         if prompt == x: sys.exit(GameOver().RandomTowaTieAnswer())
         else:
 
@@ -318,3 +195,123 @@ class WordGames():
                 
         return
 
+    def JumbleGame(self):
+
+        #   Configure the game
+        lvl = 1
+        lives = 3
+
+        #   Initializing the classes
+
+        #   Initializing a list
+        categories = [i for i in SQL('JumbleGame.db').SelectRecord("categories")]
+
+        while True:
+
+            category = []
+            print(f"Please select one of the categories below:\n")
+
+            #   Ensure the list is not the last element
+            for i, j in enumerate(categories):
+
+                if categories[i] != categories[-1]:
+                    print(str(j['categories']).title(), end=", ")
+
+                else:
+                    print(str(j['categories']).title())
+                category.append(j['categories'])
+
+            #   Prepare and retrieve the category
+            prompt = input("category > ").lower()
+            prompt = str(prompt)
+
+            try :
+
+                #   Ensure the category doesn't exists
+                for i, j in enumerate(category):
+                    if prompt not in category[i] and len(category) == i:
+                        raise Exception()
+
+            except Exception as e: 
+                print(f"Category \"{prompt}\", does not exists\nTry again\n")  
+                continue
+
+            if prompt == categories[0]['categories']:
+                answer = NinjaAPI().Choice()
+            else :
+                category = []
+                for i, j in enumerate(categories):
+                    if prompt == categories[i]['categories']:
+                        print(f"Select a sub category from {categories[i]['categories']}:\n", end="")
+
+                        for k in categories[i]:
+
+                            #   Up for improving
+                            if categories[i][k] != categories[i]['id'] and categories[i][k] != categories[i]['categories'] and categories[i][k] != None:
+                                category.append(categories[i][k])
+
+            for i in range(len(category)):
+
+                if category[i] != category[-1]:
+                    print(f"{category[i]}, ".title(), end= "")
+                else: print(f"{category[i]}\n".title())
+
+            for i,j in enumerate(categories):
+                if categories[i]['categories'] == prompt:
+                    prompt = input("Type in a sub category>")
+                    category = [i for i in SQL('JumbleGame.db').SelectRecord(categories[i]['categories'], prompt)] 
+
+            #   Initializing lists
+            word = []
+            
+            answer = []
+            for i, j in enumerate(category):
+                for k in category[i]:
+
+                    answer.append(category[i][prompt])
+
+            #   Randomizing the answer
+            answer = list(dict.fromkeys(answer))
+            r.shuffle(answer)
+            answer = answer[r.randrange(0, len(answer))]
+
+            begin = time.time()
+            #   Prompting the user for a word
+            prompt = input(f"Guess the jumbled word (q to quit) \"{''.join(r.sample(answer, len(answer)))}\">")
+    
+            counter = round(begin - time.time(), 2)
+
+            word.append(prompt)
+
+            for i in range(len(word)):
+
+                #   Initializing a string
+                string = ""
+
+                #   Ensure the element is not the last element
+                if word[i] != word[-1]: string =f"{word[i]}, "
+                else: string += word[i]
+
+            try :
+
+                 if lives == 0: raise Exception('End of your lives')
+                 elif "q" in prompt: raise Exception("User Quit") 
+
+            except Exception as e:
+                print(f"[ ! ] {e}\n[ ! ] Game Summary\n[ ! ] Words tried             : ({string})\n[ ! ] Number of Words guessed : ({lvl})\n[ ! ] The correct answer      : {answer}\n")
+                break
+
+            if str(prompt) != str(answer):
+                lives -= 1
+            else:
+
+                #   Increments
+                lvl += 1
+                lives += 1
+
+                print(f"[ ! ] words tried : ( {string} )\n[ ! ] Counted {len(word)} attempts.\n[ ! ] Your lives increased to {lives}.\n[ ! ] You've answered {lvl} words.\n[ ! ]{counter}s was used on this question\norrectly.\n")
+
+            #   Clear Memories
+            del string, prompt, answer
+            del lives, word, counter
+        return 

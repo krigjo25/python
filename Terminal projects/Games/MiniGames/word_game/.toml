@@ -1,0 +1,22 @@
+# pyproject.toml
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "Word Games Collection"
+version = "1.0.0"
+description = "A collection of games"
+authors = ["Krigjo25 <krigjo25@outlook.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+feedparser = "^6.0.8"
+html2text = "^2020.1.16"
+tomli = "^2.0.1"
+
+[tool.poetry.scripts]
+realpython = "reader.__main__:main"

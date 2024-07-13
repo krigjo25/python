@@ -8,7 +8,7 @@ from os import getenv
 from dotenv import load_dotenv
 
 #   Custom libraries
-from pylib.databasePython import MariaDB
+from pylib.db import MariaDB
 from pylib.apis import GenerateNames, NinjaAPI
 
 load_dotenv()
@@ -156,6 +156,7 @@ class GameOver():
     def RandomCorrectAnswer(): pass
     def RandomIncorrectAnswer(): pass
     def RandomTowaTieAnswer(): pass
+
 class ScrabbleGame():
 
     """ 
@@ -196,105 +197,47 @@ class ScrabbleGame():
 
         return result
 
-class JumbleCategory():
-
-    def __init__(self) -> None:
-        pass
-
-
-    def JumbleGenerator(self, jumble):
-
-        '''
-            #   Author : krigjo25
-            #   Date   :  12.01-23
-
-            #   Shuffles the characters of the word
-            #   Creating a new word with joining the elements of the iterator
-
-        '''
-
-        #   Shuffle the characters of the word
-        jumble = r.sample(jumble, len(jumble))
-    
-        #   Join the elements of the iterator with particular character.
-        jumble = ''.join(jumble)
-        
-        #   Returning the jumbled word
-        return jumble
-
-    def RetrieveCategory(self, category, sub):
-
-        """
-            #   Retrieve a category from the database,
-            #   choose one of the selected values
-        """
-
-        category = str(category).lower().replace(" ", "")
-
-        #   Initializing database connection
-        db = MariaDB(database=getenv("db2"))
-
-        try:
-
-            word = db.SelectTable(category, sub)
-
-            #   Counting the rows in the database
-            x = db.RowCount(word) + 1
-
-        except Exception as e : print(e)
-        else:
-
-            x = r.randint(1, x)
-
-        #   Closing the connection
-        db.closeConnection()
-
-        #   Clear some space
-        del x
-        del db
-
-        return  word[x]
-
 class FrequentlyAskedQuestion():
 
-        def WordGames(self, arg = None):
-
-            arg = str(arg).lower()
-            if arg == 'jumble':
+        def WordGames(self, arg):
+    
+            if str(arg).lower() == 'jumble':
                 return sys.exit(
                                 """ 
                                     Frequently Asked Questions : Jumble
                                     USEAGE : python wordgames.py -j\n
                                     1.\n
+                                    USEAGE : ctrl + c to exit the game
                                 """)
 
-            elif arg == 'eightball':
+            elif str(arg).lower() == 'eightball':
                 return sys.exit(""" 
                     Frequently Asked Questions : Eightball
                     USEAGE : python wordgames.py -e\n
                     1. Type in a sentence and the eightball will reply\n
+                    USEAGE : ctrl + c to exit the game
                 """)
 
-            elif arg == 'scrabble':
-                return sys.exit(""" Frequently Asked Questions : Scrabble
+            elif str(arg).lower() == 'scrabble':
+                return sys.exit(""" 
+                                    Frequently Asked Questions : Scrabble
                                     USEAGE : python wordgames.py -s\n
-                                    1. Type in how many human will play
-                                    2.  Type in how many bots will play
-                                    3. Select name for the human players
-                                    4. Every participants types in a word
-                                    5. wait for the program to calculate\n
-                
+                                    1. Type in how many human will play (int)
+                                    2.  Type in how many bots will play (int)
+                                    3. Select name for the human players (alpha)
+                                    4. Every participants types in a word (alpha)
+                                    5. wait for the program to calculate the result\n
+                                    USEAGE : ctrl + c to exit the game
                                     """)
 
-            elif arg == 'rsp':
-                return sys.exit(""" Frequently Asked Questions : Rock Scissor'n Paper
+            elif str(arg).lower() == 'rsp':
+                return sys.exit(""" 
+                                    Frequently Asked Questions : Rock Scissor'n Paper
                                     USEAGE : python wordgames.py -rsp\n
-                                    1. Type in how many human will play
-                                    2.  Type in how many bots will play
-                                    3. Select name for the human players
-                                    4. Every participants types in a word
-                                    5. wait for the program to calculate\n
-                
+                                    1. Select name for the human players
+                                    2. Type in a word (rock, scissor or paper)
+                                    5. wait for the program to calculate the result\n
+                                    USEAGE : ctrl + c to exit the game
                                     """)
     
             else : return sys.exit('List of available games :\nJumble\nRock Scissors\'n Paper (n)\nScrabble\nEightball\nEnd Of List\n')
