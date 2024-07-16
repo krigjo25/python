@@ -5,7 +5,6 @@ import time
 
 import numpy as np
 import random as r
-import pandas as pd
 
 
 from dotenv import load_dotenv
