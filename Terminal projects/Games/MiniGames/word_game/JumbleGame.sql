@@ -1,6 +1,8 @@
 
 -- Creating the table / updating the table categories
 CREATE TABLE IF NOT EXISTS categories (
+
+  --  Column labels
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
   categories TEXT NOT NULL,
   sub TEXT DEFAULT NULL,
@@ -18,31 +20,32 @@ CREATE TABLE IF NOT EXISTS categories (
   -- Constraints
   UNIQUE(categories));
 
-INSERT INTO 'categories'(categories, sub, sub1, sub2) VALUES 
-('waltdisney', 'Roles', 'name', 'Movie_name');
 
 INSERT INTO 'categories'(categories, sub, sub1, sub2) VALUES 
-('waltdisney', 'Roles', 'name', 'Movie_name');
+('Disney', 'Roles', 'Character', 'Anime');
 
-CREATE TABLE IF NOT EXISTS waltdisney (
+INSERT INTO 'categories'(categories) VALUES 
+('Random');
+
+CREATE TABLE IF NOT EXISTS disney (
   id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-  characters TEXT NOT NULL,
+  character TEXT NOT NULL,
   roles TEXT NOT NULL,
-  animationname TEXT NOT NULL,
+  anime Name TEXT NOT NULL,
 
   --  Constraints
-  UNIQUE(`characters`)
+  UNIQUE(`Name`)
 );
 
-INSERT INTO `waltdisney` VALUES
+INSERT INTO `disney` VALUES
 (1,'Aladdin','Hero','Aladdin'),
 (2,'Clayton','Villian','Tarzan'),
 (3,'Simba','Hero',' The Lion King'),
-(4,'Robin Hood',' Hero','Robin Hood'),
+(4,'Robin Hood','Hero','Robin Hood'),
 (5,'Pinhoccio','Hero','Pinocchio'),
-(6,'Tarzan',' Hero','Tarzan'),
+(6,'Tarzan','Hero','Tarzan'),
 (7,'Quasimodo','Hero','The Hunchback Of Notredame'),
-(8,'Hercules',' Hero','Hercules'),
+(8,'Hercules','Hero','Hercules'),
 (9,'The Beast','Hero',' The Beauti And the Beast'),
 (10,'Jasmine','Princess','Aladdin'),
 (11,'Mulan','Princess','Mulan'),
@@ -64,9 +67,9 @@ INSERT INTO `waltdisney` VALUES
 (27,'Ursurella','Villian','The little Marmaid'),
 (28,'Dr.Farciller','Villian','The Princess And The Frog'),
 (29,'Judge Claude Frollo','Villian','The Hunchback Of Notredame'),
-(30,'Mother Gothel',' Villian','Rapunzel'),
+(30,'Mother Gothel','Villian','Rapunzel'),
 (31,'Shan Yu','Villian','Mulan'),
 (32,'Mor''du','Villian',' Brave'),
 (33,'Hades','Villian','Hercules'),
 (34,'Gideon','Villian','Pinocchio'),
-(35,'Gaston',' Villian','The Beauti And The Beast');
+(35,'Gaston','Villian','The Beauti And The Beast');

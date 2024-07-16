@@ -1,7 +1,6 @@
 # Python Repositories
 import sys
 import random as r
-
 from os import getenv
 
 #   Dotenv Repositories
@@ -105,22 +104,21 @@ class GameOver():
     def PhilisophicalAnswer(self):
 
             dictionary = {
-                        1:'What do you sense about it?',
-                        2:'What can  you actually do about it?',
+                        1:'Just allow it to be what it is, and attract the solution',
+                        2:'Surrender the value to life, be integerious with the intentions. No more to do.',
                         3:'What are you really, deep down?',
-                        4:'Just let it go, its not your issue.',
-                        5:'Just let your self, experience the question.',
+                        4:'Just let it go, its not your challenge to resolve',
+                        5:'Allow the challenge to be what it is, contemplate, ',
                         6:'Visualize the question, and the answer will arrive.',
                         7:'If an human is a genious, then The best answers always comes from with-in, just believe in your self enough.',
-                        8:'As Socrates once said, you already know the answer of the question, since you had the idea of asking the question.',
+                        8:'As Socrates once said, you already know the answer of the question, as the idea of the question arised.',
                         9:'Would you be able to let it go?',
                         10:'A Question does not arise with out it\'s answer, so place your attention on where the question has arised',
                         11:'From where does the question actually arise? Your mind or heart?',
                         12:'Life is just like one of the elements on earth, just flow with it',
-                        13:'Einstein said once if the world were ending, and i had one hour to solve a problem " i would use 50 minutes to think about the issue, then use the 10 last minutes to solve the issue".',
+                        13:'Einstein said once "if the world were ending, and i had one hour to solve a problem " i would use 50 minutes to think about the issue, then use the 10 last minutes to solve the issue".',
                         14:'As the thought araises from with-in it can only be answered from with-in',
-                        15:'Answers comes from with-in your self.'
-    }
+                        15:'Answers comes from with-in your self.'}
 
             #   Randomize the dictionary
             x = r.randrange(1,len(dictionary))

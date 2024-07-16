@@ -92,3 +92,24 @@ Database is used to store information the database can be static which means val
 dynamically which means the values can change.
 
 `tables` are created to sort data in columns and rows
+
+
+### Eightball
+
+    With Eightball i learned to work with lists, numpy is way to useless in this 
+    type of project, but it shows others it can be worked with.
+
+    Working with dictionary was also learned during this project.
+
+### Scrabble
+
+    During this project It was learned to implement a basic API for randomizing 
+    the names to the bots, and to use APIs for different purposes.
+
+    The sorting Algorithm Margin sort was choosen even it takes a huge ammount of 
+    time regarding the use in basic, its choosen in case there is huge datasets 
+    available to sort.
+
+### Rock, Scissors, Paper (RSP)
+
+### Jumble Game

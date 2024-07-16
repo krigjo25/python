@@ -6,6 +6,8 @@ from uu import Error
 import mariadb
 import sqlite3
 
+import pandas as pd
+
 #   dotenv Responsories
 from dotenv import load_dotenv
 load_dotenv()
@@ -224,13 +226,6 @@ class SQLite():
         #   Initializing the database connection
         self.con = sqlite3.connect(f"{self.database}")
 
-        #   Adapted from https://docs.python.org/3/library/sqlite3.html
-        def dict_factory(cursor, row):
-            fields = [column[0] for column in cursor.description]
-            return {key: value for key, value in zip(fields, row)}
-        
-        self.con.row_factory = dict_factory
-
         #   Creating a cursor to execute the statements
         self.cur = self.con.cursor()
 
@@ -252,19 +247,18 @@ class SQLite():
 
                 #   Ensure that the given Element is not the last element
                 if column[i] != column[-1]:
-                    columns +=f"{column[i]}, "
+                    columns +=f"[{column[i]}], "
 
                 else:
-                    columns +=f"{column[i]}"
+                    columns +=f"[{column[i]}]"
 
         query = f"SELECT {columns} FROM {table}"
 
         #   Ensure the query statement is valid
         sqlite3.complete_statement(query)
 
-        #   Execute the SQL query
-        query = self.cur.execute(f"{query}")
-        query = query.fetchall()
+        #   Execute the query
+        query = pd.read_sql_query(query, self.con)
 
         #   Closing the connections
         self.con.close()

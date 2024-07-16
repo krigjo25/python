@@ -1,8 +1,13 @@
 #   Importing Responsories
 import os
 import sys
-import random as r
 import time
+
+import numpy as np
+import random as r
+import pandas as pd
+
+
 from dotenv import load_dotenv
 
 from pylib.db import SQLite as SQL
@@ -64,7 +69,7 @@ class WordGames():
         prompt = prompt.split(" ")
 
         #   Initializing an array
-        arr = ['what', 'how']
+        arr = np.array(['what', 'how'])
 
         #   Ensure that prompt is in arr
         if prompt[0].lower() in arr: 
@@ -86,9 +91,9 @@ class WordGames():
 
         '''
         #   Initializing lists
-        score = []
-        winner = []
-        sorted_score = []
+        score = np.array([])
+        winner = np.array([])
+        sorted_score = np.array([])
 
         print(f"Welcome to the Scrabble Game (terminal version) !\nAvailable dictionaries : :england:, :flag_us:")
         print(f"How to play : First you will be prompted for number of bots ask for your name\n then just type in a word to collect points.\nHowever if the word is false, no points is collected otherwise each letter has a point.\n")
@@ -98,32 +103,35 @@ class WordGames():
         bots = int(input("Number of bots to include in the game: "))
 
         #   Ensure total players has a greater value than 0
+
         if human > 0:
             for i in range(human):
 
                 name = input(f"Player name : ")
-                score.append({'name': {name}, 'word': input(f"{name}'s word : "), 'points': 0})
+                score = np.append(score,{'name': name, 'word': input(f"{name}'s word : "), 'points': 0})
         
         #   Ensure total bots has a greater value than 0
         if bots > 0 :
             for i in range(bots):
-                score.append({ 'name': f'( Bot ) {GenerateNames().GenerateRandomNames(1)}', 'word': NinjaAPI().Choice(),'points': 0})
+                score = np.append(score, { 'name': f'( Bot ) {GenerateNames().GenerateRandomNames(1)}', 'word': NinjaAPI().Choice(),'points': 0})
 
         for i in score:
 
             #   Ensure the word is actually a word
-            if NinjaAPI().Check(i['word']):
+            if bool(NinjaAPI().Check(i['word'])):
                 i['points'] = ScrabbleGame().ComputeScore(i['word'])
 
             #   Sorting the Score
-            sorted_score.append(i['points'])
-            sorted_score = sorted(sorted_score)         
+            sorted_score = np.append(sorted_score, i['points'])
+            sorted_score = np.sort(sorted_score, kind = 'mergesort')         
 
+
+        #   Binary Search?
         for i in score:
 
             #   Appending winners to new dictionary
             if i['points'] == sorted_score[-1]:
-                winner.append({
+                winner = np.append(winner,{
                                 'name': i['name'],
                                 'word': i['word'],
                                 'points': i['points']
@@ -154,6 +162,7 @@ class WordGames():
 
         except Exception as e : 
             sys.exit(e)
+
         def RockScissorPaper(arg = None):
 
             dictionary = {
@@ -165,6 +174,7 @@ class WordGames():
 
                 arg = ['rock', 'scissor', 'paper']
                 #   Randomize the dictionary
+
                 r.shuffle(arg)
 
                 return dictionary.get(arg[r.randrange(len(arg))])
@@ -190,142 +200,113 @@ class WordGames():
             if x == '\U0001FAA8' and prompt =='\U00002702': print(f"{GameOver().Computer(x)}")
             if x == '\U00002702' and prompt =='\U0001F4C4': print(f"{GameOver().Computer(x)}")
 
-            #   Clear Memories
-            del x, prompt
+        #   Clear Memories
+        del x, prompt
                 
         return
 
     def JumbleGame(self):
 
+        BEGIN = time.time()
+
         #   Configure the game
         lvl = 1
         lives = 3
 
-        #   Initializing a list
-        categories = [i for i in SQL('JumbleGame.db').SelectRecord("categories")]
+        #   Initializing a DataFrame
+        categories = SQL('JumbleGame.db').SelectRecord("categories").drop("id", axis='columns')
+        categories.infer_objects(copy=False)
 
         while True:
-
-            print(f"Please select one of the categories below:\n")
-
-            #   Initializing a list
-            category = []
-
-            #   Ensure that it is not the last element
-            for i, j in enumerate(categories):
-
-                if categories[i] != categories[-1]:
-                    print(str(j['categories']).title(), end=", ")
-
-                else:
-                    print(str(j['categories']).title())
-    
-                category.append(j['categories'])
-
-            #   Prompt the user for an input
-            prompt = input("category > ").lower()
-            prompt = str(prompt)
-            
-            try :
-
-                #   Ensure the category doesn't exists
-                for i, j in enumerate(category):
-                    if prompt not in category[i] and len(category) == i:
-                        raise Exception()
-
-            except Exception as e: 
-                print(f"Category \"{prompt}\", does not exists\nTry again\n")  
-                continue
-
-            #   Ensure the prompt equals the category requested
-            if prompt == categories[0]['categories']:
-                answer = NinjaAPI().Choice()
-
-            else :
-
-                #   Reset the list
-                category = []
-
-                for i, j in enumerate(categories):
-
-                    #   Ensure that the prompted message equals the category requested
-                    if prompt == categories[i]['categories']:
-                        print(f"Select a sub category from {categories[i]['categories']}:\n", end="")
-
-                        for k in categories[i]:
-
-                            #   Ensure that the element does not contains some elements
-                            if categories[i][k] != categories[i]['id'] and categories[i][k] != categories[i]['categories'] and categories[i][k] != None:
-                                category.append(categories[i][k])
-
-            for i in range(len(category)):
-
-                if category[i] != category[-1]:
-                    print(f"{category[i]}, ".title(), end= "")
-                else: print(f"{category[i]}\n".title())
-
-            for i,j in enumerate(categories):
-
-                #   Ensure the prompted message equals the requested element
-                if categories[i]['categories'] == prompt:
-                    prompt = input("Type in a sub category>")
-                    category = [i for i in SQL('JumbleGame.db').SelectRecord(categories[i]['categories'], prompt)] 
-
-            #   Initializing lists
-            word = []
-            answer = []
-
-            for i, j in enumerate(category):
-                for k in category[i]:
-
-                    answer.append(category[i][prompt])
-
-            #   Randomizing the answer
-            answer = list(dict.fromkeys(answer))
-            r.shuffle(answer)
-            answer = answer[r.randrange(0, len(answer))]
-
-            begin = time.time()
-            #   Prompting the user for a word
-            prompt = input(f"Guess the jumbled word (q to quit) \"{''.join(r.sample(answer, len(answer)))}\">")
-    
-            counter = round(begin - time.time(), 2)
-
-            word.append(prompt)
-
-            for i in range(len(word)):
-
-                #   Initializing a string
-                string = ""
-
-                #   Ensure the element is not the last element
-                if word[i] != word[-1]: string =f"{word[i]}, "
-                else: string += word[i]
 
             try :
 
                  if lives == 0: raise Exception('End of your lives')
-                 elif "q" in prompt: raise Exception("User Quit") 
 
             except Exception as e:
-                print(f"[ ! ] {e}\n[ ! ] Game Summary\n[ ! ] Words tried             : ({string})\n[ ! ] Number of Words guessed : ({lvl})\n[ ! ] The correct answer      : {answer}\n")
+                print(f"[ ! ] {e}\n[ ! ] Game Summary\n")
                 break
 
-            if str(prompt) != str(answer):
+            print(f"Please select one of the categories below:\n")
+
+            for index, row in categories.iterrows():
+
+                #   Ensure that the category is the same
+                if categories['categories'].iloc[index] == categories['categories'].iloc[-1]:
+                        print(f"{row['categories']}")
+
+                else:
+                    print(f"{row['categories']}, ", end= "")
+
+            #   Prompt the user for an input
+            prompt = input("category > ")
+            prompt = str(prompt).title()
+
+            for index, row in categories.iterrows():
+
+                #   Ensure that the prompted message is equal to categories
+                if categories['categories'].iloc[0] == prompt:
+                    answer = NinjaAPI().Choice()
+
+                else:
+                    
+                    try :
+
+                        #   Ensure that the prompted category exists
+                        if prompt.title() not in categories.values:
+
+                            raise Exception('Category does not exists')
+
+                    except Exception as e : 
+                        print(e)
+                        continue
+
+                    #   Sub-categories
+                    for index, row in categories.iterrows():
+
+                        #   Ensure the row is equal to the prompted message
+                        if prompt == row['categories']:
+
+                            print(f'Type in a sub-category from {prompt} below:')
+                            for i, j in enumerate(row):
+                                if j != None:
+                                    
+                                    if row.iloc[i] != row.iloc[-1]:
+                                        print(f"{j}, ", end="")
+
+                                    else:
+                                        print(f"{j} ")
+
+                            #   Fetch answer
+                            prompt = input('\nSub-Category >')
+
+                            answer = SQL("JumbleGame.db").SelectRecord(f"{row['categories']}".lower(), f"{prompt}".title())
+                            answer = answer.sample()
+                            answer = answer.to_numpy()
+                            print(answer[0][0])
+
+            begin = time.time()
+            print("secs ", round(time.time()-BEGIN, 2))
+            #   Prompting the user for a word
+            prompt = input(f"Guess the jumbled word (q to quit) \"{''.join(r.sample(answer[0][0], len(answer[0][0])))}\">")
+    
+            counter = round(begin - time.time(), 2)
+
+            if str(prompt) != str(answer[0][0]):
                 lives -= 1
-                arg = f"[ ! ] Words tried             : ({string})\n[ ! ] The correct answer      : {answer}\n[ ! ] Your lives decreased as you missed on this one."
+                arg = f"[ ! ] The correct answer      : {answer}\n[ ! ] Your lives decreased as you missed on this one."
+
             else:
 
                 #   Increments
                 lvl += 1
                 lives += 1
 
-                arg = f"[ ! ] words tried : ( {string} )\n[ ! ] Counted {len(word)} attempts.\n[ ! ] Your lives increased to {lives}.\n[ ! ] You've answered {lvl} words.\n[ ! ]{counter}s was used on this question\norrectly.\n"
+                arg = f"[ ! ] Your lives increased to {lives}.\n[ ! ] You've answered {lvl} words.\n[ ! ]{counter}s was used on this question\norrectly.\n"
 
             print(arg)
-
             #   Clear Memories
-            del string, prompt, answer
-            del lives, word, counter
+        del prompt, answer, lives
+        del counter
 
         return 

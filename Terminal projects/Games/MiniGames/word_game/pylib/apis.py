@@ -16,15 +16,18 @@ class NinjaAPI():
             #   API by API-Ninja
             # Using an api to check if the word exist in the online dictionary.
         """
-        
-        parse = f'https://api.api-ninjas.com/v1/dictionary?word={str(word).lower()}'
+        parse = f'https://api.api-ninjas.com/v1/dictionary?word={str(word)}'
         response = req.get(parse, headers={'X-Api-Key': os.getenv("Ninja-API-Key")})
         json = response.json()
         
+        try:
+
+            if response.status_code != req.codes.ok: raise Exception(f"Something went wrong with the connection to Ninja API: {response.status_code}")
+        except Exception as e : return sys.exit(e)
         #   Clear some space
         del word, parse, response
 
-        return json['valid']
+        return bool(json['valid'])
 
     def Choice(self):
 
@@ -40,7 +43,7 @@ class NinjaAPI():
         try:
 
             if response.status_code != req.codes.ok: raise Exception(f"Something went wrong with the connection to Ninja API: {response.status_code}")
-        except Exception as e : return e
+        except Exception as e : return sys.exit(e)
 
         #   Clear some space
         del parse, response
@@ -89,11 +92,10 @@ class GenerateNames():
                     raise Exception(response.status_code)
 
             except Exception as e: 
-                return e
+                return sys.exit(e)
 
             #   Clear memories
             del parse, response
 
             for i in json['results']:
-            
                 return i['name']['first']

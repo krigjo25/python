@@ -1,5 +1,7 @@
 {
     "application.experimental.rendererProfiling": false,
     "terminal.explorerKind": "integrated",
-    "python.analysis.autoImportCompletions": true
+    "python.analysis.autoImportCompletions": true,
+    "materialkv.pythonFile": "main.py",
+    "terminal.integrated.tabs.defaultColor": null
 }
