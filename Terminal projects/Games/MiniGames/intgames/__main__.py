@@ -13,18 +13,15 @@ def main():
             sys.exit(e)
 
         cmd = CommandlineInterface()
-
-        if cmd.CommandLineOptions().credits: 
-            return cmd.ProgramCredits()
             
-        elif cmd.CommandLineOptions().info: 
+        if cmd.CommandLineOptions().info: 
             return cmd.Porgaminfo()
         
         elif cmd.CommandLineOptions().tlp: 
-            return ig.LittleProffessor(ig)
+            return ig().LittleProffessor()
 
         elif cmd.CommandLineOptions().gtn: 
-            return ig.GuessTheNumber(ig)
+            return ig().GuessTheNumber()
 
 if __name__ == '__main__':
     main()

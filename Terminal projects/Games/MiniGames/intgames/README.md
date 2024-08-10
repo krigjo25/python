@@ -2,7 +2,6 @@
 
 ## Table of content
 
-## [About The Author](#about-the-author)
 ### Disclaimer
 
 ## [IntGames](#IntGames)
@@ -16,20 +15,11 @@
 ### References
 
 ## [Project Summary](#Notes)
-### Python functions
-### Python Try, except, else
-### Python List
-### Python del
-### SQL Database
-
 
 ## Introduction
 
-### About the Author
-[About krigjo25](https://github.com/krigjo25/)
 
-
-### Disclaimer
+## Disclaimer
 
 Some of the projects in this file may have been used in CS50P - Introduction to Python.
 
@@ -46,11 +36,11 @@ Please be aware, and respect the [Academic Honesty Policy](https://cs50.harvard.
 
 The intention of the game is to prompt the user for an integer, and the user<br>
 has to guess which integer the program generated, which is generated each time <br>
-while the players has won,
+when the players has won,
 
 Based on level the difficulty may vary, but the user gets a hint if the user types in a less or greater than answer.
 
-> USAGE : In your terminal, type intgames.py -h to view the commands available for the game
+> USAGE : In your terminal, type __main__.py -h to view the commands available for the game
 
 
 ### The Little proffesor
@@ -60,7 +50,7 @@ the user to solve, the mathimatical question is randomly generated, by a code.
 The following program has a level system where the higher level,
 the more difficult the mathimatical question can be.
 
-> USAGE : In your terminal, type intgames.py -h to view the commands available for the game
+> USAGE : In your terminal, type __main__.py -h to view the commands available for the game
 
 Originally this game was created as an
 assignment at CS50P - Introduction to Python Programming.
@@ -95,3 +85,4 @@ This project uses the testing framework <strong>pytest</strong>.
 -   [pytest - by pytest team](https://github.com/pytest-dev/pytest)
 -   [random - by Python developer team]()
 -   [requests - by Kenneth Reitz](https://requests.readthedocs.io/en/latest/)<nt>
+

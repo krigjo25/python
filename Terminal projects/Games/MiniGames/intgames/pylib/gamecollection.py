@@ -12,7 +12,8 @@ class IntegerGames():
         #   Description :   
                 Creating a collection of Integer games
     '''
-
+    def __init__(self):
+        pass
     def GameLevel(self, lvl):
 
         '''
@@ -43,36 +44,36 @@ class IntegerGames():
         #   Ensure the lvl is one of the below
         match lvl:
             case 1: 
-                return r.randint(0, 10)
+                return [r.randint(0, 10), 'Guess a number between (1-10) :']
 
             case 2: 
-                return r.randint(0,20)
+                return [r.randint(0, 20), 'Guess a number between (1-20) :']
 
             case 3: 
-                return r.randint(0,30)
+                return [r.randint(0, 30), 'Guess a number between (1-30) :']
 
             case 4: 
-                return r.randint(0,40)
+                return [r.randint(0, 40), 'Guess a number between (1-40) :']
 
             case 5: 
-                return r.randint(0,50)
+                return [r.randint(0, 50), 'Guess a number between (1-50) :']
 
             case 6: 
-                return r.randint(0,60)
+                return [r.randint(0, 60), 'Guess a number between (1-60) :']
             
             case 7: 
-                return r.randint(0,70)
+                return [r.randint(0, 70), 'Guess a number between (1-70) :']
             
             case 8: 
-                return r.randint(0,80)
+                return [r.randint(0, 80), 'Guess a number between (1-80) :']
             
             case 9: 
-                return r.randint(0,90)
+                return [r.randint(0, 90), 'Guess a number between (1-90) :']
             
             case 10: 
-                return r.randint(0,100)
+                return [r.randint(0, 100), 'Guess a number between (1-100) :']
             case _:
-                return r.randint(0,500)
+                return [r.randint(0, 500), 'Guess a number between (1-500) :']
 
     def GameFormula(self, lvl):
 
@@ -83,16 +84,16 @@ class IntegerGames():
         match lvl:
 
             case 5:
-                n = abs(x - y)
-                txt = f"{x} - {y} = "
+                n = abs(x[0] - y[0])
+                txt = f"{x[0]} - {y[0]}="
             
             case 6:
-                n = abs(x * y)
-                txt = f"{x} * {y} = "
+                n = abs(x[0] * y[0])
+                txt = f"{x[0]} * {y[0]}="
 
             case _:
-                n = abs(x + y)
-                txt = f"{x} + {y} = "
+                n = abs(x[0] + y[0])
+                txt = f"{x[0]} + {y[0]}="
 
         #   Initializing a list
         arg = []
@@ -103,12 +104,11 @@ class IntegerGames():
         #   Returning the 
         return arg
 
-    def LittleProffessor(self):
+    def LittleProffessor(self): 
 
          #   Initializing Game Configurations
         lives = 3
         score = 0
-
         lvl = self.GameLevel(input('lvl :'))
 
         while True:
@@ -140,8 +140,8 @@ class IntegerGames():
                 #   Increasing the score
                 lvl += 1
                 score += 1
-                print(f"{GameOver().roundover(n,answer)}\n")
-                
+                print(f"Correct yay..")
+
 
             #   Breaking out of the loop
             if lvl == 10:
@@ -155,27 +155,35 @@ class IntegerGames():
 
         #   Game Configurations
         lives = 3
-        lvl = self.GameLevel(lvl)
+        lvl = self.GameLevel(input('lvl :'))
         n = self.GenerateIntegers(lvl)
 
         while True:
 
             #   Prompting the user
-            answer = input('Guess: ')
+            answer = input(f'{n[1]} ')
             try :
+                
+                if int(answer) == n[0]: 
 
-                if answer != n: 
-                    raise Exception()
+                    lvl += 1
+                    lives += 1
+                    print(f"""Congratz you won a new life
+Current Stats:
+Lifes : {lives} level: {lvl}""")
+                    n = self.GenerateIntegers(lvl)
+    
+                else:
+                    if n[0] > int(answer):
+                        raise Exception('Too low, guess higher')
+                    if n[0] < int(answer):
+                        raise Exception('Too high, guess lower')
 
             except (ValueError, TypeError, Exception) as e: 
                 
                 lives -= 1
-                print(print(f"{GameOver().roundover(n,answer)}\n"))
+                print(e)
 
-            #   Comparing the values
-
-            if answer == n: 
-                return print(f"{GameOver().roundover(n,answer)}\n")
 
             if lives == 0: 
                     sys.exit(f"Number of levels won:{lvl}\n{GameOver().roundover(n,answer)}\n")
