@@ -2,7 +2,6 @@
 import sys
 import random as r
 
-from pylib.command_line_tool import CommandlineInterface
 from pylib.dict.game_over import GameOver
 
 class IntegerGames():
@@ -181,21 +180,3 @@ class IntegerGames():
             if lives == 0: 
                     sys.exit(f"Number of levels won:{lvl}\n{GameOver().roundover(n,answer)}\n")
 
-    def main(self):
-
-        cmd = CommandlineInterface()
-
-        if cmd.CommandLineOptions().credits: 
-            return cmd.ProgramCredits()
-            
-        elif cmd.CommandLineOptions().info: 
-            return cmd.Porgaminfo()
-        
-        elif cmd.CommandLineOptions().tlp: 
-            return self.LittleProffessor()
-
-        elif cmd.CommandLineOptions().gtn: 
-            return self.GuessTheNumber()
-
-if __name__ == '__main__':
-    IntegerGames().main()
