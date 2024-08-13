@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+    {% block title %}
+        Main
+    {% endblock %}
+
+    {% block main %}
+        <article id='about-kristoffer'>
+            <div>
+                {% if imgage %}
+                    {% for img in image %}
+                    <img src="{{ img['url']}}" alt="{{ img['alt']}}">
+                    <caption>{{ img['caption'] }}</caption>
+                    {% endfor %}
+                {% ifend %}
+            </div>
+            <div class='profile-container'>
+                {%if url %}
+                    {% for url in smurl %}
+                        <span>
+                            <a href="{{ url['instagram']}}"><i class="bi bi-instagram"></i></a>
+                        </span>
+                        <span>
+                            <a href='#contact-me'><i class="bi bi-mailbox"></i></a>
+                        </span>
+                        <span>
+                            <a href="{{ url['linkedin']}}"><i class="bi bi-linkedin"></i></a>
+                        </span>
+                        <span>
+                            <a href="{{ url['github']}}"><i class="bi bi-github"></i></a>
+                        </span>
+                    {% endfor %}
+                {% endif%}
+            </div>
+            <h2 id='#about-kristoffer'>About Kristoffer</h2>
+            <div class='profile-item'>   
+                <p>
+                    Lorem ipsum odor amet, consectetuer adipiscing elit.
+                    Consequat ridiculus adipiscing habitant pretium senectus.
+                    Malesuada dui suspendisse eget sollicitudin at tempor dignissim.
+                    Et netus fusce mollis proin aliquam inceptos. Risus feugiat fames
+                    faucibus diam tincidunt ac sollicitudin Habitasse ipsum odio feugiat
+                    ligula sollicitudin. Aliquam odio montes at nunc dapibus.
+                    Auctor pharetra vitae       cursus cubilia fusce praesent litora efficitur.
+                </p>
+
+                <p>
+                    Platea dapibus porta venenatis fringilla interdum mauris.
+                    Leo potenti ridiculus semper maximus blandit sollicitudin.
+                    Nam nulla gravida dapibus rhoncus morbi euismod morbi.
+                    Sem maximus posuere, aenean ad arcu eget. Ad cubilia lobortis
+                    augue habitasse curabitur metus nam. Congue vitae arcu pretium
+                    cursus vitae. Justo ultricies praesent scelerisque placerat est
+                    enim dapibus. 
+                </p>
+            </div>
+        </article>
+        <h2>Expertise</h2>
+        {% if education %}
+            {% for edu in education %}
+            <h3 onclick=''> {{ edu['name']}} <i class="bi bi-arrow-right-circle-fill"></i></h3>
+            <div>
+                <div class='wrapper-container'>
+                    <div class='wrap-item'>
+                        <h4>{{ edu['subject']}}</h4>
+                        <a href='lib/pp/getAcademy/oppstart/index.html'>
+                            <h5>Emne 1: Start-up</h5>
+                        </a>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <a href=''> 
+                            <h5>Emne 2: IT-Development</h5>
+                        </a>
+                        <a href=''> 
+                            <h5>Emne 3: #C</h5>
+                        </a>
+                    </div>
+                    <div class='wrap-item'>
+                        <h4>{{ edu['subject2']}}</h4>
+                        <a href='pp/getAcademy/oppstart/index.html'>
+                            <h5>Emne 4: Oppstart</h5>
+                        </a>
+                        <a href=''> 
+                            <h5>Emne 5: IT-Utvikling</h5>
+                        </a>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <a href=''> 
+                            <h5>Emne 6: #C</h5>
+
+                        </a>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class='wrap-item'>
+                        <h4>{{ edu['subject3']}}</h4>
+                        <a href='pp/getAcademy/oppstart/index.html'>
+                            <h5>Subject 4: C# og Object Oriented Programming</h5>
+                        </a>
+                        <a href=''> 
+                            <h5>Subject 5: Fullstack project co operation with IT-professor</h5>
+                        </a>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <a href=''> 
+                            <h5>Subject 6: Learn something new</h5>
+
+                        </a>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ edu['link']}}" target='_blank'> {{ edu['name'] }}</a>
+
+            {% endfor %}
+        {% endif %}
+        <h2>Projects</h2>
+        {% if frontend %}
+            {% for record in frontend %}
+                <h3 onclick=''>front-end <i class="bi bi-arrow-right-circle-fill"></i></h3>
+                <div class='pp'>
+                    <a href="{{ record['gurl']}}" target='_blank'>
+                        <span>
+                            <i class="bi bi-github"></i>
+                        </span>
+                    </a>
+                    <a href="{{ record['url']}}">
+                        <span>
+                            <i class="bi bi-globe"></i>
+                        </span>    
+                    </a>
+                    <span class='demo'>{{ record['name']}}</span><br>
+                </div>
+            {% forend %}  
+        {% endif %}
+    {% if backend %}
+        ||||||||||||||||||||||||||||||||                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h3 onclick=''>back-end <i class="bi bi-arrow-right-circle-fill"></i></h3>
+        <section id='portefolio-projects'>
+            {% for record in backend%}
+                <div class='pp'>
+                    <div class="{{ record['ft']}}">
+                        <span>
+                            <i class="bi bi-filetype-py"></i>
+                        </span>
+                    </div>
+                    <a href="{{ record['gurl']}}" target='_blank'>
+                        <span>
+                            <i class="bi bi-github"></i>
+                        </span>
+                    </a>
+                    <a href="{{ record['yurl']}}">
+                        <span>
+                            <i class="bi bi-youtube"></i>
+                        </span>    
+                    </a>
+                    <span class='demo'>{{ record['name']}}</span><br>
+                </div>
+            {% endfor %}
+    {% ifend %}
+    </section>
+        {% endblock %}
+    
