@@ -6,8 +6,9 @@
     {% block main %}
         <article id='about-kristoffer'>
             <div>
-                {% if imgage %}
+                {% if image %}
                     {% for img in image %}
+                    <!-- Top 3 images of me-->
                     <img src="{{ img['url']}}" alt="{{ img['alt']}}">
                     <caption>{{ img['caption'] }}</caption>
                     {% endfor %}
