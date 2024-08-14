@@ -1,10 +1,17 @@
 #   Importing responsories
-from flask import Flask, flash, redirect, render_template, requests, session
-from flask_session import Session
+import os
+from dotenv import load_dotenv
 from markupsafe import Markup
+from flask_session import Session
+from flask import Flask, flash, redirect, render_template, request, session
+
 
 #   Custom libs
 from lib.config.config import DevelopmentConfig
+from lib.db.databases  import SQL
+
+
+load_dotenv()
 app = Flask(__name__)
 
 # Configure session to use filesystem (instead of signed cookies)
@@ -12,7 +19,7 @@ app.config.from_object(DevelopmentConfig)
 Session(app)
 
 #   Database Connection
-db = SQL()
+db = SQL(os.getenv('db'))
 
 @app.after_request
 def after_request(response):
@@ -27,7 +34,7 @@ def index():
 
     """ Show Portefolio from database"""
 
-    protefolio = 0
+    pp= 0
 
-    return render_template('index.html', protefolio = portefolio)
+    return render_template('index.html')
 
