@@ -32,9 +32,6 @@
                 {% endif%}
             </div>
             <h2 id='#about-kristoffer'>About Kristoffer</h2>
-                {% block title %}
-                    Krigjo25
-                {% endblock %}
             <div class='profile-item'>   
                 <p>
                     Lorem ipsum odor amet, consectetuer adipiscing elit.
@@ -58,9 +55,6 @@
             </div>
         </article>
         {% if education %}
-        {% block title %}
-            Expertise
-        {% endblock %}
             <section>
                 <h2>Expertise</h2>
                 {% for edu in education %}
@@ -134,9 +128,6 @@
         {% endif %}
         
         {% if frontend %}
-            {% block title %}
-            Projects
-            {% endblock %}
         <section id='portefolio-projects'>
             <h2>Projects</h2>
             {% for record in frontend %}
