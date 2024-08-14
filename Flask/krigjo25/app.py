@@ -5,7 +5,6 @@ from markupsafe import Markup
 
 #   Custom libs
 from lib.config.config import DevelopmentConfig
-from lib.db.sql import SQL
 app = Flask(__name__)
 
 # Configure session to use filesystem (instead of signed cookies)
@@ -25,5 +24,10 @@ def after_request(response):
 
 @app.route('/')
 def index():
+
     """ Show Portefolio from database"""
+
+    protefolio = 0
+
+    return render_template('index.html', protefolio = portefolio)
 
