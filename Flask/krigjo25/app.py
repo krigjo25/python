@@ -34,7 +34,11 @@ def index():
 
     """ Show Portefolio from database"""
 
-    pp= 0
+    image = db.selectRecord('photos')
+    education = db.selectRecord('edx')
+    
+    pe= db.selectRecord('proend')
+    pb = db.selectRecord('bapro')
 
     return render_template('index.html')
 
