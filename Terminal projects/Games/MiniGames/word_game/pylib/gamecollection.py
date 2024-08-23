@@ -124,7 +124,6 @@ class WordGames():
             sorted_score = np.append(sorted_score, i['points'])
             sorted_score = np.sort(sorted_score, kind = 'mergesort')         
 
-
         #   Binary Search?
         for i in score:
 
