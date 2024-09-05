@@ -1,200 +1,115 @@
-{% extends "base.html" %}
-    {% block title %}
-        Krigjo25
-    {% endblock %}
+{%extend 'base.html'%}
+    <main>
+            <article id='about-kristoffer'>
 
-    {% block main %}
-        <article id='about-kristoffer'>
-            <div>
-                {% if image %}
-                    {% for img in image %}
-                    <!-- Top 3 images of me-->
-                    <img src="{{ img['url']}}" alt="{{ img['alt']}}">
-                    <caption>{{ img['caption'] }}</caption>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <div class='profile-container'>
-                {%if url %}
-                    {% for url in smurl %}
-                        <span>
-                            <a href="{{ url['instagram']}}"><i class="bi bi-instagram"></i></a>
-                        </span>
-                        <span>
-                            <a href='#contact-me'><i class="bi bi-mailbox"></i></a>
-                        </span>
-                        <span>
-                            <a href="{{ url['linkedin']}}"><i class="bi bi-linkedin"></i></a>
-                        </span>
-                        <span>
-                            <a href="{{ url['github']}}"><i class="bi bi-github"></i></a>
-                        </span>
-                    {% endfor %}
-                {% endif%}
-            </div>
-            <h2 id='#about-kristoffer'>About Kristoffer</h2>
-            <div class='profile-item'>
-                <h3>Eventyret mitt så langt</h3>  
-                <p>
-                    
-                    Har hatt en interesse for koding siden tidlig i tenårene,
-                    meldte meg da meg inn i et samfunn dedikert til koding.
-                    Lærte mer om basic koding som HTML, CSS følte meg litt
-                    fram mot JavaScript, men var ikke klar for å ta i mot
-                    den kunnskapen på det nivået, senere i voksen alder
-                    begynte reisen med å programmere back-end, valgte å
-                    fordype meg i Python og databasehåndtering.
-                </p>
-                <h3> Nåtid </h3>
-                <p>
-                    I denne perioden er jeg Student på getAcademy,
-                    tilgjengelig for arbeid under utdanningen.
-                    Arbeid som jeg holder på med nå gjennom GetAcademy
-                    Satser stort på at det finnes bedrifter der ute,
-                    som er villig til å lære opp nye mennesker.
-                </p>
-
-                <h3>Fremtidig suksesshistorie</h3>
-                <p>
-                    
-                    Drømmearbeidsplassen til Kristoffer
-                    er en arbeidsplass der teamet forstår
-                    viktigheten av samarbeid og er flinke
-                    på å arbeide med framfor å arbeide imot. 
-                    Kristoffer drømmer om å bli data scientist
-                    og starte en familie.
-                </p>
-            </div>
-            <div class="profile-item">
-                <h3>Family Information</h3>
-                <p></p>
-            </div>
-            <div class="profile-item">
-                <h3>Personal details</h3>
-                <p></p>
-            </div>
-            <div class="profile-item">
-                <h3>Consious sides</h3>
-                <p></p>
-            </div>
-        </article>
-        {% if education %}
-            <section>
-                <h2>Expertise</h2>
-                {% for edu in education %}
-                <h3 onclick=''> {{ edu['name']}} <i class="bi bi-arrow-right-circle-fill"></i></h3>
-                <div>
-                    <div class='wrapper-container'>
-                        <div class='wrap-item'>
-                            <h4>{{ edu['subject']}}</h4>
-                            <a href='lib/pp/getAcademy/oppstart/index.html'>
-                                <h5>Emne 1: Start-up</h5>
-                            </a>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <a href=''> 
-                                <h5>Emne 2: IT-Development</h5>
-                            </a>
-                            <a href=''> 
-                                <h5>Emne 3: #C</h5>
-                            </a>
-                        </div>
-                        <div class='wrap-item'>
-                            <h4>{{ edu['subject2']}}</h4>
-                            <a href='pp/getAcademy/oppstart/index.html'>
-                                <h5>Emne 4: Oppstart</h5>
-                            </a>
-                            <a href=''> 
-                                <h5>Emne 5: IT-Utvikling</h5>
-                            </a>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <a href=''> 
-                                <h5>Emne 6: #C</h5>
-
-                            </a>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class='wrap-item'>
-                            <h4>{{ edu['subject3']}}</h4>
-                            <a href='pp/getAcademy/oppstart/index.html'>
-                                <h5>Subject 4: C# og Object Oriented Programming</h5>
-                            </a>
-                            <a href=''> 
-                                <h5>Subject 5: Fullstack project co operation with IT-professor</h5>
-                            </a>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <a href=''> 
-                                <h5>Subject 6: Learn something new</h5>
-
-                            </a>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
+                <div id="carosel-container" class="img-container">      
+                    <div id="carosel">
                     </div>
+                    <div class="image-caption">
+                    </div> 
+                    <div id="img-btn" class="img-btn">
+                        <button id ="next-btn" class="next-btn" onclick="next()">
+                            <i class="bi bi-arrow-left-square-fill"></i>
+                        </button>
+                        <button id ="prev-btn" class="prev-btn" onclick="prev()"><i class="bi bi-arrow-right-square-fill"></i>
+                        </button>
+                    </div>                 
                 </div>
-                <a href="{{ edu['link']}}" target='_blank'> {{ edu['name'] }}</a>
-
-                {% endfor %}
-            </section>
-        {% endif %}
-        
-        {% if frontend %}
-        <section id='portefolio-projects'>
-            <h2>Projects</h2>
-            {% for record in frontend %}
-            <h3 onclick=''>front-end <i class="bi bi-arrow-right-circle-fill"></i></h3>
-            <div class='pp'>
-                <a href="{{ record['gurl']}}" target='_blank'>
-                    <span>
-                        <i class="bi bi-github"></i>
-                    </span>
-                </a>
-                <a href="{{ record['url']}}">
-                    <span>
-                        <i class="bi bi-globe"></i>
-                    </span>    
-                </a>
-                <span class='demo'>{{ record['name']}}</span><br>
-            </div>
-            {% endfor %}  
-        {% endif %}
-    {% if backend %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h3 onclick=''>back-end <i class="bi bi-arrow-right-circle-fill"></i></h3>
-        
-            {% for record in backend%}
-                <div class='pp'>
-                    <div class="{{ record['ft']}}">
-                        <span>
-                            <i class="bi bi-filetype-py"></i>
+                <nav class='ext-bar'>
+                    <a href='#contact-me'>
+                        <span>                           
+                            <i class="bi bi-mailbox"></i>
                         </span>
-                    </div>
-                    <a href="{{ record['gurl']}}" target='_blank'>
-                        <span>
+                    </a>
+                    <a href=''>
+                        <span>                           
+                            <i class="bi bi-linkedin"></i>
+                        </span>
+                    </a>
+                    <a href=''>
+                        <span>                           
                             <i class="bi bi-github"></i>
                         </span>
                     </a>
-                    <a href="{{ record['yurl']}}">
-                        <span>
-                            <i class="bi bi-youtube"></i>
-                        </span>    
-                    </a>
-                    <span class='demo'>{{ record['name']}}</span><br>
+                </nav>
+                <div id="bio"></div>
+            </article>
+            <section id='expertise'>
+                <h2>Specialization</h2>
+                <div class="siztion">
+                    <div class="btn bi-getacademy">GetAcademy</div>
+                    <h3>Start IT</h3>
+                    <ul>
+                        <li>Grunnleggende Programmering</li>
+                        <ul>
+                            <a href='#'>
+                                <span>JavaScript</span>
+                            </a>
+                            <a href='#'>
+                                <span>Github</span>
+                            </a>
+                            <a href='#'>
+                                <span>Collebrations</span>
+                            </a>
+                        </ul>
+                        <li>IT Utvikling</li>
+                        <ul>
+                            <a href='#'>
+                                <span>Collebrations</span>
+                            </a>
+                            <a href='#'>
+                                <span>Agile</span>
+                            </a>
+                        </ul>
+                        <li>OOP With C#</li>
+                        <ul>
+                            <a href='#'>
+                                <span>OOP</span>
+                            </a>
+                            <a href='#'>
+                                <span>Collebrations</span>
+                            </a>
+                            <a href='#'>
+                                <span>Agile</span>
+                            </a>
+                            <a href='#'>
+                                <span>SQL</span>
+                            </a>
+                        </ul>
+                    </ul>
+                    <div class="btn bi-harvardx" onclick="specialization(this)">HarvardX</div>
                 </div>
-            {% endfor %}
-        </section>
-        {% endif %}
-    
-        {% endblock %}
-    
+            </section> 
+            <section id='full-stack'>
+                <h2>Full-Stack Solutions</h2>
+                <form>
+                    <label for="title">File type</label>
+                    <label for="filetype">Showcases</label>
+                    <select id="filetype">
+                        <option value="c">C</option>
+                        <option value="c#">C#</option>
+                        <option value="python">Python</option>
+                        <option value="js">JavaScript</option>    
+                    </select>
+
+                    <label for="title">accending or decending</label>
+                    
+                </form>
+                <i class="bi bi-arrow-right-circle-fill"></i>
+                <p>Showing Python | Flask Projects</p>
+                <div class="siztion">
+
+                    <nav class="pp">
+                        <a href="#">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <span>Project Name</span>
+                    </nav>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
