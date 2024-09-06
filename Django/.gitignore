@@ -1,6 +1,0 @@
-#   Do not upload these folders
-env
-__pycache__
-
-news_video
-.env
