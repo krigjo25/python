@@ -1,14 +1,14 @@
 #   Importing responsories
 import os
 from dotenv import load_dotenv
-from markupsafe import Markup
 from flask_session import Session
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask
 
 
 #   Custom libs
-from lib.config.config import DevelopmentConfig
-from lib.db.databases  import SQL
+from lib.config import DevelopmentConfig
+from lib.modal  import SQL
+from lib.views import Index
 
 
 load_dotenv()
@@ -19,7 +19,7 @@ app.config.from_object(DevelopmentConfig)
 Session(app)
 
 #   Database Connection
-db = SQL(os.getenv('db'))
+#db = SQL(os.getenv("db"))
 
 @app.after_request
 def after_request(response):
@@ -29,16 +29,4 @@ def after_request(response):
     response.headers['Paragma'] = 'no-cache'
     return response
 
-@app.route('/')
-def index():
-
-    """ Show Portefolio from database"""
-
-    image = db.selectRecord('photos')
-    education = db.selectRecord('edx')
-    
-    pe= db.selectRecord('proend')
-    pb = db.selectRecord('bapro')
-
-    return render_template('index.html')
-
+app.add_url_rule("/", view_func=Index.as_view(name="index.html"))
