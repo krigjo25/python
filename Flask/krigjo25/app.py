@@ -19,7 +19,7 @@ app.config.from_object(DevelopmentConfig)
 Session(app)
 
 #   Database Connection
-#db = SQL(os.getenv("db"))
+#   db = SQL(os.getenv("db"))
 
 @app.after_request
 def after_request(response):
