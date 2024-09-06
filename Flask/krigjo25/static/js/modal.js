@@ -12,8 +12,8 @@ const sources = [
 const app = [
     {
         app:document.getElementById("carosel"), 
-        path:"lib/img/carosel/", 
-        source:"lib/img/carosel/20240610_095646.jpg", 
+        path:"static/img/carosel/", 
+        source:"static/img/carosel/20240610_095646.jpg", 
         caption:"Working out in progress", 
         alt:"20240610_095646.jpg",}]
 

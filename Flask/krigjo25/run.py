@@ -1,15 +1,14 @@
 #   Importing responsories
 import os
 from dotenv import load_dotenv
-from markupsafe import Markup
 from flask_session import Session
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask
 
 
 #   Custom libs
-from lib.config.config import DevelopmentConfig
-from lib.db.databases  import SQL
-from lib.view.index import Index
+from app.config import DevelopmentConfig
+from app.modal  import SQL
+from app.views import Index
 
 
 load_dotenv()
@@ -31,4 +30,3 @@ def after_request(response):
     return response
 
 app.add_url_rule("/", view_func=Index.as_view(name="index.html"))
-

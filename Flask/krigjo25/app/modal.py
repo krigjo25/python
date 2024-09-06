@@ -31,4 +31,6 @@ class SQL():
         self.conn.close()
 
         return 
-        
+
+class Apis():
+    pass
