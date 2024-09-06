@@ -6,9 +6,9 @@ from flask import Flask
 
 
 #   Custom libs
-from app.config import DevelopmentConfig
-from app.modal  import SQL
-from app.views import Index
+from lib.config import DevelopmentConfig
+from lib.modal  import SQL
+from lib.views import Index
 
 
 load_dotenv()
